@@ -278,16 +278,45 @@
 }
 .price-row--stack .price-row__label { font-weight: 700; }
 
+// Chip « 3 séances d'essai offertes » — cliquable, déplie la déclaration d'essai
 .gift {
-  display: flex;
-  align-items: center;
-  gap: 9px;
   margin-top: 12px;
-  padding: 12px 14px;
   background: $free-bg;
-  border-radius: var(--tblr-border-radius);
   color: $free-fg;
-  font-weight: 700;
+  border-radius: var(--tblr-border-radius);
+  overflow: hidden;
+
+  &__summary {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 14px;
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+    &::-webkit-details-marker { display: none; }
+    span { flex: 1; }
+  }
+  &__chev { transition: transform .2s; }
+  &[open] .gift__chev { transform: rotate(180deg); }
+
+  &__body {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 0 14px 14px;
+    @include respond(sm) { flex-direction: column; align-items: flex-start; }
+  }
+  &__qr {
+    width: 110px;
+    height: 110px;
+    flex: none;
+    object-fit: contain;
+    background: #fff;
+    border-radius: var(--tblr-border-radius);
+    padding: 6px;
+  }
+  p { margin: 0 0 8px; font-size: var(--glpi-fs-sm); font-weight: 400; &:last-child { margin-bottom: 0; } }
 }
 
 // ---- Créneaux adultes (tableau par jour) ----
@@ -419,3 +448,44 @@
 }
 
 .chip-row { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+
+// ---- « En savoir plus » séances d'essai (dépliant CSS-only) ----
+.essai {
+  @include surface;
+  overflow: hidden;
+
+  &__summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--tblr-link-color);
+    list-style: none;
+    &::-webkit-details-marker { display: none; }
+    span { flex: 1; }
+  }
+  &__chev { color: var(--tblr-secondary); transition: transform .2s; }
+  &[open] .essai__chev { transform: rotate(180deg); }
+
+  &__body {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 0 18px 18px;
+    @include respond(sm) { flex-direction: column; align-items: flex-start; }
+  }
+  &__qr {
+    width: 120px;
+    height: 120px;
+    flex: none;
+    object-fit: contain;
+    border: 1px solid var(--tblr-border-color);
+    border-radius: var(--tblr-border-radius);
+    background: #fff;
+    padding: 6px;
+  }
+  p { margin: 0 0 8px; font-size: var(--glpi-fs-sm); &:last-child { margin-bottom: 0; } }
+  &__hint { color: var(--tblr-secondary); }
+}

@@ -48,7 +48,10 @@
       </div>
     </div>
     <div class="hero-media">
-      <img src="assets/img/bob-logo.svg" alt="" class="hero-media__logo">
+      <picture>
+        <source srcset="assets/img/hero.webp" type="image/webp">
+        <img src="assets/img/hero.jpg" alt="Ballons argentés « BOB » installés dans le gymnase du club" class="hero-media__photo">
+      </picture>
     </div>
   </div>
   <div class="hero-stats">
@@ -173,15 +176,7 @@
 </section>
 
 <section class="container section--tight">
-  <div class="grid-2">
-    <div class="qr-card">
-      <img src="assets/img/qr-essai.png" alt="QR code de la déclaration de pratique à l'essai" class="qr-card__img">
-      <div>
-        <span class="qr-card__kicker">Avant la 1re séance</span>
-        <div class="qr-card__title">Déclaration de pratique à l'essai</div>
-        <p class="qr-card__text">À remplir pour les trois séances d'essai. Scannez le QR code au gymnase ou demandez-le à un encadrant.</p>
-      </div>
-    </div>
+  <div class="grid-2 grid--start">
     <div class="qr-card qr-card--navy">
       <img src="assets/img/qr-inscription.png" alt="QR code d'inscription au club" class="qr-card__img">
       <div>
@@ -190,6 +185,16 @@
         <p class="qr-card__text">adherer.ffbad.club/bob14 — paiement par carte. Nous consulter pour les autres modalités de règlement.</p>
       </div>
     </div>
+    <details class="essai">
+      <summary class="essai__summary"><i class="ti ti-info-circle"></i><span>Séances d'essai — déclaration à remplir avant de venir</span><i class="ti ti-chevron-down essai__chev"></i></summary>
+      <div class="essai__body">
+        <img src="assets/img/qr-essai.png" alt="QR code de la déclaration de pratique à l'essai" class="essai__qr">
+        <div>
+          <p>Pour des raisons d'assurance, une <strong>déclaration de pratique à l'essai</strong> doit être remplie <strong>avant votre première séance</strong>. Elle couvre vos 3 séances d'essai — sauf si vous êtes déjà licencié·e dans un autre club.</p>
+          <p class="essai__hint">Scannez ce QR code (ou demandez-le à un encadrant sur place) et remplissez le formulaire avant de venir jouer.</p>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
 
