@@ -1,0 +1,248 @@
+/* ==================================================================
+ * BOB Badminton — feuille de styles du site
+ * Complète tokens.css. Contient : base, header/menu responsive,
+ * classes :hover (ex-attributs style-hover de la maquette),
+ * placeholder hero, footer, et règles responsive (mobile).
+ * ================================================================== */
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--tblr-body-bg);
+  color: var(--tblr-body-color);
+  font-family: var(--glpi-font-sans);
+  font-size: var(--glpi-fs-base);
+  line-height: var(--glpi-lh-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--tblr-link-color); text-decoration: none; }
+a:hover { color: #2f3f64; text-decoration: underline; }
+
+img { max-width: 100%; }
+
+/* Conteneur centré — remplace les max-width:1180px;margin:0 auto;padding:… 32px …
+   inline, et rend le padding horizontal responsive. Le padding vertical reste inline. */
+.container {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* ---------- Header / navigation ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #2f3f64;
+  border-bottom: 1px solid #f4f6fa1f;
+}
+.header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.brand { display: flex; align-items: center; gap: 11px; color: #f4f6fa; text-decoration: none; }
+.brand:hover { text-decoration: none; color: #f4f6fa; }
+.brand-logo { width: 46px; height: 46px; background: #f4f6fa; border-radius: 50%; padding: 2px; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-title { font-size: 15px; font-weight: 800; letter-spacing: -0.01em; }
+.brand-sub {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.13em;
+  text-transform: uppercase; color: #fec95c;
+}
+
+.nav-links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 8px 13px;
+  border-radius: var(--tblr-border-radius);
+  font-size: var(--glpi-fs-sm);
+  font-weight: 600;
+  color: #f4f6fa;
+  text-decoration: none;
+}
+.nav-link:hover { background: #f4f6fa14; color: #f4f6fa; text-decoration: none; }
+.nav-link.active { font-weight: 700; color: #fec95c; background: #f4f6fa14; }
+
+.nav-cta {
+  margin-left: 12px;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 10px 16px;
+  border-radius: var(--tblr-border-radius);
+  background: var(--tblr-primary);
+  color: var(--tblr-primary-fg);
+  font-size: var(--glpi-fs-sm);
+  font-weight: 700;
+  text-decoration: none;
+}
+.nav-cta:hover { filter: brightness(1.06); color: var(--tblr-primary-fg); text-decoration: none; }
+
+/* Menu mobile — bascule CSS-only via case à cocher masquée */
+.nav-toggle { display: none; }
+.nav-burger {
+  display: none;              /* visible seulement en mobile */
+  margin-left: auto;
+  cursor: pointer;
+  color: #f4f6fa;
+  font-size: 26px;
+  line-height: 1;
+  padding: 6px 8px;
+  border-radius: var(--tblr-border-radius);
+}
+.nav-burger:hover { background: #f4f6fa14; }
+
+/* ---------- Boutons / effets :hover (ex style-hover) ---------- */
+.hover-brighten:hover  { filter: brightness(1.06); }
+.hover-brighten2:hover { filter: brightness(1.08); }
+.hover-brighten3:hover { filter: brightness(1.15); }
+.hover-tint:hover      { background: #f4f6fa14; }
+.hover-soft:hover      { background: var(--glpi-hover-bg); }
+.hover-lift:hover      { box-shadow: var(--glpi-shadow-md); }
+.hover-card:hover      { box-shadow: var(--glpi-shadow-md); border-top-color: #fec95c; }
+/* Ces éléments sont des <a> stylés en boutons : pas de soulignement au survol */
+.hover-brighten:hover, .hover-brighten2:hover, .hover-brighten3:hover,
+.hover-tint:hover, .hover-soft:hover, .hover-lift:hover, .hover-card:hover {
+  text-decoration: none;
+}
+
+/* ---------- Placeholder hero (pas de photo pour l'instant) ---------- */
+.hero-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--tblr-border-radius-xl);
+  overflow: hidden;
+  border: 1px solid #f4f6fa26;
+  background:
+    radial-gradient(120% 120% at 80% 0%, #3a5693 0%, #2f3f64 55%, #26314f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-media::before {
+  content: "";
+  position: absolute; inset: 0;
+  opacity: 0.10;
+  background-image:
+    repeating-linear-gradient(to right, #f4f6fa 0 1px, transparent 1px 60px),
+    repeating-linear-gradient(to bottom, #f4f6fa 0 1px, transparent 1px 60px);
+}
+.hero-media-logo {
+  width: 46%;
+  max-width: 220px;
+  opacity: 0.9;
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,0.25));
+}
+.hero-media-label {
+  position: absolute;
+  bottom: 12px; left: 14px;
+  font-family: var(--glpi-font-mono);
+  font-size: var(--glpi-fs-xs);
+  color: #f4f6fa99;
+}
+
+/* ---------- Grilles (colonnes + responsive) ----------
+   On pilote les colonnes par classe pour pouvoir les adapter en mobile
+   (l'inline l'emporterait sinon sur les media queries). */
+.grid { display: grid; }
+.hero-grid   { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+.cols-2      { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cols-2-wide { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr); }
+.cols-3      { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cols-4      { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cols-6      { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.stats-row   { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.day-row     { display: grid; grid-template-columns: 150px minmax(0, 1fr); }
+
+/* Planning hebdo : défile horizontalement si l'écran est trop étroit */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.schedule-card { min-width: 680px; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: #2f3f64;
+  color: #f4f6fa;
+  font-family: var(--glpi-font-sans);
+  font-size: var(--glpi-fs-sm);
+  line-height: var(--glpi-lh-base);
+}
+.footer-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 32px 28px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+.site-footer a { color: inherit; }
+.site-footer a:hover { color: inherit; text-decoration: underline; }
+.footer-bottom { border-top: 1px solid #f4f6fa1f; }
+.footer-bottom-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: var(--glpi-fs-xs);
+  color: #f4f6fa80;
+}
+
+/* ==================================================================
+ * Responsive
+ * ================================================================== */
+
+/* Tablette / petit desktop */
+@media (max-width: 900px) {
+  .container { padding-left: 24px; padding-right: 24px; }
+
+  .hero-grid,
+  .cols-2, .cols-2-wide, .cols-3 { grid-template-columns: minmax(0, 1fr); }
+  .cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cols-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .container { padding-left: 20px; padding-right: 20px; }
+  .header-inner { padding-left: 20px; padding-right: 20px; }
+
+  /* Menu déroulant mobile */
+  .nav-burger { display: inline-flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px; left: 0; right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    margin: 0;
+    padding: 10px 16px 16px;
+    background: #2f3f64;
+    border-bottom: 1px solid #f4f6fa1f;
+    box-shadow: var(--glpi-shadow-lg);
+  }
+  .nav-toggle:checked ~ .nav-links { display: flex; }
+  .nav-link { padding: 12px 13px; }
+  .nav-cta { margin-left: 0; justify-content: center; padding: 13px 16px; }
+
+  .cols-4, .cols-6, .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .day-row { grid-template-columns: minmax(0, 1fr); }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+}
