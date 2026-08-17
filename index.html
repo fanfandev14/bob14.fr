@@ -23,7 +23,7 @@
       </span>
     </a>
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <label for="nav-toggle" class="nav-burger" aria-label="Ouvrir le menu"><i class="ti ti-menu-2"></i></label>
+    <label for="nav-toggle" class="nav-burger" aria-label="Ouvrir le menu"><i class="ti ti-menu-2"></i><span class="nav-burger__label">Menu</span></label>
     <nav class="nav">
       <a href="index.html" class="nav__link is-active">Accueil</a>
       <a href="jeunes.html" class="nav__link">Jeunes</a>
@@ -40,11 +40,11 @@
   <div class="container hero__grid">
     <div>
       <span class="hero__badge"><i class="ti ti-calendar-event"></i>Saison 2026 / 2027</span>
-      <h1 class="hero__title">Badminton à Bretteville-l'Orgueilleuse, Saint-Manvieu-Norrey et Rots</h1>
-      <p class="hero__lead">Le club accueille les jeunes à partir de 5 ans et les adultes de tous niveaux, sur trois gymnases. Créneaux encadrés le lundi, le jeudi et le vendredi, jeu libre le reste de la semaine. Trois séances d'essai avant de prendre la licence.</p>
+      <h1 class="hero__title">Le club de badminton de Bretteville-l'Orgueilleuse, Saint-Manvieu-Norrey et Rots</h1>
+      <p class="hero__lead">Jeunes dès 5 ans et adultes de tous niveaux, sur trois gymnases. Trois séances d'essai avant de prendre la licence. Choisissez votre profil ci-dessous.</p>
       <div class="hero__actions">
         <a href="https://adherer.ffbad.club/bob14" target="_blank" rel="noopener" class="btn btn--primary btn--lg"><i class="ti ti-user-plus"></i>Prendre sa licence</a>
-        <a href="#creneaux" class="btn btn--ghost btn--lg"><i class="ti ti-clock-hour-4"></i>Voir les créneaux</a>
+        <a href="#decouvrir" class="btn btn--ghost btn--lg"><i class="ti ti-arrow-down"></i>Découvrir le club</a>
       </div>
     </div>
     <div class="hero-media">
@@ -64,176 +64,40 @@
   </div>
 </section>
 
-<section class="container section">
-  <div class="grid-2">
+<section id="decouvrir" class="container section anchor">
+  <div class="section-head">
+    <span class="eyebrow">Par où commencer</span>
+    <h2 class="section-title">Choisissez votre espace</h2>
+  </div>
+  <div class="grid-3">
     <a href="jeunes.html" class="feature-card">
-      <div class="feature-card__head"><i class="ti ti-mood-kid"></i><span class="price">90 €</span></div>
+      <div class="feature-card__head"><i class="ti ti-mood-kid"></i><span class="price">dès 90 €</span></div>
       <div>
-        <h2>École de badminton</h2>
-        <p>Du Minibad au Junior. Trois créneaux encadrés par un entraîneur diplômé et un groupe Avenir pour la compétition.</p>
+        <h2>Jeunes</h2>
+        <p>École de badminton du Minibad au Junior : créneaux encadrés, catégories d'âge et tarifs.</p>
       </div>
-      <span class="arrow-link">Les créneaux jeunes<i class="ti ti-arrow-right"></i></span>
+      <span class="arrow-link">Voir la page Jeunes<i class="ti ti-arrow-right"></i></span>
     </a>
     <a href="adultes.html" class="feature-card">
-      <div class="feature-card__head"><i class="ti ti-users"></i><span class="price">105 – 120 €</span></div>
+      <div class="feature-card__head"><i class="ti ti-users"></i><span class="price">dès 105 €</span></div>
       <div>
-        <h2>Badminton adulte</h2>
-        <p>Jeu libre quatre soirs par semaine et le samedi matin. Entraînements encadrés le lundi et le jeudi, équipes engagées en interclubs.</p>
+        <h2>Adultes</h2>
+        <p>Jeu libre, entraînements encadrés et interclubs. Tous niveaux, du non-classé au R.</p>
       </div>
-      <span class="arrow-link">Les créneaux adultes<i class="ti ti-arrow-right"></i></span>
+      <span class="arrow-link">Voir la page Adultes<i class="ti ti-arrow-right"></i></span>
+    </a>
+    <a href="infos-pratiques.html" class="feature-card">
+      <div class="feature-card__head"><i class="ti ti-map-pin"></i><span class="price">3 gymnases</span></div>
+      <div>
+        <h2>Infos pratiques</h2>
+        <p>Où jouer, comment s'inscrire, les documents de la saison, les contacts et la FAQ.</p>
+      </div>
+      <span class="arrow-link">Voir les infos<i class="ti ti-arrow-right"></i></span>
     </a>
   </div>
-</section>
-
-<section id="creneaux" class="container section anchor">
-  <div class="head-row head-row--tight">
-    <div>
-      <span class="eyebrow">La semaine</span>
-      <h2 class="section-title">Créneaux 2026 / 2027</h2>
-    </div>
-    <div class="legend">
-      <span class="legend__item"><span class="swatch swatch--coached"></span>Créneau encadré</span>
-      <span class="legend__item"><span class="swatch swatch--free"></span>Jeu libre</span>
-    </div>
-  </div>
-
-  <div class="schedule-scroll">
-    <div class="schedule">
-      <div class="schedule__head">
-        <div class="schedule__head-label">Jour · gymnase</div>
-        <div class="schedule__hours">
-          <span class="col-1 span-2">17h</span><span class="col-3 span-2">18h</span><span class="col-5 span-2">19h</span><span class="col-7 span-2">20h</span><span class="col-9 span-2">21h</span><span class="col-11 span-2">22h</span>
-        </div>
-      </div>
-
-      <div class="schedule__row">
-        <div class="schedule__day"><span class="name">Lundi</span><span class="place">Victor Lorier · Bretteville</span></div>
-        <div class="schedule__track">
-          <div class="slot slot--coached col-2 span-3 row-1"><span class="slot__time">17h30–19h</span><span class="slot__label">Groupe Avenir</span></div>
-          <div class="slot slot--coached col-7 span-3 row-1"><span class="slot__time">20h–21h30</span><span class="slot__label">Adultes D9 et plus</span></div>
-          <div class="slot slot--coached col-4 span-3 row-2"><span class="slot__time">18h30–20h</span><span class="slot__label">Minime à Junior</span></div>
-          <div class="slot slot--free col-10 span-3 row-2"><span class="slot__time">21h30–23h</span><span class="slot__label">Jeu libre adulte</span></div>
-        </div>
-      </div>
-
-      <div class="schedule__row">
-        <div class="schedule__day"><span class="name">Mardi</span><span class="place">Trois Hameaux · St-Manvieu</span></div>
-        <div class="schedule__track">
-          <div class="slot slot--free col-6 span-7 row-1"><span class="slot__time">19h30–23h</span><span class="slot__label">Jeu libre adulte</span></div>
-        </div>
-      </div>
-
-      <div class="schedule__row">
-        <div class="schedule__day"><span class="name">Mercredi</span><span class="place">Victor Lorier · Bretteville</span></div>
-        <div class="schedule__track">
-          <div class="slot slot--free col-7 span-6 row-1"><span class="slot__time">20h–23h</span><span class="slot__label">Jeu libre adulte</span></div>
-        </div>
-      </div>
-
-      <div class="schedule__row">
-        <div class="schedule__day"><span class="name">Jeudi</span><span class="place">Trois Hameaux · St-Manvieu</span></div>
-        <div class="schedule__track">
-          <div class="slot slot--coached col-4 span-3 row-1"><span class="slot__time">18h30–20h</span><span class="slot__label">Minime et + · NC à D9</span></div>
-          <div class="slot slot--free slot--center col-7 span-1 row-1"><span class="slot__time">20h–20h30</span></div>
-        </div>
-      </div>
-
-      <div class="schedule__row">
-        <div class="schedule__day"><span class="name">Vendredi</span><span class="place">Benoît Costil · Rots</span></div>
-        <div class="schedule__track">
-          <div class="slot slot--coached col-1 span-3 row-1"><span class="slot__time">17h–18h30</span><span class="slot__label">Minibad et Poussin</span></div>
-          <div class="slot slot--coached col-4 span-3 row-1"><span class="slot__time">18h30–20h</span><span class="slot__label">Benjamin</span></div>
-        </div>
-      </div>
-
-      <div class="schedule__row schedule__row--last">
-        <div class="schedule__day"><span class="name">Samedi matin</span><span class="place">Benoît Costil · Rots</span></div>
-        <div class="schedule__free-full">
-          <span class="time">9h30–12h30</span>
-          <span class="label">Jeu libre tout public · jeunes accompagnés et adultes</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <p class="footnote">Les créneaux encadrés ont lieu le lundi, le jeudi et le vendredi. Les enfants restent sous la responsabilité de leurs parents en dehors des créneaux encadrés.</p>
 </section>
 
 <section class="container section">
-  <div class="section-head"><h2 class="section-title">Documents de la saison</h2></div>
-  <div class="grid-2">
-    <a class="dl-card" href="assets/docs/BOB-All-2026-2027.pdf" download>
-      <span class="dl-card__icon"><i class="ti ti-file-type-pdf"></i></span>
-      <span class="dl-card__text">
-        <span class="dl-card__title">Récapitulatif complet</span>
-        <span class="dl-card__meta">PDF · 440 Ko</span>
-      </span>
-      <span class="dl-card__btn"><i class="ti ti-download"></i>Télécharger</span>
-    </a>
-    <a class="dl-card" href="assets/docs/BOB-Calendrier-Creneaux-2026-2027.pdf" download>
-      <span class="dl-card__icon"><i class="ti ti-file-type-pdf"></i></span>
-      <span class="dl-card__text">
-        <span class="dl-card__title">Calendrier des créneaux</span>
-        <span class="dl-card__meta">PDF · 411 Ko</span>
-      </span>
-      <span class="dl-card__btn"><i class="ti ti-download"></i>Télécharger</span>
-    </a>
-  </div>
-</section>
-
-<section id="tarifs" class="container section anchor">
-  <div class="section-head">
-    <span class="eyebrow">Licences</span>
-    <h2 class="section-title">Tarifs 2026 / 2027</h2>
-  </div>
-  <div class="grid-4 grid--tight">
-    <div class="price-card"><div class="price-card__amount">90 €</div><div class="price-card__label">Jeune</div><div class="price-card__note">Minibad à Junior</div></div>
-    <div class="price-card"><div class="price-card__amount">105 €</div><div class="price-card__label">Adulte</div><div class="price-card__note">Sans créneaux encadrés</div></div>
-    <div class="price-card"><div class="price-card__amount">120 €</div><div class="price-card__label">Adulte</div><div class="price-card__note">Avec créneaux encadrés</div></div>
-    <div class="price-card"><div class="price-card__amount price-card__amount--sm">100 / 200 €</div><div class="price-card__label">Double licence</div><div class="price-card__note">Jeune / adulte</div></div>
-  </div>
-  <div class="info-banner info-banner--inline">
-    <i class="ti ti-info-circle"></i>
-    <span class="grow">Inscription en ligne sur <a href="https://adherer.ffbad.club/bob14" target="_blank" rel="noopener">adherer.ffbad.club/bob14</a>. Paiement par carte ; nous consulter pour les autres modalités de règlement. Détail des créneaux inclus sur les pages <a href="jeunes.html">Jeunes</a> et <a href="adultes.html">Adultes</a>.</span>
-  </div>
-</section>
-
-<section class="container section--tight">
-  <div class="grid-2 grid--start">
-    <div class="qr-card qr-card--navy">
-      <img src="assets/img/qr-inscription.png" alt="QR code d'inscription au club" class="qr-card__img">
-      <div>
-        <span class="qr-card__kicker">Prendre sa licence</span>
-        <div class="qr-card__title">Inscription en ligne</div>
-        <p class="qr-card__text">adherer.ffbad.club/bob14 — paiement par carte. Nous consulter pour les autres modalités de règlement.</p>
-      </div>
-    </div>
-    <details class="essai">
-      <summary class="essai__summary"><i class="ti ti-info-circle"></i><span>Séances d'essai — déclaration à remplir avant de venir</span><i class="ti ti-chevron-down essai__chev"></i></summary>
-      <div class="essai__body">
-        <img src="assets/img/qr-essai.png" alt="QR code de la déclaration de pratique à l'essai" class="essai__qr">
-        <div>
-          <p>Pour des raisons d'assurance, une <strong>déclaration de pratique à l'essai</strong> doit être remplie <strong>avant votre première séance</strong>. Elle couvre vos 3 séances d'essai — sauf si vous êtes déjà licencié·e dans un autre club.</p>
-          <p class="essai__hint">Scannez ce QR code (ou demandez-le à un encadrant sur place) et remplissez le formulaire avant de venir jouer.</p>
-        </div>
-      </div>
-    </details>
-  </div>
-</section>
-
-<section id="interclubs" class="container section anchor">
-  <div class="section-head">
-    <span class="eyebrow">Compétition</span>
-    <h2 class="section-title">Équipes en interclubs</h2>
-  </div>
-  <a href="https://icbad.ffbad.org/competition/2601038" target="_blank" rel="noopener" class="interclub-bar">
-    <span class="badge-r2">R2</span>
-    <span class="title">Régionale 2 · séniors</span>
-    <span class="desc">Composition, calendrier des rencontres et classement sur la plateforme interclubs de la FFBaD.</span>
-    <span class="arrow-link">Suivre la poule<i class="ti ti-external-link"></i></span>
-  </a>
-</section>
-
-<section id="actus" class="container section anchor">
   <div class="grid-wide">
     <div class="social-hero">
       <i class="ti ti-brand-facebook social-hero__icon"></i>

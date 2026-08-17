@@ -88,12 +88,16 @@
 .nav-burger {
   display: none;
   margin-left: auto;
+  align-items: center;
+  gap: 7px;
   cursor: pointer;
   color: $light;
-  font-size: 26px;
   line-height: 1;
-  padding: 6px 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba($light, .3);
   border-radius: var(--tblr-border-radius);
+  i { font-size: 22px; }
+  &__label { font-size: var(--glpi-fs-sm); font-weight: 700; }
   &:hover { background: rgba($light, .08); }
 }
 
