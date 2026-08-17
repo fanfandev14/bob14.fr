@@ -1,0 +1,106 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+// Conteneur centré + gouttières responsive
+.container {
+  max-width: $maxw;
+  margin-inline: auto;
+  padding-inline: $gutter;
+
+  @include respond(md) { padding-inline: 24px; }
+  @include respond(sm) { padding-inline: 20px; }
+}
+
+// Rythme vertical des sections
+.section        { padding-top: 64px; }
+.section--sub   { padding-top: 56px; } // pages intérieures
+.section--tight { padding-top: 24px; }
+.section--end   { padding-bottom: 72px; }
+
+// Bandeau héros pleine largeur (fond navy)
+.band {
+  background: $navy;
+  color: $light;
+}
+
+// ---- Helpers typographiques ----
+.eyebrow {
+  font-size: var(--glpi-fs-xs);
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--tblr-secondary);
+
+  &--amber { color: $amber; }
+  &--icon  { display: inline-flex; align-items: center; gap: 8px; }
+}
+
+.field-label {
+  display: block;
+  font-size: var(--glpi-fs-xs);
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--tblr-secondary);
+}
+
+.section-title {
+  font-size: var(--glpi-fs-2xl);
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+// Un titre précédé d'un « eyebrow » reçoit un léger décalage
+.eyebrow + .section-title { margin-top: 8px; }
+
+// En-tête de section (eyebrow + titre [+ sous-titre]) suivi d'un contenu
+.section-head {
+  margin-bottom: 20px;
+  p { margin: 6px 0 0; color: var(--tblr-secondary); }
+}
+
+// Cible d'ancre : compense le header sticky lors des sauts #id
+.anchor { scroll-margin-top: 88px; }
+
+.lead {
+  font-size: var(--glpi-fs-lg);
+  color: rgba($light, .8);
+  text-wrap: pretty;
+}
+
+.muted { color: var(--tblr-secondary); }
+.mono  { font-family: var(--glpi-font-mono); }
+
+// Empilement vertical avec espacement
+.stack-12 { display: flex; flex-direction: column; gap: 12px; }
+
+// Note de bas de section
+.footnote { margin: 14px 0 0; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
+
+// ---- Grilles réutilisables (colonnes + repli responsive) ----
+.grid-2 { @include grid(2); @include respond(md) { grid-template-columns: minmax(0, 1fr); } }
+.grid-3 { @include grid(3); @include respond(md) { grid-template-columns: minmax(0, 1fr); } }
+.grid-4 {
+  @include grid(4);
+  @include respond(md) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.grid-6 {
+  @include grid(6);
+  @include respond(md) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @include respond(sm) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.grid-wide {
+  display: grid;
+  gap: 20px;
+  align-items: stretch;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, .6fr);
+  @include respond(md) { grid-template-columns: minmax(0, 1fr); }
+}
+.grid--tight { gap: 12px; }
+.grid--start { align-items: start; }
+
+// ---- Utilitaires de placement en grille (pour le planning) ----
+@for $i from 1 through 12 { .col-#{$i}  { grid-column-start: $i; } }
+@for $i from 1 through 12 { .span-#{$i} { grid-column-end: span $i; } }
+.row-1 { grid-row: 1; }
+.row-2 { grid-row: 2; }

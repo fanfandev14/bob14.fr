@@ -1,0 +1,160 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+// ---- Héros de l'accueil ----
+.hero {
+  position: relative;
+  background: $navy;
+  color: $light;
+  overflow: hidden;
+
+  &__decor-grid {
+    position: absolute;
+    inset: 0;
+    opacity: .07;
+    background-image:
+      repeating-linear-gradient(to right,  $light 0 1px, transparent 1px 120px),
+      repeating-linear-gradient(to bottom, $light 0 1px, transparent 1px 120px);
+  }
+  &__decor-logo {
+    position: absolute;
+    right: -90px;
+    top: -70px;
+    width: 520px;
+    opacity: .07;
+    pointer-events: none;
+  }
+
+  &__grid {
+    position: relative;
+    padding-block: 76px 84px;
+    display: grid;
+    gap: 52px;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+    align-items: center;
+
+    @include respond(md) { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 1px solid rgba($amber, .4);
+    border-radius: var(--tblr-border-radius-pill);
+    font-size: var(--glpi-fs-xs);
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: $amber;
+  }
+
+  &__title {
+    margin-top: 20px;
+    font-size: 52px;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -.025em;
+    text-wrap: balance;
+
+    @include respond(sm) { font-size: 38px; }
+  }
+
+  &__lead {
+    margin-top: 20px;
+    font-size: var(--glpi-fs-lg);
+    line-height: 1.6;
+    color: rgba($light, .8);
+    max-width: 52ch;
+    text-wrap: pretty;
+  }
+
+  &__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+}
+
+// Emplacement visuel (dégradé + logo, en attendant une vraie photo)
+.hero-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--tblr-border-radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba($light, .15);
+  background: radial-gradient(120% 120% at 80% 0%, $navy-light 0%, $navy 55%, $navy-dark 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .10;
+    background-image:
+      repeating-linear-gradient(to right,  $light 0 1px, transparent 1px 60px),
+      repeating-linear-gradient(to bottom, $light 0 1px, transparent 1px 60px);
+  }
+  &__logo {
+    width: 46%;
+    max-width: 220px;
+    opacity: .9;
+    filter: drop-shadow(0 6px 20px rgba(0, 0, 0, .25));
+  }
+}
+
+// Bande de statistiques sous le héros
+.hero-stats {
+  position: relative;
+  border-top: 1px solid rgba($light, .12);
+
+  &__grid { @include grid(4); gap: 0; @include respond(sm) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+}
+
+.stat {
+  padding-block: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  &__num   { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-2xl); font-weight: 600; color: $amber; }
+  &__label { font-size: var(--glpi-fs-sm); color: rgba($light, .6); }
+}
+
+// ---- Héros des pages intérieures ----
+.page-hero {
+  background: $navy;
+  color: $light;
+
+  &__inner { padding-block: 56px 60px; }
+
+  &__title {
+    margin-top: 16px;
+    font-size: 44px;
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -.025em;
+    max-width: 24ch;
+
+    &--sm { font-size: 40px; line-height: 1.1; }
+    @include respond(sm) { font-size: 32px; }
+  }
+
+  &__lead {
+    margin-top: 18px;
+    font-size: var(--glpi-fs-lg);
+    color: rgba($light, .8);
+    max-width: 62ch;
+    text-wrap: pretty;
+  }
+}
+
+.hero-facts {
+  display: flex;
+  gap: 36px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.fact {
+  &__num   { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-2xl); font-weight: 600; color: $amber; }
+  &__label { font-size: var(--glpi-fs-sm); color: rgba($light, .6); }
+}

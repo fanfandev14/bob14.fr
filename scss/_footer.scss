@@ -1,0 +1,94 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.site-footer {
+  background: $navy;
+  color: $light;
+  font-family: var(--glpi-font-sans);
+  font-size: var(--glpi-fs-sm);
+  line-height: var(--glpi-lh-base);
+
+  a { color: inherit; &:hover { color: inherit; text-decoration: underline; } }
+}
+
+.footer-grid {
+  max-width: $maxw;
+  margin-inline: auto;
+  padding: 56px $gutter 28px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 40px;
+
+  @include respond(md) { grid-template-columns: 1fr 1fr; gap: 28px; padding-inline: 24px; }
+  @include respond(sm) { grid-template-columns: 1fr;     gap: 24px; padding-inline: 20px; }
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h3 {
+    margin-bottom: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: $amber;
+  }
+  // liens et lignes d'info sur une ligne avec icône
+  a, .footer-line { display: flex; gap: 9px; color: rgba($light, .6); }
+  .footer-line i, a i { color: rgba($light, .4); }
+  // lignes simples (ex. liste du bureau)
+  > span { color: rgba($light, .6); }
+}
+
+.footer-brand {
+  gap: 14px;
+
+  &__id { display: flex; align-items: center; gap: 12px; }
+  &__logo { width: 52px; height: 52px; background: $light; border-radius: 50%; padding: 3px; }
+  &__name { font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
+  &__tag  {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: $amber;
+  }
+  p { margin: 0; color: rgba($light, .6); max-width: 34ch; }
+  .socials { display: flex; gap: 8px; margin-top: 2px; }
+}
+
+// Boutons sociaux du footer (contour clair)
+.social-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid rgba($light, .2);
+  border-radius: var(--tblr-border-radius);
+  font-weight: 600;
+  color: $light;
+  text-decoration: none;
+  &:hover { background: rgba($light, .08); text-decoration: none; }
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba($light, .12);
+
+  &__inner {
+    max-width: $maxw;
+    margin-inline: auto;
+    padding: 16px $gutter;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: var(--glpi-fs-xs);
+    color: rgba($light, .5);
+
+    @include respond(md) { padding-inline: 24px; }
+    @include respond(sm) { padding-inline: 20px; }
+  }
+}

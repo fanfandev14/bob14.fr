@@ -1,0 +1,23 @@
+// Couleurs de marque non couvertes par tokens.css (valeurs codées dans la maquette).
+// tokens.css reste la source des tokens du design system (variables --tblr-*/--glpi-*) ;
+// on y accède via var(...). Ici, seulement les teintes propres au site.
+
+$navy:        #2f3f64;
+$navy-dark:   #26314f;
+$navy-light:  #3a5693;
+$amber:       #fec95c;
+$light:       #f4f6fa; // texte clair sur fond navy
+
+$free-bg:     #fff4dc; // jeu libre
+$free-bd:     #f2d79a;
+$free-fg:     #5b4a1f;
+
+$elynor-1:    #5503a6; // violet de marque Elynor
+$elynor-2:    #48038c;
+
+$maxw:        1180px;
+$gutter:      32px;
+
+// Points de rupture
+$bp-md:       900px;
+$bp-sm:       600px;

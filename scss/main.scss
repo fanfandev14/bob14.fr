@@ -1,0 +1,12 @@
+// BOB Badminton — feuille de styles principale (compilée vers assets/css/site.css)
+// Complète tokens.css (variables du design system GLPI/Tabler).
+// Build : `npm run build:css`  ·  Dév : `npm run watch:css`
+
+@use 'base';
+@use 'layout';
+@use 'header';
+@use 'hero';
+@use 'buttons';
+@use 'components';
+@use 'schedule';
+@use 'footer';

@@ -1,0 +1,23 @@
+@use 'tokens' as *;
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--tblr-body-bg);
+  color: var(--tblr-body-color);
+  font-family: var(--glpi-font-sans);
+  font-size: var(--glpi-fs-base);
+  line-height: var(--glpi-lh-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--tblr-link-color);
+  text-decoration: none;
+  &:hover { color: $navy; text-decoration: underline; }
+}
+
+img { max-width: 100%; }
+
+h1, h2, h3 { margin: 0; }

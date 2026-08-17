@@ -1,0 +1,25 @@
+@use 'tokens' as *;
+
+// Media queries (mobile-first descendant : max-width)
+@mixin respond($bp) {
+  @if $bp == md {
+    @media (max-width: $bp-md) { @content; }
+  } @else if $bp == sm {
+    @media (max-width: $bp-sm) { @content; }
+  }
+}
+
+// Grille de colonnes égales, robuste (minmax(0,1fr) évite les débordements)
+@mixin grid($cols, $gap: 20px) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat($cols, minmax(0, 1fr));
+}
+
+// Carte « surface » standard du design system
+@mixin surface {
+  background: var(--tblr-bg-surface);
+  border: 1px solid var(--tblr-border-color);
+  border-radius: var(--tblr-border-radius-lg);
+  box-shadow: var(--glpi-shadow-sm);
+}

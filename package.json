@@ -1,0 +1,13 @@
+{
+  "name": "bob14-site",
+  "version": "1.0.0",
+  "description": "Site du club de badminton BOB (Bretteville-l'Orgueilleuse)",
+  "private": true,
+  "scripts": {
+    "build:css": "sass scss/main.scss assets/css/site.css --style=compressed --no-source-map",
+    "watch:css": "sass --watch scss/main.scss:assets/css/site.css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.102.0"
+  }
+}

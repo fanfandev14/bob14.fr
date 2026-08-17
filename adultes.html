@@ -16,158 +16,166 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="brand">
-      <img src="assets/img/bob-logo.png" alt="Logo BOB" class="brand-logo">
-      <span class="brand-text">
-        <span class="brand-title">BOB Badminton</span>
-        <span class="brand-sub">Bretteville-l'Orgueilleuse</span>
+      <img src="assets/img/bob-logo.png" alt="Logo BOB" class="brand__logo">
+      <span class="brand__text">
+        <span class="brand__title">BOB Badminton</span>
+        <span class="brand__sub">Bretteville-l'Orgueilleuse</span>
       </span>
     </a>
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <label for="nav-toggle" class="nav-burger" aria-label="Ouvrir le menu"><i class="ti ti-menu-2"></i></label>
-    <nav class="nav-links">
-      <a href="index.html" class="nav-link">Accueil</a>
-      <a href="jeunes.html" class="nav-link">Jeunes</a>
-      <a href="adultes.html" class="nav-link active">Adultes</a>
-      <a href="infos-pratiques.html" class="nav-link">Infos pratiques</a>
-      <a href="https://adherer.ffbad.club/bob14" target="_blank" rel="noopener" class="nav-cta"><i class="ti ti-user-plus"></i>S'inscrire</a>
+    <nav class="nav">
+      <a href="index.html" class="nav__link">Accueil</a>
+      <a href="jeunes.html" class="nav__link">Jeunes</a>
+      <a href="adultes.html" class="nav__link is-active">Adultes</a>
+      <a href="infos-pratiques.html" class="nav__link">Infos pratiques</a>
+      <a href="https://adherer.ffbad.club/bob14" target="_blank" rel="noopener" class="nav__cta"><i class="ti ti-user-plus"></i>S'inscrire</a>
     </nav>
   </div>
 </header>
 
-<section style="background:#2f3f64;color:#f4f6fa">
-  <div class="container" style="padding-top:56px;padding-bottom:60px">
-    <span style="display:inline-flex;align-items:center;gap:8px;font-size:var(--glpi-fs-xs);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fec95c"><i class="ti ti-users"></i>Badminton adulte · saison 2026 / 2027</span>
-    <h1 style="margin:16px 0 0;font-size:44px;line-height:1.08;font-weight:800;letter-spacing:-0.025em;max-width:24ch">Créneaux, tarifs et interclubs adultes</h1>
-    <p style="margin:18px 0 0;font-size:var(--glpi-fs-lg);color:#f4f6facc;max-width:62ch;text-wrap:pretty">Deux créneaux d'entraînement encadré, quatre soirs de jeu libre et le samedi matin. Tous les niveaux, du non-classé au R. Équipes engagées en interclubs séniors et vétérans.</p>
-    <div style="display:flex;gap:36px;margin-top:32px;flex-wrap:wrap">
-      <div><div style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-2xl);font-weight:600;color:#fec95c">105 €</div><div style="font-size:var(--glpi-fs-sm);color:#f4f6fa99">Licence jeu libre</div></div>
-      <div><div style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-2xl);font-weight:600;color:#fec95c">120 €</div><div style="font-size:var(--glpi-fs-sm);color:#f4f6fa99">Avec entraînements</div></div>
-      <div><div style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-2xl);font-weight:600;color:#fec95c">5</div><div style="font-size:var(--glpi-fs-sm);color:#f4f6fa99">Jours de jeu</div></div>
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <span class="eyebrow eyebrow--amber eyebrow--icon"><i class="ti ti-users"></i>Badminton adulte · saison 2026 / 2027</span>
+    <h1 class="page-hero__title">Créneaux, tarifs et interclubs adultes</h1>
+    <p class="page-hero__lead">Deux créneaux d'entraînement encadré, quatre soirs de jeu libre et le samedi matin. Tous les niveaux, du non-classé au R. Équipes engagées en interclubs séniors et vétérans.</p>
+    <div class="hero-facts">
+      <div><div class="fact__num">105 €</div><div class="fact__label">Licence jeu libre</div></div>
+      <div><div class="fact__num">120 €</div><div class="fact__label">Avec entraînements</div></div>
+      <div><div class="fact__num">5</div><div class="fact__label">Jours de jeu</div></div>
     </div>
   </div>
 </section>
 
-<section class="container" style="padding-top:56px">
-  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:20px">
-    <h2 style="margin:0;font-size:var(--glpi-fs-2xl);font-weight:800;letter-spacing:-0.02em">Les créneaux adultes</h2>
-    <div style="display:flex;gap:16px;align-items:center;font-size:var(--glpi-fs-sm)">
-      <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:3px;background:#2f3f64"></span>Encadré</span>
-      <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:3px;background:#fff4dc;border:1px solid #f2d79a"></span>Jeu libre</span>
+<section class="container section--sub">
+  <div class="head-row">
+    <h2 class="section-title">Les créneaux adultes</h2>
+    <div class="legend">
+      <span class="legend__item"><span class="swatch swatch--coached"></span>Encadré</span>
+      <span class="legend__item"><span class="swatch swatch--free"></span>Jeu libre</span>
     </div>
   </div>
-  <div style="background:var(--tblr-bg-surface);border:1px solid var(--tblr-border-color);border-radius:var(--tblr-border-radius-lg);box-shadow:var(--glpi-shadow-sm);overflow:hidden">
-    <div class="day-row" style="border-bottom:1px solid var(--tblr-border-color)">
-      <div style="padding:18px 20px;background:var(--tblr-bg-surface-tertiary);border-right:1px solid var(--tblr-border-color)"><div style="font-size:var(--glpi-fs-md);font-weight:800">Lundi</div><div style="font-size:var(--glpi-fs-sm);color:var(--tblr-secondary)">Victor Lorier<br>Bretteville</div></div>
-      <div style="padding:12px 16px;display:flex;flex-direction:column;gap:8px">
-        <div style="display:flex;align-items:center;gap:14px;padding:11px 14px;background:#2f3f64;color:#f4f6fa;border-radius:var(--tblr-border-radius)"><span style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-sm);font-weight:600;color:#fec95c;min-width:96px">20h – 21h30</span><span style="font-weight:700">Adultes D9 et plus</span><span style="font-size:var(--glpi-fs-sm);color:#f4f6fa99">Entraînement encadré</span></div>
-        <div style="display:flex;align-items:center;gap:14px;padding:11px 14px;background:#fff4dc;border:1px solid #f2d79a;color:#5b4a1f;border-radius:var(--tblr-border-radius)"><span style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-sm);font-weight:600;min-width:96px">21h30 – 23h</span><span style="font-weight:700">Jeu libre</span></div>
-      </div>
-    </div>
-    <div class="day-row" style="border-bottom:1px solid var(--tblr-border-color)">
-      <div style="padding:18px 20px;background:var(--tblr-bg-surface-tertiary);border-right:1px solid var(--tblr-border-color)"><div style="font-size:var(--glpi-fs-md);font-weight:800">Mardi</div><div style="font-size:var(--glpi-fs-sm);color:var(--tblr-secondary)">Trois Hameaux<br>Saint-Manvieu</div></div>
-      <div style="padding:12px 16px"><div style="display:flex;align-items:center;gap:14px;padding:11px 14px;background:#fff4dc;border:1px solid #f2d79a;color:#5b4a1f;border-radius:var(--tblr-border-radius)"><span style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-sm);font-weight:600;min-width:96px">19h30 – 23h</span><span style="font-weight:700">Jeu libre</span></div></div>
-    </div>
-    <div class="day-row" style="border-bottom:1px solid var(--tblr-border-color)">
-      <div style="padding:18px 20px;background:var(--tblr-bg-surface-tertiary);border-right:1px solid var(--tblr-border-color)"><div style="font-size:var(--glpi-fs-md);font-weight:800">Mercredi</div><div style="font-size:var(--glpi-fs-sm);color:var(--tblr-secondary)">Victor Lorier<br>Bretteville</div></div>
-      <div style="padding:12px 16px"><div style="display:flex;align-items:center;gap:14px;padding:11px 14px;background:#fff4dc;border:1px solid #f2d79a;color:#5b4a1f;border-radius:var(--tblr-border-radius)"><span style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-sm);font-weight:600;min-width:96px">20h – 23h</span><span style="font-weight:700">Jeu libre</span></div></div>
-    </div>
-    <div class="day-row" style="border-bottom:1px solid var(--tblr-border-color)">
-      <div style="padding:18px 20px;background:var(--tblr-bg-surface-tertiary);border-right:1px solid var(--tblr-border-color)"><div style="font-size:var(--glpi-fs-md);font-weight:800">Jeudi</div><div style="font-size:var(--glpi-fs-sm);color:var(--tblr-secondary)">Trois Hameaux<br>Saint-Manvieu</div></div>
-      <div style="padding:12px 16px;display:flex;flex-direction:column;gap:8px">
-        <div style="display:flex;align-items:center;gap:14px;padding:11px 14px;background:#2f3f64;color:#f4f6fa;border-radius:var(--tblr-border-radius)"><span style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-sm);font-weight:600;color:#fec95c;min-width:96px">18h30 – 20h</span><span style="font-weight:700">NC à D9</span><span style="font-size:var(--glpi-fs-sm);color:#f4f6fa99">Entraînement encadré · avec les jeunes à partir de Minime</span></div>
-        <div style="display:flex;align-items:center;gap:14px;padding:11px 14px;background:#fff4dc;border:1px solid #f2d79a;color:#5b4a1f;border-radius:var(--tblr-border-radius)"><span style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-sm);font-weight:600;min-width:96px">20h – 20h30</span><span style="font-weight:700">Jeu libre</span></div>
+  <div class="sched-table">
+    <div class="day-row">
+      <div class="day-row__head"><div class="day">Lundi</div><div class="place">Victor Lorier<br>Bretteville</div></div>
+      <div class="day-row__slots">
+        <div class="slot-line slot-line--coached"><span class="time">20h – 21h30</span><span class="name">Adultes D9 et plus</span><span class="detail">Entraînement encadré</span></div>
+        <div class="slot-line slot-line--free"><span class="time">21h30 – 23h</span><span class="name">Jeu libre</span></div>
       </div>
     </div>
     <div class="day-row">
-      <div style="padding:18px 20px;background:var(--tblr-bg-surface-tertiary);border-right:1px solid var(--tblr-border-color)"><div style="font-size:var(--glpi-fs-md);font-weight:800">Samedi</div><div style="font-size:var(--glpi-fs-sm);color:var(--tblr-secondary)">Benoît Costil<br>Rots</div></div>
-      <div style="padding:12px 16px"><div style="display:flex;align-items:center;gap:14px;padding:11px 14px;background:#fff4dc;border:1px solid #f2d79a;color:#5b4a1f;border-radius:var(--tblr-border-radius)"><span style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-sm);font-weight:600;min-width:96px">9h30 – 12h30</span><span style="font-weight:700">Jeu libre tout public</span></div></div>
+      <div class="day-row__head"><div class="day">Mardi</div><div class="place">Trois Hameaux<br>Saint-Manvieu</div></div>
+      <div class="day-row__slots">
+        <div class="slot-line slot-line--free"><span class="time">19h30 – 23h</span><span class="name">Jeu libre</span></div>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="container" style="padding-top:56px">
-  <div class="cols-2" style="gap:20px;align-items:start">
-    <div style="padding:24px;background:var(--tblr-bg-surface);border:1px solid var(--tblr-border-color);border-radius:var(--tblr-border-radius-lg);box-shadow:var(--glpi-shadow-sm)">
-      <h2 style="margin:0 0 14px;font-size:var(--glpi-fs-xl);font-weight:800;letter-spacing:-0.015em">Tarifs adultes</h2>
-      <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--tblr-border-color)"><div><div style="font-weight:700">Licence sans créneaux encadrés</div><div style="font-size:var(--glpi-fs-sm);color:var(--tblr-secondary)">Jeu libre et compétitions</div></div><span style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-md);font-weight:600">105 €</span></div>
-      <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--tblr-border-color)"><div><div style="font-weight:700">Licence avec créneaux encadrés</div><div style="font-size:var(--glpi-fs-sm);color:var(--tblr-secondary)">Lundi 20h et jeudi 18h30</div></div><span style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-md);font-weight:600">120 €</span></div>
-      <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0"><div><div style="font-weight:700">Double licence adulte</div><div style="font-size:var(--glpi-fs-sm);color:var(--tblr-secondary)">Déjà licencié dans un autre club</div></div><span style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-md);font-weight:600">200 €</span></div>
-      <div style="display:flex;align-items:center;gap:9px;margin-top:12px;padding:12px 14px;background:#fff4dc;border-radius:var(--tblr-border-radius);color:#5b4a1f;font-weight:700"><i class="ti ti-gift"></i>3 séances d'essai offertes</div>
-      <a href="https://adherer.ffbad.club/bob14" target="_blank" rel="noopener" class="hover-brighten" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:13px 19px;border-radius:var(--tblr-border-radius);background:var(--tblr-primary);color:var(--tblr-primary-fg);font-weight:700;text-decoration:none"><i class="ti ti-user-plus"></i>Prendre ma licence</a>
+    <div class="day-row">
+      <div class="day-row__head"><div class="day">Mercredi</div><div class="place">Victor Lorier<br>Bretteville</div></div>
+      <div class="day-row__slots">
+        <div class="slot-line slot-line--free"><span class="time">20h – 23h</span><span class="name">Jeu libre</span></div>
+      </div>
     </div>
-    <div>
-      <h2 style="margin:0 0 14px;font-size:var(--glpi-fs-xl);font-weight:800;letter-spacing:-0.015em">Avec votre licence</h2>
-      <div style="display:flex;flex-direction:column;gap:1px;background:var(--tblr-border-color);border:1px solid var(--tblr-border-color);border-radius:var(--tblr-border-radius-lg);overflow:hidden">
-        <div style="display:flex;gap:12px;padding:15px 18px;background:var(--tblr-bg-surface)"><i class="ti ti-certificate" style="color:#2f3f64;font-size:20px"></i><span>Entraînement encadré par un entraîneur diplômé</span></div>
-        <div style="display:flex;gap:12px;padding:15px 18px;background:var(--tblr-bg-surface)"><i class="ti ti-users-group" style="color:#2f3f64;font-size:20px"></i><span>Équipes en interclubs et challenges, séniors et vétérans</span></div>
-        <div style="display:flex;gap:12px;padding:15px 18px;background:var(--tblr-bg-surface)"><i class="ti ti-ball-tennis" style="color:#2f3f64;font-size:20px"></i><span>Volants offerts pour les interclubs et challenges, à prix réduit le reste du temps · partenariat Elynor</span></div>
-        <div style="display:flex;gap:12px;padding:15px 18px;background:var(--tblr-bg-surface)"><i class="ti ti-trophy" style="color:#2f3f64;font-size:20px"></i><span>Compétitions individuelles et interclubs accessibles avec les deux licences</span></div>
-        <div style="display:flex;gap:12px;padding:15px 18px;background:var(--tblr-bg-surface)"><i class="ti ti-brand-whatsapp" style="color:#2f3f64;font-size:20px"></i><span>Accès au groupe WhatsApp des adhérents : convocations, recherche de partenaires, gymnase fermé, covoiturage</span></div>
+    <div class="day-row">
+      <div class="day-row__head"><div class="day">Jeudi</div><div class="place">Trois Hameaux<br>Saint-Manvieu</div></div>
+      <div class="day-row__slots">
+        <div class="slot-line slot-line--coached"><span class="time">18h30 – 20h</span><span class="name">NC à D9</span><span class="detail">Entraînement encadré · avec les jeunes à partir de Minime</span></div>
+        <div class="slot-line slot-line--free"><span class="time">20h – 20h30</span><span class="name">Jeu libre</span></div>
+      </div>
+    </div>
+    <div class="day-row">
+      <div class="day-row__head"><div class="day">Samedi</div><div class="place">Benoît Costil<br>Rots</div></div>
+      <div class="day-row__slots">
+        <div class="slot-line slot-line--free"><span class="time">9h30 – 12h30</span><span class="name">Jeu libre tout public</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="container" style="padding-top:56px;padding-bottom:72px">
-  <h2 style="margin:0 0 20px;font-size:var(--glpi-fs-2xl);font-weight:800;letter-spacing:-0.02em">Interclubs</h2>
-  <div class="cols-2" style="gap:20px;align-items:start">
-    <a href="https://icbad.ffbad.org/competition/2601038" target="_blank" rel="noopener" class="hover-brighten2" style="display:block;padding:26px;background:#2f3f64;color:#f4f6fa;border-radius:var(--tblr-border-radius-lg);text-decoration:none">
-      <div style="display:flex;align-items:center;gap:10px"><span style="font-family:var(--glpi-font-mono);font-size:var(--glpi-fs-md);font-weight:600;padding:3px 9px;border-radius:var(--tblr-border-radius-sm);background:var(--tblr-primary);color:var(--tblr-primary-fg)">R2</span><span style="font-weight:800;font-size:var(--glpi-fs-lg)">Régionale 2 · séniors</span></div>
-      <p style="margin:12px 0 0;color:#f4f6facc;max-width:46ch;text-wrap:pretty">Composition, calendrier des rencontres, feuilles de match et classement sur la plateforme interclubs de la FFBaD.</p>
-      <span style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:700;color:#fec95c">Suivre la poule<i class="ti ti-external-link"></i></span>
+<section class="container section--sub">
+  <div class="grid-2 grid--start">
+    <div class="price-panel">
+      <h2 class="card-title">Tarifs adultes</h2>
+      <div class="price-list">
+        <div class="price-row price-row--stack"><div class="price-row__label">Licence sans créneaux encadrés<span class="price-row__sub">Jeu libre et compétitions</span></div><span class="price-row__amount price-row__amount--md">105 €</span></div>
+        <div class="price-row price-row--stack"><div class="price-row__label">Licence avec créneaux encadrés<span class="price-row__sub">Lundi 20h et jeudi 18h30</span></div><span class="price-row__amount price-row__amount--md">120 €</span></div>
+        <div class="price-row price-row--stack"><div class="price-row__label">Double licence adulte<span class="price-row__sub">Déjà licencié dans un autre club</span></div><span class="price-row__amount price-row__amount--md">200 €</span></div>
+      </div>
+      <div class="gift"><i class="ti ti-gift"></i>3 séances d'essai offertes</div>
+      <a href="https://adherer.ffbad.club/bob14" target="_blank" rel="noopener" class="btn btn--primary"><i class="ti ti-user-plus"></i>Prendre ma licence</a>
+    </div>
+    <div>
+      <div class="section-head"><h2 class="section-title">Avec votre licence</h2></div>
+      <div class="feature-list">
+        <div class="feature"><i class="ti ti-certificate"></i><span>Entraînement encadré par un entraîneur diplômé</span></div>
+        <div class="feature"><i class="ti ti-users-group"></i><span>Équipes en interclubs et challenges, séniors et vétérans</span></div>
+        <div class="feature"><i class="ti ti-ball-tennis"></i><span>Volants offerts pour les interclubs et challenges, à prix réduit le reste du temps · partenariat Elynor</span></div>
+        <div class="feature"><i class="ti ti-trophy"></i><span>Compétitions individuelles et interclubs accessibles avec les deux licences</span></div>
+        <div class="feature"><i class="ti ti-brand-whatsapp"></i><span>Accès au groupe WhatsApp des adhérents : convocations, recherche de partenaires, gymnase fermé, covoiturage</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container section--sub section--end">
+  <div class="section-head"><h2 class="section-title">Interclubs</h2></div>
+  <div class="grid-2 grid--start">
+    <a href="https://icbad.ffbad.org/competition/2601038" target="_blank" rel="noopener" class="interclub">
+      <div class="interclub__head"><span class="badge-r2 badge-r2--amber">R2</span><span class="title">Régionale 2 · séniors</span></div>
+      <p>Composition, calendrier des rencontres, feuilles de match et classement sur la plateforme interclubs de la FFBaD.</p>
+      <span class="arrow">Suivre la poule<i class="ti ti-external-link"></i></span>
     </a>
-    <div style="padding:26px;background:var(--tblr-bg-surface);border:1px dashed var(--tblr-border-color);border-radius:var(--tblr-border-radius-lg);color:var(--tblr-secondary)">
-      <div style="display:flex;align-items:center;gap:10px;color:var(--tblr-body-color)"><i class="ti ti-plus" style="font-size:20px"></i><span style="font-weight:800;font-size:var(--glpi-fs-lg)">Prochaines équipes</span></div>
-      <p style="margin:12px 0 0;max-width:46ch;text-wrap:pretty">Équipes en cours de réinscription...</p>
-      <p style="margin:14px 0 0;font-size:var(--glpi-fs-sm)">Pour rejoindre une équipe, contacter le bureau ou en parler sur un créneau.</p>
+    <div class="interclub interclub--empty">
+      <div class="interclub__head"><i class="ti ti-plus"></i><span class="title">Prochaines équipes</span></div>
+      <p>Équipes en cours de réinscription...</p>
+      <p class="small">Pour rejoindre une équipe, contacter le bureau ou en parler sur un créneau.</p>
     </div>
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="footer-grid">
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <div style="display:flex;align-items:center;gap:12px">
-        <img src="assets/img/bob-logo.png" alt="Logo BOB" style="width:52px;height:52px;background:#f4f6fa;border-radius:50%;padding:3px">
-        <div style="display:flex;flex-direction:column">
-          <span style="font-size:16px;font-weight:800;letter-spacing:-0.01em">Bretteville-l'Orgueilleuse Badminton</span>
-          <span style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#fec95c">BOB 14 · depuis 2003</span>
+    <div class="footer-col footer-brand">
+      <div class="footer-brand__id">
+        <img src="assets/img/bob-logo.png" alt="Logo BOB" class="footer-brand__logo">
+        <div>
+          <div class="footer-brand__name">Bretteville-l'Orgueilleuse Badminton</div>
+          <div class="footer-brand__tag">BOB 14 · depuis 2003</div>
         </div>
       </div>
-      <p style="margin:0;color:#f4f6fa99;max-width:34ch">Club affilié à la FFBaD. Jeunes à partir de 5 ans, adultes tous niveaux, trois gymnases, jeu libre six jours par semaine.</p>
-      <div style="display:flex;gap:8px;margin-top:2px">
-        <a href="https://www.facebook.com/BOB.Bretteville/" target="_blank" rel="noopener" class="hover-tint" style="display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border:1px solid #f4f6fa33;border-radius:var(--tblr-border-radius);font-weight:600"><i class="ti ti-brand-facebook"></i>Facebook</a>
-        <a href="https://myffbad.fr/club/1954" target="_blank" rel="noopener" class="hover-tint" style="display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border:1px solid #f4f6fa33;border-radius:var(--tblr-border-radius);font-weight:600"><i class="ti ti-shield"></i>myFFBaD</a>
+      <p>Club affilié à la FFBaD. Jeunes à partir de 5 ans, adultes tous niveaux, trois gymnases, jeu libre six jours par semaine.</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/BOB.Bretteville/" target="_blank" rel="noopener" class="social-chip"><i class="ti ti-brand-facebook"></i>Facebook</a>
+        <a href="https://myffbad.fr/club/1954" target="_blank" rel="noopener" class="social-chip"><i class="ti ti-shield"></i>myFFBaD</a>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <h3 style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fec95c">Contact</h3>
-      <div style="display:flex;gap:9px;color:#f4f6fa99"><i class="ti ti-map-pin" style="color:#f4f6fa66"></i><span>10 place des Canadiens<br>14740 Thue et Mue</span></div>
-      <a href="tel:+33679681205" style="display:flex;gap:9px"><i class="ti ti-phone" style="color:#f4f6fa66"></i><span>+33 6 79 68 12 05</span></a>
-      <a href="mailto:contactbob14740@gmail.com" style="display:flex;gap:9px"><i class="ti ti-mail" style="color:#f4f6fa66"></i><span>contactbob14740@gmail.com</span></a>
-      <div style="display:flex;gap:9px;color:#f4f6fa99"><i class="ti ti-brand-whatsapp" style="color:#f4f6fa66"></i><span>Groupe WhatsApp des adhérents<br>lien communiqué à l'inscription</span></div>
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <div class="footer-line"><i class="ti ti-map-pin"></i><span>10 place des Canadiens<br>14740 Thue et Mue</span></div>
+      <a href="tel:+33679681205"><i class="ti ti-phone"></i><span>+33 6 79 68 12 05</span></a>
+      <a href="mailto:contactbob14740@gmail.com"><i class="ti ti-mail"></i><span>contactbob14740@gmail.com</span></a>
+      <div class="footer-line"><i class="ti ti-brand-whatsapp"></i><span>Groupe WhatsApp des adhérents<br>lien communiqué à l'inscription</span></div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:8px">
-      <h3 style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fec95c">Le bureau</h3>
-      <span style="color:#f4f6fa99">Président · Guillaume Martig</span>
-      <span style="color:#f4f6fa99">Vice-président · Laurenn Leblatier</span>
-      <span style="color:#f4f6fa99">Secrétaire · François Legastelois</span>
-      <span style="color:#f4f6fa99">Trésorier · Mickael Nicolas</span>
-      <span style="color:#f4f6fa99">Trésorier adjoint · Benoit Simon</span>
+    <div class="footer-col">
+      <h3>Le bureau</h3>
+      <span>Président · Guillaume Martig</span>
+      <span>Vice-président · Laurenn Leblatier</span>
+      <span>Secrétaire · François Legastelois</span>
+      <span>Trésorier · Mickael Nicolas</span>
+      <span>Trésorier adjoint · Benoit Simon</span>
     </div>
-    <div style="display:flex;flex-direction:column;gap:8px">
-      <h3 style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fec95c">Liens utiles</h3>
-      <a href="https://adherer.ffbad.club/bob14" target="_blank" rel="noopener" style="color:#f4f6fa99">S'inscrire au club</a>
-      <a href="https://icbad.ffbad.org/competition/2601038" target="_blank" rel="noopener" style="color:#f4f6fa99">Interclubs R2</a>
-      <a href="https://www.ffbad.org" target="_blank" rel="noopener" style="color:#f4f6fa99">Fédération Française de Badminton</a>
-      <a href="https://normandie-badminton.fr/" target="_blank" rel="noopener" style="color:#f4f6fa99">Ligue de Normandie</a>
-      <a href="https://badminton-calvados.fr/" target="_blank" rel="noopener" style="color:#f4f6fa99">Comité départemental 14</a>
+    <div class="footer-col">
+      <h3>Liens utiles</h3>
+      <a href="https://adherer.ffbad.club/bob14" target="_blank" rel="noopener">S'inscrire au club</a>
+      <a href="https://icbad.ffbad.org/competition/2601038" target="_blank" rel="noopener">Interclubs R2</a>
+      <a href="https://www.ffbad.org" target="_blank" rel="noopener">Fédération Française de Badminton</a>
+      <a href="https://normandie-badminton.fr/" target="_blank" rel="noopener">Ligue de Normandie</a>
+      <a href="https://badminton-calvados.fr/" target="_blank" rel="noopener">Comité départemental 14</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-bottom-inner">
+    <div class="footer-bottom__inner">
       <span>© 2026 Bretteville-l'Orgueilleuse Badminton · Association loi 1901</span>
-      <span style="font-family:var(--glpi-font-mono)">Saison 2026 / 2027</span>
+      <span class="mono">Saison 2026 / 2027</span>
     </div>
   </div>
 </footer>

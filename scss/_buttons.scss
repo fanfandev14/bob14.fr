@@ -1,0 +1,50 @@
+@use 'tokens' as *;
+
+// Bouton de base
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 19px;
+  border-radius: var(--tblr-border-radius);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover { text-decoration: none; }
+
+  &--lg { padding: 14px 22px; font-size: var(--glpi-fs-md); }
+  &--sm { padding: 11px 17px; }
+
+  // Variantes de couleur
+  &--primary {
+    background: var(--tblr-primary);
+    color: var(--tblr-primary-fg);
+    &:hover { filter: brightness(1.06); color: var(--tblr-primary-fg); }
+  }
+  &--ghost { // contour clair, sur fond navy
+    border: 1px solid rgba($light, .3);
+    color: $light;
+    font-weight: 600;
+    &:hover { background: rgba($light, .08); color: $light; }
+  }
+  &--outline { // contour, sur fond clair
+    border: 1px solid var(--tblr-border-color);
+    color: var(--tblr-body-color);
+    font-weight: 600;
+    &:hover { background: var(--glpi-hover-bg); color: var(--tblr-body-color); }
+  }
+  &--navy {
+    background: $navy;
+    color: $light;
+    &:hover { filter: brightness(1.15); color: $light; }
+  }
+}
+
+// Lien « … → » avec flèche
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--tblr-link-color);
+}

@@ -1,0 +1,421 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+// Titre de carte
+.card-title {
+  font-size: var(--glpi-fs-xl);
+  font-weight: 800;
+  letter-spacing: -.015em;
+}
+
+// En-tête de section avec légende à droite
+.head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  &--tight { margin-bottom: 8px; }
+}
+
+// Légende encadré / jeu libre
+.legend { display: flex; gap: 16px; align-items: center; font-size: var(--glpi-fs-sm); }
+.legend__item { display: inline-flex; align-items: center; gap: 8px; }
+.swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  &--coached { background: $navy; }
+  &--free    { background: $free-bg; border: 1px solid $free-bd; }
+}
+
+// ---- Cartes catégories de l'accueil (Jeunes / Adultes) ----
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px;
+  @include surface;
+  border-top: 3px solid $navy;
+  color: inherit;
+  text-decoration: none;
+  &:hover { box-shadow: var(--glpi-shadow-md); border-top-color: $amber; text-decoration: none; color: inherit; }
+
+  &__head { display: flex; align-items: center; justify-content: space-between; }
+  &__head i     { font-size: 26px; color: $navy; }
+  &__head .price { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-md); font-weight: 600; color: $navy; }
+
+  h2 { font-size: var(--glpi-fs-xl); font-weight: 700; letter-spacing: -.015em; margin-bottom: 6px; }
+  p  { margin: 0; color: var(--tblr-secondary); max-width: 44ch; text-wrap: pretty; }
+}
+
+// ---- Bandeau info bleu ----
+.info-banner {
+  padding: 16px 20px;
+  background: var(--glpi-form-header-bg);
+  border: 1px solid var(--glpi-form-header-border-color);
+  border-radius: var(--tblr-border-radius-lg);
+  font-size: var(--glpi-fs-sm);
+  color: var(--glpi-form-header-fg);
+  a { color: inherit; text-decoration: underline; }
+
+  &--inline { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 12px;
+    .grow { flex: 1; min-width: 280px; } }
+  &__row { display: flex; gap: 9px; i { margin-top: 2px; } }
+}
+
+// ---- Bandeau jeu libre (jaune) ----
+.note {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: $free-bg;
+  border: 1px solid $free-bd;
+  border-radius: var(--tblr-border-radius-lg);
+  color: $free-fg;
+  i { font-size: 20px; }
+}
+
+// ---- Cartes tarifs (accueil) ----
+.price-card {
+  padding: 20px;
+  background: var(--tblr-bg-surface);
+  border: 1px solid var(--tblr-border-color);
+  border-radius: var(--tblr-border-radius-lg);
+
+  &__amount { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-2xl); font-weight: 600;
+    &--sm { font-size: var(--glpi-fs-xl); white-space: nowrap; line-height: 1.91; } }
+  &__label { font-weight: 700; margin-top: 4px; }
+  &__note  { font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
+}
+
+// ---- Cartes QR ----
+.qr-card {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 22px;
+  @include surface;
+
+  &__img {
+    width: 124px; height: 124px; flex: none;
+    object-fit: contain;
+    border: 1px solid var(--tblr-border-color);
+    border-radius: var(--tblr-border-radius);
+    background: #fff;
+    padding: 6px;
+  }
+  &__kicker { display: block; font-size: var(--glpi-fs-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--tblr-secondary); }
+  &__title  { font-size: var(--glpi-fs-lg); font-weight: 800; letter-spacing: -.01em; margin-top: 4px; }
+  &__text   { margin: 8px 0 0; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); text-wrap: pretty; }
+
+  &--navy {
+    background: $navy; color: $light; border: 0; box-shadow: none;
+    .qr-card__img    { border: 0; }
+    .qr-card__kicker { color: $amber; }
+    .qr-card__text   { color: rgba($light, .8); }
+  }
+}
+
+// ---- Interclubs (accueil : barre horizontale) ----
+.interclub-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 24px 26px;
+  @include surface;
+  border-left: 3px solid $amber;
+  color: inherit;
+  text-decoration: none;
+  &:hover { box-shadow: var(--glpi-shadow-md); text-decoration: none; color: inherit; }
+
+  .title { font-weight: 800; font-size: var(--glpi-fs-lg); }
+  .desc  { flex: 1; min-width: 260px; color: var(--tblr-secondary); }
+}
+
+.badge-r2 {
+  font-family: var(--glpi-font-mono);
+  font-size: var(--glpi-fs-md);
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: var(--tblr-border-radius-sm);
+  background: var(--glpi-badge-bg);
+  color: var(--glpi-badge-fg);
+  &--amber { background: var(--tblr-primary); color: var(--tblr-primary-fg); }
+}
+
+// ---- Bloc réseaux (accueil) ----
+.social-hero {
+  display: flex;
+  gap: 24px;
+  padding: 28px;
+  background: $navy;
+  color: $light;
+  border-radius: var(--tblr-border-radius-lg);
+  align-items: center;
+
+  &__icon { font-size: 44px; color: $amber; }
+  h2 { font-size: var(--glpi-fs-xl); font-weight: 800; letter-spacing: -.015em; margin-bottom: 6px; }
+  p  { margin: 0 0 16px; color: rgba($light, .8); max-width: 56ch; text-wrap: pretty; }
+  &__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+}
+
+// ---- Carte partenaire Elynor ----
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  background: linear-gradient(135deg, $elynor-1 0%, $elynor-2 100%);
+  color: $light;
+  border-radius: var(--tblr-border-radius-lg);
+  box-shadow: var(--glpi-shadow-sm);
+  text-decoration: none;
+  &:hover { filter: brightness(1.08); text-decoration: none; color: $light; }
+
+  &__eyebrow { font-size: var(--glpi-fs-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba($light, .8); }
+  img { width: 172px; max-width: 80%; height: auto; }
+  p   { margin: 0; font-size: var(--glpi-fs-sm); color: rgba($light, .8); text-wrap: pretty; }
+}
+
+// ---- Bandeau d'appel « Nous rejoindre » ----
+.cta-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 34px 36px;
+  @include surface;
+  border-top: 3px solid $amber;
+  box-shadow: var(--glpi-shadow-md);
+
+  p { margin: 0; color: var(--tblr-secondary); max-width: 56ch; text-wrap: pretty; }
+  .section-title { margin-bottom: 6px; }
+  &__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+}
+
+// ---- Cartes créneaux jeunes ----
+.slot-card {
+  @include surface;
+  overflow: hidden;
+
+  &__head {
+    padding: 14px 20px;
+    background: $navy;
+    color: $light;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    .day { font-size: var(--glpi-fs-md); font-weight: 800; }
+    .tag-coached { font-size: var(--glpi-fs-xs); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: $amber; }
+  }
+  &__place { padding: 12px 20px; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); border-bottom: 1px solid var(--tblr-border-color); }
+  &__slot  {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--tblr-border-color);
+    &:last-child { border-bottom: 0; }
+    .time   { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
+    .name   { font-weight: 700; margin-top: 2px; }
+    .detail { font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
+  }
+}
+
+// ---- Catégories d'âge ----
+.cat {
+  padding: 18px;
+  background: var(--tblr-bg-surface);
+  border: 1px solid var(--tblr-border-color);
+  border-top: 3px solid $amber;
+  border-radius: var(--tblr-border-radius-lg);
+  &__name  { font-weight: 800; }
+  &__years { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); margin-top: 4px; }
+}
+
+// ---- Liste d'avantages ----
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--tblr-border-color);
+  border: 1px solid var(--tblr-border-color);
+  border-radius: var(--tblr-border-radius-lg);
+  overflow: hidden;
+}
+.feature {
+  display: flex;
+  gap: 12px;
+  padding: 16px 18px;
+  background: var(--tblr-bg-surface);
+  i { color: $navy; font-size: 20px; }
+}
+
+// ---- Panneau tarifs (jeunes / adultes) ----
+.price-panel {
+  padding: 24px;
+  @include surface;
+  .card-title { margin-bottom: 14px; }
+  .btn { margin-top: 16px; }
+}
+.price-list .price-row:last-child { border-bottom: 0; }
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--tblr-border-color);
+
+  &__label { font-weight: 600; }
+  &__sub   { display: block; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); font-weight: 400; }
+  &__amount     { font-family: var(--glpi-font-mono); font-weight: 600; }
+  &__amount--md { font-size: var(--glpi-fs-md); }
+}
+.price-row--stack .price-row__label { font-weight: 700; }
+
+.gift {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: $free-bg;
+  border-radius: var(--tblr-border-radius);
+  color: $free-fg;
+  font-weight: 700;
+}
+
+// ---- Créneaux adultes (tableau par jour) ----
+.sched-table { @include surface; overflow: hidden; }
+.day-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  border-bottom: 1px solid var(--tblr-border-color);
+  &:last-child { border-bottom: 0; }
+  @include respond(sm) { grid-template-columns: minmax(0, 1fr); }
+
+  &__head {
+    padding: 18px 20px;
+    background: var(--tblr-bg-surface-tertiary);
+    border-right: 1px solid var(--tblr-border-color);
+    @include respond(sm) { border-right: 0; border-bottom: 1px solid var(--tblr-border-color); }
+    .day   { font-size: var(--glpi-fs-md); font-weight: 800; }
+    .place { font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
+  }
+  &__slots { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+}
+.slot-line {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-radius: var(--tblr-border-radius);
+  .time   { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-sm); font-weight: 600; min-width: 96px; }
+  .name   { font-weight: 700; }
+  &--coached { background: $navy; color: $light; .time { color: $amber; } .detail { font-size: var(--glpi-fs-sm); color: rgba($light, .6); } }
+  &--free    { background: $free-bg; border: 1px solid $free-bd; color: $free-fg; }
+}
+
+// ---- Interclubs (adultes : deux cartes) ----
+.interclub {
+  display: block;
+  padding: 26px;
+  background: $navy;
+  color: $light;
+  border-radius: var(--tblr-border-radius-lg);
+  text-decoration: none;
+  &:hover { filter: brightness(1.08); text-decoration: none; color: $light; }
+
+  &__head { display: flex; align-items: center; gap: 10px; .title { font-weight: 800; font-size: var(--glpi-fs-lg); } }
+  p { margin: 12px 0 0; color: rgba($light, .8); max-width: 46ch; text-wrap: pretty; }
+  .arrow { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-weight: 700; color: $amber; }
+
+  &--empty {
+    background: var(--tblr-bg-surface);
+    border: 1px dashed var(--tblr-border-color);
+    color: var(--tblr-secondary);
+    .interclub__head { color: var(--tblr-body-color); i { font-size: 20px; } }
+    p { color: inherit; }
+    .small { font-size: var(--glpi-fs-sm); }
+  }
+}
+
+// ---- Gymnases (infos pratiques) ----
+.gym-card {
+  display: flex;
+  flex-direction: column;
+  @include surface;
+  overflow: hidden;
+
+  &__media { height: 172px; position: relative; img { width: 100%; height: 100%; object-fit: cover; display: block; } }
+  &__body  { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  h3       { font-size: var(--glpi-fs-lg); font-weight: 800; letter-spacing: -.01em; }
+  &__addr  { font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag  { font-size: var(--glpi-fs-xs); font-weight: 700; padding: 4px 9px; border-radius: var(--tblr-border-radius-pill); background: var(--glpi-badge-bg); color: var(--glpi-badge-fg); }
+.map-link { margin-top: auto; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; }
+
+// ---- Étapes d'inscription ----
+.step-card {
+  padding: 22px;
+  @include surface;
+  &__num   { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-2xl); font-weight: 600; color: $amber; }
+  &__title { font-weight: 800; margin-top: 6px; }
+  p { margin: 6px 0 0; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); text-wrap: pretty; a { text-decoration: underline; } }
+}
+
+// ---- FAQ ----
+.faq-card {
+  padding: 22px;
+  background: var(--tblr-bg-surface);
+  border: 1px solid var(--tblr-border-color);
+  border-left: 3px solid $amber;
+  border-radius: var(--tblr-border-radius-lg);
+  &__q { font-weight: 800; }
+  p { margin: 8px 0 0; color: var(--tblr-secondary); text-wrap: pretty; }
+}
+
+// ---- Panneau générique (contact / bureau) ----
+.panel {
+  padding: 26px;
+  @include surface;
+  .card-title { margin-bottom: 16px; }
+}
+
+.contact-list { display: flex; flex-direction: column; gap: 12px; }
+.contact-item {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  color: var(--tblr-body-color);
+  text-decoration: none;
+  > i { color: $navy; font-size: 20px; }
+}
+
+.roster {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--tblr-border-color);
+  border: 1px solid var(--tblr-border-color);
+  border-radius: var(--tblr-border-radius);
+  overflow: hidden;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 13px 16px;
+    background: var(--tblr-bg-surface);
+    .role { color: var(--tblr-secondary); font-size: var(--glpi-fs-sm); }
+    .name { font-weight: 700; }
+  }
+}
+
+.chip-row { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
