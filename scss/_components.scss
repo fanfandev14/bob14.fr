@@ -65,20 +65,6 @@
   &__row { display: flex; gap: 9px; i { margin-top: 2px; } }
 }
 
-// ---- Bandeau jeu libre (jaune) ----
-.note {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-top: 16px;
-  padding: 14px 18px;
-  background: $free-bg;
-  border: 1px solid $free-bd;
-  border-radius: var(--tblr-border-radius-lg);
-  color: $free-fg;
-  i { font-size: 20px; }
-}
-
 // ---- Cartes tarifs (accueil) ----
 .price-card {
   padding: 20px;
@@ -200,33 +186,6 @@
   &__actions { display: flex; gap: 12px; flex-wrap: wrap; }
 }
 
-// ---- Cartes créneaux jeunes ----
-.slot-card {
-  @include surface;
-  overflow: hidden;
-
-  &__head {
-    padding: 14px 20px;
-    background: $navy;
-    color: $light;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    .day { font-size: var(--glpi-fs-md); font-weight: 800; }
-    .tag-coached { font-size: var(--glpi-fs-xs); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: $amber; }
-  }
-  &__place { padding: 12px 20px; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); border-bottom: 1px solid var(--tblr-border-color); }
-  &__slot  {
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--tblr-border-color);
-    &:last-child { border-bottom: 0; }
-    .time   { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
-    .name   { font-weight: 700; margin-top: 2px; }
-    .detail { font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
-  }
-}
-
 // ---- Catégories d'âge ----
 .cat {
   padding: 18px;
@@ -317,37 +276,6 @@
     padding: 6px;
   }
   p { margin: 0 0 8px; font-size: var(--glpi-fs-sm); font-weight: 400; &:last-child { margin-bottom: 0; } }
-}
-
-// ---- Créneaux adultes (tableau par jour) ----
-.sched-table { @include surface; overflow: hidden; }
-.day-row {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
-  border-bottom: 1px solid var(--tblr-border-color);
-  &:last-child { border-bottom: 0; }
-  @include respond(sm) { grid-template-columns: minmax(0, 1fr); }
-
-  &__head {
-    padding: 18px 20px;
-    background: var(--tblr-bg-surface-tertiary);
-    border-right: 1px solid var(--tblr-border-color);
-    @include respond(sm) { border-right: 0; border-bottom: 1px solid var(--tblr-border-color); }
-    .day   { font-size: var(--glpi-fs-md); font-weight: 800; }
-    .place { font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
-  }
-  &__slots { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
-}
-.slot-line {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 11px 14px;
-  border-radius: var(--tblr-border-radius);
-  .time   { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-sm); font-weight: 600; min-width: 96px; }
-  .name   { font-weight: 700; }
-  &--coached { background: $navy; color: $light; .time { color: $amber; } .detail { font-size: var(--glpi-fs-sm); color: rgba($light, .6); } }
-  &--free    { background: $free-bg; border: 1px solid $free-bd; color: $free-fg; }
 }
 
 // ---- Interclubs (adultes : deux cartes) ----

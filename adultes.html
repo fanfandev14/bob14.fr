@@ -48,47 +48,68 @@
 </section>
 
 <section class="container section--sub">
-  <div class="head-row">
-    <h2 class="section-title">Les créneaux adultes</h2>
+  <div class="head-row head-row--tight">
+    <div>
+      <span class="eyebrow">La semaine</span>
+      <h2 class="section-title">Calendrier de la semaine</h2>
+    </div>
     <div class="legend">
-      <span class="legend__item"><span class="swatch swatch--coached"></span>Encadré</span>
+      <span class="legend__item"><span class="swatch swatch--coached"></span>Créneau encadré</span>
       <span class="legend__item"><span class="swatch swatch--free"></span>Jeu libre</span>
     </div>
   </div>
-  <div class="sched-table">
-    <div class="day-row">
-      <div class="day-row__head"><div class="day">Lundi</div><div class="place">Victor Lorier<br>Bretteville</div></div>
-      <div class="day-row__slots">
-        <div class="slot-line slot-line--coached"><span class="time">20h – 21h30</span><span class="name">Adultes D9 et plus</span><span class="detail">Entraînement encadré</span></div>
-        <div class="slot-line slot-line--free"><span class="time">21h30 – 23h</span><span class="name">Jeu libre</span></div>
+
+  <div class="schedule-scroll">
+    <div class="schedule">
+      <div class="schedule__head">
+        <div class="schedule__head-label">Jour · gymnase</div>
+        <div class="schedule__hours">
+          <span class="col-1 span-2">17h</span><span class="col-3 span-2">18h</span><span class="col-5 span-2">19h</span><span class="col-7 span-2">20h</span><span class="col-9 span-2">21h</span><span class="col-11 span-2">22h</span>
+        </div>
       </div>
-    </div>
-    <div class="day-row">
-      <div class="day-row__head"><div class="day">Mardi</div><div class="place">Trois Hameaux<br>Saint-Manvieu</div></div>
-      <div class="day-row__slots">
-        <div class="slot-line slot-line--free"><span class="time">19h30 – 23h</span><span class="name">Jeu libre</span></div>
+
+      <div class="schedule__row">
+        <div class="schedule__day"><span class="name">Lundi</span><span class="place">Victor Lorier · Bretteville</span></div>
+        <div class="schedule__track">
+          <div class="slot slot--coached col-2 span-3 row-1"><span class="slot__time">17h30–19h</span><span class="slot__label">Groupe Avenir</span></div>
+          <div class="slot slot--coached col-7 span-3 row-1"><span class="slot__time">20h–21h30</span><span class="slot__label">Adultes D9 et plus</span></div>
+          <div class="slot slot--coached col-4 span-3 row-2"><span class="slot__time">18h30–20h</span><span class="slot__label">Minime à Junior</span></div>
+          <div class="slot slot--free col-10 span-3 row-2"><span class="slot__time">21h30–23h</span><span class="slot__label">Jeu libre adulte</span></div>
+        </div>
       </div>
-    </div>
-    <div class="day-row">
-      <div class="day-row__head"><div class="day">Mercredi</div><div class="place">Victor Lorier<br>Bretteville</div></div>
-      <div class="day-row__slots">
-        <div class="slot-line slot-line--free"><span class="time">20h – 23h</span><span class="name">Jeu libre</span></div>
+
+      <div class="schedule__row">
+        <div class="schedule__day"><span class="name">Mardi</span><span class="place">Trois Hameaux · St-Manvieu</span></div>
+        <div class="schedule__track">
+          <div class="slot slot--free col-6 span-7 row-1"><span class="slot__time">19h30–23h</span><span class="slot__label">Jeu libre adulte</span></div>
+        </div>
       </div>
-    </div>
-    <div class="day-row">
-      <div class="day-row__head"><div class="day">Jeudi</div><div class="place">Trois Hameaux<br>Saint-Manvieu</div></div>
-      <div class="day-row__slots">
-        <div class="slot-line slot-line--coached"><span class="time">18h30 – 20h</span><span class="name">NC à D9</span><span class="detail">Entraînement encadré · avec les jeunes à partir de Minime</span></div>
-        <div class="slot-line slot-line--free"><span class="time">20h – 20h30</span><span class="name">Jeu libre</span></div>
+
+      <div class="schedule__row">
+        <div class="schedule__day"><span class="name">Mercredi</span><span class="place">Victor Lorier · Bretteville</span></div>
+        <div class="schedule__track">
+          <div class="slot slot--free col-7 span-6 row-1"><span class="slot__time">20h–23h</span><span class="slot__label">Jeu libre adulte</span></div>
+        </div>
       </div>
-    </div>
-    <div class="day-row">
-      <div class="day-row__head"><div class="day">Samedi</div><div class="place">Benoît Costil<br>Rots</div></div>
-      <div class="day-row__slots">
-        <div class="slot-line slot-line--free"><span class="time">9h30 – 12h30</span><span class="name">Jeu libre tout public</span></div>
+
+      <div class="schedule__row">
+        <div class="schedule__day"><span class="name">Jeudi</span><span class="place">Trois Hameaux · St-Manvieu</span></div>
+        <div class="schedule__track">
+          <div class="slot slot--coached col-4 span-3 row-1"><span class="slot__time">18h30–20h</span><span class="slot__label">Minime et + · NC à D9</span></div>
+          <div class="slot slot--free slot--center col-7 span-1 row-1"><span class="slot__time">20h–20h30</span></div>
+        </div>
+      </div>
+
+      <div class="schedule__row schedule__row--last">
+        <div class="schedule__day"><span class="name">Samedi matin</span><span class="place">Benoît Costil · Rots</span></div>
+        <div class="schedule__free-full">
+          <span class="time">9h30–12h30</span>
+          <span class="label">Jeu libre tout public · jeunes accompagnés et adultes</span>
+        </div>
       </div>
     </div>
   </div>
+  <p class="footnote">Créneaux encadrés le lundi, le jeudi et le vendredi. Côté adultes : entraînement encadré le lundi (20h) et le jeudi (18h30), jeu libre les autres soirs et le samedi matin.</p>
 </section>
 
 <section class="container section--sub">
@@ -191,6 +212,7 @@
       <span>Président · Guillaume Martig</span>
       <span>Vice-président · Laurenn Leblatier</span>
       <span>Secrétaire · François Legastelois</span>
+      <span>Secrétaire adjoint · Adrien Noizet</span>
       <span>Trésorier · Mickael Nicolas</span>
       <span>Trésorier adjoint · Benoit Simon</span>
     </div>
