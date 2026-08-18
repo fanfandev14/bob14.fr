@@ -82,6 +82,29 @@
   }
 }
 
+// Bandeau d'annonce (ex. ouverture des créneaux) — bien visible
+.notice-bar {
+  background: var(--tblr-primary);
+  color: var(--tblr-primary-fg);
+  font-weight: 600;
+
+  &__inner {
+    max-width: $maxw;
+    margin-inline: auto;
+    padding: 12px $gutter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    font-size: var(--glpi-fs-sm);
+    i { font-size: 20px; flex: none; }
+    strong { font-weight: 800; }
+
+    @include respond(sm) { padding-inline: 20px; align-items: flex-start; text-align: left; }
+  }
+}
+
 // Bascule mobile CSS-only (case à cocher masquée)
 .nav-toggle { display: none; }
 
