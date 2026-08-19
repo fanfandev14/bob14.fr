@@ -80,6 +80,43 @@
 
     &:hover { filter: brightness(1.06); color: var(--tblr-primary-fg); text-decoration: none; }
   }
+
+  // Groupe avec sous-menu déroulant
+  &__group { position: relative; display: flex; align-items: center; }
+  &__parent {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    i { font-size: 15px; }
+  }
+  &__submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 190px;
+    padding: 6px;
+    background: $navy;
+    border: 1px solid rgba($light, .12);
+    border-radius: var(--tblr-border-radius);
+    box-shadow: var(--glpi-shadow-lg);
+    z-index: 30;
+
+    a {
+      display: block;
+      padding: 9px 12px;
+      border-radius: var(--tblr-border-radius);
+      color: $light;
+      font-size: var(--glpi-fs-sm);
+      font-weight: 600;
+      text-decoration: none;
+      &:hover { background: rgba($light, .08); color: $light; text-decoration: none; }
+      &.is-active { color: $amber; }
+    }
+  }
+  &__group:hover &__submenu,
+  &__group:focus-within &__submenu { display: block; }
+  &__group:has(.is-active) > &__parent { color: $amber; font-weight: 700; }
 }
 
 // Bandeau d'annonce (ex. ouverture des créneaux) — bien visible
@@ -143,7 +180,22 @@
     box-shadow: var(--glpi-shadow-lg);
 
     &__link { padding: 12px 13px; }
-    &__cta  { margin-left: 0; justify-content: center; padding: 13px 16px; }
+    &__cta  { margin-left: 0; justify-content: center; padding: 13px 16px; margin-top: 6px; }
+
+    // Sous-menus : toujours dépliés, en retrait
+    &__group { flex-direction: column; align-items: stretch; }
+    &__parent i { display: none; }
+    &__submenu {
+      display: block;
+      position: static;
+      min-width: 0;
+      margin: 0 0 0 12px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      a { padding: 10px 13px; }
+    }
   }
 
   .nav-toggle:checked ~ .nav { display: flex; }

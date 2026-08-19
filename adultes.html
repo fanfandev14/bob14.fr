@@ -26,8 +26,20 @@
     <label for="nav-toggle" class="nav-burger" aria-label="Ouvrir le menu"><i class="ti ti-menu-2"></i><span class="nav-burger__label">Menu</span></label>
     <nav class="nav">
       <a href="index.html" class="nav__link">Accueil</a>
-      <a href="jeunes.html" class="nav__link">Jeunes</a>
-      <a href="adultes.html" class="nav__link is-active">Adultes</a>
+      <div class="nav__group">
+        <a href="jeunes.html" class="nav__link nav__parent">Créneaux <i class="ti ti-chevron-down"></i></a>
+        <div class="nav__submenu">
+          <a href="jeunes.html">Jeunes</a>
+          <a href="adultes.html" class="is-active">Adultes</a>
+        </div>
+      </div>
+      <div class="nav__group">
+        <a href="competitions-jeunes.html" class="nav__link nav__parent">Compétitions <i class="ti ti-chevron-down"></i></a>
+        <div class="nav__submenu">
+          <a href="competitions-jeunes.html">Jeunes</a>
+          <a href="competitions-adultes.html">Adultes</a>
+        </div>
+      </div>
       <a href="infos-pratiques.html" class="nav__link">Infos pratiques</a>
       <a href="https://adherer.ffbad.club/bob14" target="_blank" rel="noopener" class="nav__cta"><i class="ti ti-user-plus"></i>S'inscrire</a>
     </nav>
@@ -37,7 +49,7 @@
 <div class="notice-bar">
   <div class="notice-bar__inner">
     <i class="ti ti-calendar-clock"></i>
-    <span><strong>Les créneaux ne sont pas encore ouverts.</strong> La date d'ouverture sera précisée début septembre.</span>
+    <span><strong>Reprise de la saison</strong> — jeu libre à Saint-Manvieu dès le mardi 25/08 ; créneaux encadrés à partir du lundi 7, jeudi 10 et vendredi 11 septembre.</span>
   </div>
 </div>
 
@@ -153,7 +165,7 @@
   </div>
 </section>
 
-<section class="container section--sub">
+<section class="container section--sub section--end">
   <div class="section-head"><h2 class="section-title">À télécharger</h2></div>
   <div class="grid-2">
     <a class="dl-card" href="assets/docs/BOB-Adultes-2026-2027.pdf" download>
@@ -172,22 +184,6 @@
       </span>
       <span class="dl-card__btn"><i class="ti ti-download"></i>Télécharger</span>
     </a>
-  </div>
-</section>
-
-<section class="container section--sub section--end">
-  <div class="section-head"><h2 class="section-title">Interclubs</h2></div>
-  <div class="grid-2 grid--start">
-    <a href="https://icbad.ffbad.org/competition/2601038" target="_blank" rel="noopener" class="interclub">
-      <div class="interclub__head"><span class="badge-r2 badge-r2--amber">R2</span><span class="title">Régionale 2 · séniors</span></div>
-      <p>Composition, calendrier des rencontres, feuilles de match et classement sur la plateforme interclubs de la FFBaD.</p>
-      <span class="arrow">Suivre la poule<i class="ti ti-external-link"></i></span>
-    </a>
-    <div class="interclub interclub--empty">
-      <div class="interclub__head"><i class="ti ti-plus"></i><span class="title">Prochaines équipes</span></div>
-      <p>Équipes en cours de réinscription...</p>
-      <p class="small">Pour rejoindre une équipe, contacter le bureau ou en parler sur un créneau.</p>
-    </div>
   </div>
 </section>
 

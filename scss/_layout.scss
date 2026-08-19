@@ -77,6 +77,9 @@
 // Note de bas de section
 .footnote { margin: 14px 0 0; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
 
+// Marge haute ponctuelle
+.mt-20 { margin-top: 20px; }
+
 // ---- Grilles réutilisables (colonnes + repli responsive) ----
 .grid-2 { @include grid(2); @include respond(md) { grid-template-columns: minmax(0, 1fr); } }
 .grid-3 { @include grid(3); @include respond(md) { grid-template-columns: minmax(0, 1fr); } }
