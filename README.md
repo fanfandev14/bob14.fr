@@ -4,16 +4,51 @@ Site vitrine **statique** du club, hébergé sur **GitHub Pages**.
 
 ## Styles (SCSS)
 
-Le CSS est généré depuis `scss/` — **ne pas éditer `assets/css/site.css` à la main**
-(il est écrasé à chaque build). `assets/css/tokens.css` est le design system (variables) et
-reste tel quel.
+Le CSS est généré depuis `scss/` — **ne pas éditer `assets/css/site.css` ni `assets/css/bob.css`
+à la main** (ils sont écrasés à chaque build). `assets/css/tokens.css` est le design system
+(variables) et `assets/css/fonts.css` les déclarations `@font-face` : les deux s'éditent
+directement, mais rarement.
 
 ```bash
 npm install        # une fois (installe sass)
-npm run build:css  # compile scss/ → assets/css/site.css (à faire avant de committer)
+npm run build:css  # compile scss/ → site.css puis bundle → bob.css (à faire avant de committer)
 npm run watch:css  # recompile en continu pendant le développement
 ```
 
+⚠️ `watch:css` ne régénère que `site.css`. Lancer `npm run build:css` (ou `npm run bundle:css`)
+avant de committer, car **les pages ne chargent que `bob.css`** — la concaténation
+`fonts.css + tokens.css + site.css`, servie en une seule requête.
+
 Organisation : `scss/_tokens` (couleurs), `_mixins`, `_base`, `_layout`, `_header`, `_hero`,
 `_buttons`, `_components`, `_schedule`, `_footer`, assemblés dans `scss/main.scss`.
-Le `site.css` compilé est committé pour que GitHub Pages reste 100 % statique (aucun build CI).
+Le CSS compilé est committé pour que GitHub Pages reste 100 % statique (aucun build CI).
+
+## Icônes
+
+Pas de webfont : les icônes sont un **sprite SVG inline** injecté en début de `<body>` de chaque
+page (26 symboles, ~5 Ko, contre 1,1 Mo pour la webfont Tabler auparavant). Une icône s'écrit :
+
+```html
+<svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg>
+```
+
+Pour **ajouter une icône**, récupérer le SVG Tabler correspondant et ajouter un `<symbol
+id="i-nom" viewBox="0 0 24 24">` au sprite — dans les 6 pages, le sprite y est dupliqué.
+
+## SEO
+
+- `sitemap.xml` (à mettre à jour si une page est ajoutée) + `robots.txt`, déclarés dans la
+  Google Search Console.
+- Chaque page a un `<link rel="canonical">` absolu vers `https://www.bob14.fr/…` (l'apex
+  `bob14.fr` redirige en 301 vers `www`), des balises Open Graph / Twitter Card, et un JSON-LD
+  `BreadcrumbList`. L'accueil porte en plus le JSON-LD `SportsClub` (adresses des 3 gymnases,
+  contacts, réseaux) qui alimente le référencement local.
+- `assets/img/og-image.jpg` (1200×630) est l'image d'aperçu au partage.
+
+## Images
+
+`assets/img/bob-logo.png` (500×500) est la **source** du logo ; elle n'est pas servie aux
+visiteurs. Les déclinaisons utilisées (`bob-logo-128.png`, `favicon-32.png`,
+`apple-touch-icon.png`, `icon-192/512.png`) en sont dérivées. Toutes les balises `<img>` portent
+`width`/`height` explicites pour éviter les décalages de mise en page (CLS) : si on remplace une
+image, penser à reporter ses vraies dimensions intrinsèques.

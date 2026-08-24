@@ -21,3 +21,19 @@ a {
 img { max-width: 100%; }
 
 h1, h2, h3 { margin: 0; }
+
+// ---- Icônes : sprite SVG inline (remplace la webfont Tabler, ~1,1 Mo économisés) ----
+// Le sprite est injecté en début de <body> ; chaque icône est un <use href="#i-nom">.
+.icon-sprite { display: none; }
+
+.ic {
+  width: 1em;
+  height: 1em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -.125em;
+}
