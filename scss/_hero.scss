@@ -156,6 +156,44 @@
   }
 }
 
+// Variante deux colonnes : texte à gauche, plaque du label éfb à droite
+.page-hero--split .page-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 48px;
+  align-items: center;
+
+  @include respond(md) { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+}
+
+// Plaque blanche portant le label « École française de badminton »
+.label-plate {
+  margin: 0;
+  justify-self: end;
+  width: 260px;
+  flex: none;
+  padding: 20px 20px 0;
+  background: #fff;
+  border-radius: var(--tblr-border-radius-lg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .22);
+
+  img { display: block; width: 100%; height: auto; }
+
+  figcaption {
+    margin-top: 16px;
+    padding: 11px 0 13px;
+    border-top: 1px solid #e3e6ef;
+    font-size: var(--glpi-fs-xs);
+    font-weight: 700;
+    letter-spacing: .02em;
+    text-align: center;
+    color: #22317f;
+  }
+
+  @include respond(md) { justify-self: start; }
+  @include respond(sm) { width: 100%; max-width: 260px; }
+}
+
 .hero-facts {
   display: flex;
   gap: 36px;
