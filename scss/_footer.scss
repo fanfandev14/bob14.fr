@@ -86,7 +86,7 @@
     gap: 16px;
     flex-wrap: wrap;
     font-size: var(--glpi-fs-xs);
-    color: rgba($light, .5);
+    color: rgba($light, .72); // ≥ 4.5:1 sur $navy
 
     @include respond(md) { padding-inline: 24px; }
     @include respond(sm) { padding-inline: 20px; }
