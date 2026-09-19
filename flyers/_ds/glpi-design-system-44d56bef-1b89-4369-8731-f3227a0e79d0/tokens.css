@@ -1,0 +1,286 @@
+/* ------------------------------------------------------------------
+ * GLPI Design System — Design Tokens
+ *
+ * Extracted from glpi-project/glpi @ 11.0/bugfixes
+ *   - css/includes/_base.scss           (light default)
+ *   - css/includes/_palette_dark.scss   (dark base)
+ *   - css/palettes/*.scss               (named palettes)
+ *
+ * GLPI sits on top of Tabler (a Bootstrap 5 UI kit), so tokens are
+ * exposed with both Tabler's `--tblr-*` prefix and GLPI's own
+ * `--glpi-*` prefix. A GLPI install picks ONE palette at a time via
+ * `<html data-glpi-theme="teclib">` (or any palette name). Dark mode
+ * is an orthogonal switch via `data-glpi-theme-dark="1"`.
+ *
+ * The default (unprefixed) values in :root match the light "auror"
+ * palette — GLPI's out-of-the-box look. Override by setting the data
+ * attribute on <html>.
+ * ------------------------------------------------------------------ */
+
+:root {
+    /* ---------- Brand ---------- */
+    --tblr-primary-rgb: 254, 201, 92;           /* warm amber — auror accent */ /* @kind color */
+    --tblr-primary: rgb(var(--tblr-primary-rgb));
+    --tblr-primary-fg: #1e293b;                 /* slate-800 text on primary */
+
+    --tblr-link-color-rgb: 58, 86, 147;         /* deep indigo */
+    --tblr-link-color: rgb(var(--tblr-link-color-rgb));
+
+    /* Main navigation — GLPI's signature navy sidebar */
+    --glpi-mainmenu-bg: #2f3f64;                /* hsl(222, 36%, 29%) */
+    --glpi-mainmenu-fg: #f4f6fa;
+    --glpi-mainmenu-fg-muted: #f4f6fa99;
+    --glpi-mainmenu-active-bg: color-mix(in srgb, var(--glpi-mainmenu-bg), white 45%);
+
+    /* Palette accents (for charts, illustration gradients, tags) */
+    --glpi-palette-color-1: #1b2f62;
+    --glpi-palette-color-2: #ffffff;
+    --glpi-palette-color-3: #3a5693;
+    --glpi-palette-color-4: #fec95c;
+
+    /* ---------- Neutrals & surface ---------- */
+    --tblr-dark:  #101923;
+    --tblr-light: #fafbfc;
+    --tblr-body-bg: #f5f7fb;
+    --tblr-body-color: #1e293b;
+    --tblr-body-color-rgb: 30, 41, 59;
+
+    --tblr-bg-surface:           #ffffff;
+    --tblr-bg-surface-secondary: var(--tblr-light);
+    --tblr-bg-surface-tertiary:  #f1f3f7;
+    --tblr-bg-surface-dark: color-mix(in srgb, var(--tblr-bg-surface), var(--tblr-dark) 1.5%);
+
+    --tblr-secondary: #606f91;
+    --tblr-secondary-rgb: 96, 111, 145; /* @kind color */
+    --tblr-secondary-fg: var(--tblr-body-bg);
+    --tblr-tertiary:  #8a97ab;
+    --tblr-muted:     var(--tblr-secondary);
+    --tblr-navbar-color: #2f3f64;
+
+    --tblr-border-color: #e6e7e9;
+    --tblr-border-color-translucent: rgba(16, 25, 35, 0.08);
+
+    /* Tabler gray ramp — 50 → 900 */
+    --tblr-gray-50:  #fafbfc;
+    --tblr-gray-100: #f1f5f9;
+    --tblr-gray-200: #e2e8f0;
+    --tblr-gray-300: #cbd5e1;
+    --tblr-gray-400: #94a3b8;
+    --tblr-gray-500: #64748b;
+    --tblr-gray-600: #475569;
+    --tblr-gray-700: #334155;
+    --tblr-gray-800: #1e293b;
+    --tblr-gray-900: #0f172a;
+
+    /* ---------- Semantic / status ---------- */
+    --tblr-info:    #80abe4;
+    --tblr-success: #2fb344;
+    --tblr-warning: #f76707;
+    --tblr-danger:  #d63939;
+
+    /* ---------- Form header accent (blue) ---------- */
+    --glpi-form-header-fg: #055cad;
+    --glpi-form-header-bg: color-mix(in srgb, var(--glpi-form-header-fg), var(--tblr-bg-surface) 90%);
+    --glpi-form-header-border-color: color-mix(in srgb, var(--glpi-form-header-fg), var(--tblr-bg-surface) 75%);
+    --glpi-form-header-danger-fg: var(--tblr-danger);
+    --glpi-form-header-danger-bg: color-mix(in srgb, var(--glpi-form-header-danger-fg), var(--tblr-bg-surface) 90%);
+
+    /* ---------- ITIL timeline — ticket conversation colors ----------
+     * The timeline on a ticket interleaves content types. Each type
+     * has its own background / foreground / border triple so you can
+     * scan a long thread quickly. */
+    --glpi-timeline-itil-content-bg:     #e2f2e3;  /* green — user content */
+    --glpi-timeline-itil-content-fg:     #155210;
+    --glpi-timeline-itil-content-border: #87aa8a;
+
+    --glpi-timeline-fup-bg:              #ececec;  /* gray — follow-up */
+    --glpi-timeline-fup-fg:              #535353;
+    --glpi-timeline-fup-border:          #b3b3b3;
+
+    --glpi-timeline-task-bg:             #ffe8b9;  /* amber — task */
+    --glpi-timeline-task-fg:             #38301f;
+    --glpi-timeline-task-border:         #e5c88c;
+
+    --glpi-timeline-solution-bg:         #9fd6ed;  /* blue — solution */
+    --glpi-timeline-solution-fg:         #27363b;
+    --glpi-timeline-solution-border:     #90c2d8;
+
+    --glpi-timeline-document-bg:         #80cead;  /* teal — document */
+    --glpi-timeline-document-fg:         #21352c;
+    --glpi-timeline-document-border:     #68b997;
+
+    --glpi-timeline-log-bg:              rgba(202, 202, 202, 0.13);
+    --glpi-timeline-badge-bg:            rgba(97, 97, 97, 0.15);
+    --glpi-timeline-badge-fg:            rgba(43, 43, 43, 0.8);
+
+    /* ---------- Tabs (page-level workspace tabs) ---------- */
+    --glpi-tabs-bg:                color-mix(in srgb, var(--tblr-bg-surface), black 1.5%);
+    --glpi-tabs-fg:                var(--tblr-muted);
+    --glpi-tabs-border-color:      var(--tblr-border-color);
+    --glpi-tabs-active-bg:         var(--tblr-bg-surface);
+    --glpi-tabs-active-fg:         var(--tblr-body-color);
+    --glpi-tabs-active-border-color: var(--glpi-tabs-border-color);
+
+    /* ---------- Badges & hover ---------- */
+    --tblr-badge-bg:     var(--tblr-secondary);
+    --tblr-badge-color:  var(--tblr-secondary-fg);
+    --glpi-badge-bg:     color-mix(in srgb, var(--tblr-link-color), var(--tblr-light) 91%);
+    --glpi-badge-fg:     var(--tblr-link-color);
+    --glpi-hover-bg:     rgba(var(--tblr-secondary-rgb), 0.08);
+
+    /* ---------- Search input ---------- */
+    --glpi-search-bg: var(--tblr-bg-surface-tertiary);
+    --glpi-search-fg: var(--tblr-body-color);
+    --glpi-search-border-color: var(--tblr-border-color);
+
+    /* ---------- Helpdesk (self-service portal) ---------- */
+    --glpi-helpdesk-header:            hsl(from var(--glpi-mainmenu-bg) h s 80);
+    --glpi-helpdesk-tiles-section-bg:  #f6f8fb;
+    --glpi-helpdesk-tabs-section-bg:   #ffffff;
+
+    /* ---------- Layout ---------- */
+    --glpi-topbar-height:     79px;
+    --glpi-contextbar-height: 56px;
+    --glpi-content-margin:    24px;
+
+    --glpi-scrollbar-thumb-color: color-mix(in srgb, var(--tblr-secondary), transparent 20%);
+    --glpi-scrollbar-track-color: transparent;
+
+    /* ---------- Type ---------- *
+     * GLPI ships Inter (self-hosted under /public/lib) for UI and
+     * "IBM Plex Mono" for code blocks. We mirror that here with
+     * Google Fonts for convenience. */
+    --glpi-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                      Roboto, "Helvetica Neue", Arial, sans-serif;
+    --glpi-font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo,
+                      Consolas, monospace;
+
+    --glpi-fs-xs:   0.6875rem;   /* 11px — table headers */
+    --glpi-fs-sm:   0.8125rem;   /* 13px — body small / labels */
+    --glpi-fs-base: 0.875rem;    /* 14px — body (GLPI is dense) */
+    --glpi-fs-md:   1rem;        /* 16px — emphasized body */
+    --glpi-fs-lg:   1.125rem;    /* 18px — card titles */
+    --glpi-fs-xl:   1.375rem;    /* 22px — page section */
+    --glpi-fs-2xl:  1.75rem;     /* 28px — page title */
+    --glpi-fs-3xl:  2.25rem;     /* 36px — dashboard KPIs */
+
+    --glpi-lh-tight: 1.2; /* @kind other */
+    --glpi-lh-base:  1.5; /* @kind other */
+    --glpi-lh-loose: 1.7; /* @kind other */
+
+    /* ---------- Radius, shadow, spacing ---------- */
+    --tblr-border-radius:    4px;
+    --tblr-border-radius-sm: 3px;
+    --tblr-border-radius-lg: 6px;
+    --tblr-border-radius-xl: 8px;
+    --tblr-border-radius-pill: 50rem;
+
+    --glpi-shadow-xs: 0 1px 1px rgba(16, 25, 35, 0.04);
+    --glpi-shadow-sm: 0 1px 2px rgba(16, 25, 35, 0.06);
+    --glpi-shadow-md: 0 2px 8px rgba(16, 25, 35, 0.08);
+    --glpi-shadow-lg: 0 8px 24px rgba(16, 25, 35, 0.12);
+    --glpi-shadow-popover: 0 4px 20px rgba(16, 25, 35, 0.15);
+
+    --glpi-space-1: 4px;
+    --glpi-space-2: 8px;
+    --glpi-space-3: 12px;
+    --glpi-space-4: 16px;
+    --glpi-space-5: 24px;
+    --glpi-space-6: 32px;
+    --glpi-space-7: 48px;
+    --glpi-space-8: 64px;
+}
+
+/* ================================================================
+ * Palette overrides — set via `<html data-glpi-theme="…">`
+ * These match the named palettes in css/palettes/*.scss.
+ * ================================================================ */
+
+/* auror — default GLPI light look (same as :root above, kept for clarity) */
+:root[data-glpi-theme="auror"] {
+    --glpi-palette-color-1: #1b2f62;
+    --glpi-palette-color-2: #ffffff;
+    --glpi-palette-color-3: #3a5693;
+    --glpi-palette-color-4: #fec95c;
+}
+
+/* teclib — primary accent goes lime-green; nav goes purple */
+:root[data-glpi-theme="teclib"] {
+    --tblr-primary-rgb: 188, 218, 26; /* @kind color */
+    --tblr-primary-fg: #353b17;
+    --tblr-link-color-rgb: 169, 88, 185;
+    --glpi-mainmenu-bg: #a958b9;
+    --glpi-helpdesk-header: hsl(291deg, 30%, 85%);
+    --glpi-mainmenu-fg: #ffffff;
+    --glpi-palette-color-1: #ba77c8;
+    --glpi-palette-color-2: #8e21a1;
+    --glpi-palette-color-3: #f1f1f2;
+    --glpi-palette-color-4: #bcda1a;
+}
+
+/* lightblue — airy blue nav */
+:root[data-glpi-theme="lightblue"] {
+    --tblr-primary-rgb: 200, 234, 253; /* @kind color */
+    --tblr-secondary: #656d77;
+    --tblr-link-color-rgb: 44, 115, 167;
+    --tblr-badge-bg: #d0d9f0;
+    --tblr-badge-color: rgb(58, 73, 102);
+    --glpi-mainmenu-bg: #1a7ab2;
+    --glpi-helpdesk-header: hsl(203deg, 70%, 85%);
+    --glpi-mainmenu-fg: #f4f6fa;
+    --glpi-palette-color-1: #1a7ab2;
+    --glpi-palette-color-2: #41b1ff;
+    --glpi-palette-color-3: #7cc7f1;
+    --glpi-palette-color-4: #ffffff;
+}
+
+/* dark — charcoal chrome */
+:root[data-glpi-theme="dark"] {
+    --tblr-primary-rgb: 88, 89, 87; /* @kind color */
+    --tblr-primary-fg: #ffffff;
+    --tblr-link-color-rgb: 22, 21, 20;
+    --glpi-mainmenu-bg: #161514;
+    --glpi-helpdesk-header: hsl(31deg, 5%, 75%);
+    --glpi-mainmenu-fg: #ffffff;
+    --glpi-palette-color-1: #161514;
+    --glpi-palette-color-2: #ffffff;
+    --glpi-palette-color-3: #585957;
+    --glpi-palette-color-4: #3f403e;
+}
+
+/* midnight — fully dark UI (nav + body both) */
+:root[data-glpi-theme="midnight"] {
+    --tblr-dark: #000000;
+    --tblr-light: #e6e6e6;
+    --tblr-body-bg: #000000;
+    --tblr-body-color: #e6e6e6;
+    --tblr-bg-surface: #0a0a0a;
+    --tblr-primary-rgb: 182, 195, 224; /* @kind color */
+    --tblr-primary-fg: #232e3c;
+    --tblr-secondary: #b0bbd4;
+    --tblr-secondary-fg: #262d3d;
+    --tblr-link-color-rgb: 200, 200, 200;
+    --tblr-muted: #c6cad2;
+    --tblr-border-color: #2a2a2a;
+    --tblr-badge-bg: var(--tblr-light);
+    --tblr-badge-color: var(--tblr-dark);
+    --glpi-mainmenu-bg: #000000;
+    --glpi-mainmenu-fg: #e6e6e6;
+    --glpi-form-header-fg: #6ba8f3;
+    --glpi-form-header-border-color: transparent;
+    --glpi-tabs-bg: #1a1a1a;
+    --glpi-tabs-fg: #e6e6e6;
+    --glpi-tabs-active-bg: #3a3938;
+    --glpi-tabs-active-fg: #c6cad2;
+    --glpi-palette-color-1: #000000;
+    --glpi-palette-color-2: #1b1b1b;
+    --glpi-palette-color-3: #858585;
+    --glpi-palette-color-4: #c2c2c2;
+}
+
+/* ================================================================
+ * Reduced motion
+ * ================================================================ */
+@media (prefers-reduced-motion) {
+    :root { --animate-duration: 0s !important; /* @kind other */ }
+}

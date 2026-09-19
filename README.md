@@ -23,6 +23,22 @@ Organisation : `scss/_tokens` (couleurs), `_mixins`, `_base`, `_layout`, `_heade
 `_buttons`, `_components`, `_schedule`, `_footer`, assemblés dans `scss/main.scss`.
 Le CSS compilé est committé pour que GitHub Pages reste 100 % statique (aucun build CI).
 
+## Flyers PDF
+
+Les PDF de `assets/docs/` sont **générés** depuis les sources HTML de `flyers/` — ne pas les
+éditer autrement qu'en régénérant.
+
+```bash
+npm run build:flyers   # flyers/*.dc.html → assets/docs/BOB-*.pdf (impression Chrome headless)
+```
+
+Le rendu a besoin du réseau : polices depuis `fonts.googleapis.com`, générateur de QR codes
+depuis `cdn.jsdelivr.net`. Hors ligne, les PDF sortent en police de repli et sans QR code.
+Après régénération, reporter les tailles de fichier dans les cartes `dl-card__meta` de
+`jeunes.html`, `adultes.html` et `infos-pratiques.html` (le script les affiche).
+
+`BOB-Competitions-Jeunes-2026-2027.pdf` fait exception : il vient de Canva, pas de `flyers/`.
+
 ## Icônes
 
 Pas de webfont : les icônes sont un **sprite SVG inline** injecté en début de `<body>` de chaque
