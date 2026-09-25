@@ -1,6 +1,6 @@
 // Génère les agendas .ics des compétitions dans assets/cal/ (npm run build:ics).
 // Les dates sont aussi affichées dans les pages HTML : les modifier aux deux endroits.
-// Les UID sont stables : un agenda abonné met à jour les événements au lieu de les dupliquer.
+// Les UID sont stables : réimporter un fichier met à jour les événements au lieu de les dupliquer.
 import { mkdirSync, writeFileSync } from 'node:fs';
 
 const OUT = new URL('../assets/cal/', import.meta.url);
@@ -12,9 +12,11 @@ const ADULTES = `${SITE}/competitions-adultes.html`;
 const JEUNES = `${SITE}/competitions-jeunes.html`;
 
 // Événements « journée entière » : start = 'AAAA-MM-JJ', end (inclus, facultatif) pour plusieurs jours.
+// Interclubs : un fichier PAR ÉQUIPE (ex. bob-ic-mixte-2 pour l'équipe 14-BOB-2), jamais tout l'interclub.
 const calendars = {
+  // Équipe 14-BOB-1
   'bob-r2': {
-    name: 'BOB · Interclubs R2',
+    name: 'BOB 1 · Interclubs R2',
     url: ADULTES,
     events: [
       ['J1', '2026-10-04', 'Bricquebec'],
@@ -96,12 +98,6 @@ const calendars = {
   },
 };
 
-// Agendas regroupés, proposés en abonnement sur chaque page
-const bundles = {
-  'bob-competitions-adultes': { name: 'BOB · Compétitions adultes', url: ADULTES, from: ['bob-r2', 'bob-cda', 'bob-cdf'] },
-  'bob-competitions-jeunes': { name: 'BOB · Compétitions jeunes', url: JEUNES, from: ['bob-rdj', 'bob-tcj'] },
-};
-
 const ymd = (d) => d.replaceAll('-', '');
 const nextDay = (d) => {
   const t = new Date(`${d}T00:00:00Z`);
@@ -138,8 +134,6 @@ function ics({ name, url, events }) {
     'METHOD:PUBLISH',
     `X-WR-CALNAME:${esc(name)}`,
     'X-WR-TIMEZONE:Europe/Paris',
-    'REFRESH-INTERVAL;VALUE=DURATION:P1D',
-    'X-PUBLISHED-TTL:P1D',
   ];
   for (const e of events) {
     lines.push(
@@ -164,9 +158,4 @@ mkdirSync(OUT, { recursive: true });
 for (const [file, cal] of Object.entries(calendars)) {
   writeFileSync(new URL(`${file}.ics`, OUT), ics(cal));
 }
-for (const [file, b] of Object.entries(bundles)) {
-  const events = b.from.flatMap((k) => calendars[k].events)
-    .sort((a, z) => a.start.localeCompare(z.start));
-  writeFileSync(new URL(`${file}.ics`, OUT), ics({ ...b, events }));
-}
-console.log(`ics : ${Object.keys(calendars).length + Object.keys(bundles).length} fichiers dans assets/cal/`);
+console.log(`ics : ${Object.keys(calendars).length} fichiers dans assets/cal/`);

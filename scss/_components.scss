@@ -488,37 +488,6 @@
   }
 }
 
-// ---- Abonnement agenda (.ics / webcal) ----
-.cal-sub {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px 18px;
-  padding: 20px;
-  @include surface;
-  border-left: 3px solid $amber;
-
-  &__icon {
-    flex: none;
-    width: 46px;
-    height: 46px;
-    display: grid;
-    place-items: center;
-    border-radius: var(--tblr-border-radius);
-    background: $navy;
-    color: $amber;
-    .ic { width: 24px; height: 24px; }
-  }
-  &__text  { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
-  &__title { font-weight: 800; }
-  &__meta  { font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); text-wrap: pretty; }
-  &__actions { display: flex; flex-wrap: wrap; gap: 8px; }
-
-  @include respond(sm) {
-    &__actions { width: 100%; .btn { flex: 1 1 100%; justify-content: center; } }
-  }
-}
-
 // ---- Carte de téléchargement PDF ----
 .dl-card {
   display: flex;
