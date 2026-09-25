@@ -205,3 +205,6 @@
   &__num   { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-2xl); font-weight: 600; color: $amber; }
   &__label { font-size: var(--glpi-fs-sm); color: rgba($light, .6); }
 }
+
+// Raccourcis vers les sections de la page (dans le page-hero)
+.jump-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }

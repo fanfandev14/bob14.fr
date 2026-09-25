@@ -114,6 +114,24 @@
       &.is-active { color: $amber; }
     }
   }
+  // Sous-menu en groupes : intitulé (lien vers la page) + sous-liens (ancres)
+  &__submenu--groups {
+    min-width: 230px;
+    a.nav__submenu-head { font-weight: 700; }
+    a.nav__submenu-head + a { margin-top: 0; }
+    a.nav__submenu-sub {
+      padding: 7px 12px 7px 24px;
+      font-weight: 500;
+      color: rgba($light, .78);
+      &:hover { color: $light; }
+    }
+    a.nav__submenu-sub + a.nav__submenu-head {
+      margin-top: 6px;
+      padding-top: 13px;
+      border-top: 1px solid rgba($light, .12);
+      border-radius: 0 0 var(--tblr-border-radius) var(--tblr-border-radius);
+    }
+  }
   &__group:hover &__submenu,
   &__group:focus-within &__submenu { display: block; }
   &__group:has(.is-active) > &__parent { color: $amber; font-weight: 700; }

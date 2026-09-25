@@ -386,6 +386,77 @@
   &__sub { display: block; width: 100%; margin-top: 3px; font-size: var(--glpi-fs-sm); font-weight: 400; color: var(--tblr-secondary); }
   &__teams { margin: 14px 0 0; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
   .arrow-link { margin-top: 16px; }
+  &__todo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 0;
+    padding: 10px 12px;
+    border: 1px dashed var(--tblr-border-color);
+    border-radius: var(--tblr-border-radius);
+    font-size: var(--glpi-fs-sm);
+    font-weight: 600;
+    color: var(--tblr-secondary);
+    .ic { flex: none; color: $amber; }
+  }
+}
+
+// Intertitre de groupe (ex. Régional / Départemental)
+.sub-title {
+  margin: 28px 0 14px;
+  font-size: var(--glpi-fs-xs);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--tblr-secondary);
+  .section-head + & { margin-top: 0; }
+}
+
+// Liste de points clés (règlement)
+.rule-list {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 28px;
+  @include respond(md) { grid-template-columns: minmax(0, 1fr); }
+
+  li {
+    position: relative;
+    padding-left: 18px;
+    font-size: var(--glpi-fs-sm);
+    color: var(--tblr-secondary);
+    text-wrap: pretty;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: .55em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: $amber;
+    }
+    strong { color: var(--tblr-body-color); }
+  }
+}
+
+// Liste de documents externes (règlements)
+.doc-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;
+  @include respond(md) { grid-template-columns: minmax(0, 1fr); } }
+.doc-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  @include surface;
+  color: var(--tblr-body-color);
+  font-weight: 700;
+  text-decoration: none;
+  > .ic:first-child { flex: none; width: 24px; height: 24px; color: $navy; }
+  &__ext { margin-left: auto; flex: none; color: var(--tblr-secondary); }
+  &:hover { box-shadow: var(--glpi-shadow-md); text-decoration: none; color: var(--tblr-body-color); }
 }
 .datelist {
   list-style: none;
