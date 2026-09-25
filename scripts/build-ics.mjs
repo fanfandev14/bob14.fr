@@ -11,6 +11,7 @@ const STAMP = '20260925T000000Z';
 const ADULTES = `${SITE}/competitions-adultes.html`;
 const JEUNES = `${SITE}/competitions-jeunes.html`;
 const TOURNOIS = `${SITE}/tournois.html`;
+const GYM_ROTS = 'Gymnase de Rots, rue Haute Bonny, 14980 Rots';
 
 // Événements « journée entière » : start = 'AAAA-MM-JJ', end (inclus, facultatif) pour plusieurs jours.
 // Événements avec horaires : at = [début, fin] en heure locale avec décalage, ex. '2026-10-23T19:30+02:00'.
@@ -117,7 +118,7 @@ const calendars = {
       uid: 'after-bob-2-2026',
       at: ['2026-10-23T19:30+02:00', '2026-10-24T02:00+02:00'],
       summary: 'After BOB #2 · tournoi nocturne de double mixte',
-      location: 'Gymnase de Rots, rue Haute Bonny, 14980 Rots',
+      location: GYM_ROTS,
       description: 'Tournoi nocturne de double mixte, NC à R4. 7 poules de 6 paires : 5 matchs assurés. Badnet : https://badnet.fr/tournoi/public?eventid=51327',
     }],
   },
@@ -128,7 +129,7 @@ const calendars = {
       uid: 'simplement-bob-4-2026',
       at: ['2026-12-05T08:00+01:00', '2026-12-05T23:00+01:00'],
       summary: 'Simplement BOB 4 · tournoi de simples',
-      location: 'Rots',
+      location: GYM_ROTS,
       description: 'Tournoi de simples (SH, SD), NC à R4. Inscription sur Badnet jusqu’au 25 novembre : https://badnet.fr/tournoi/public?eventid=51641',
     }],
   },
@@ -140,14 +141,14 @@ const calendars = {
         uid: 'bobminton-2027-doubles',
         start: '2027-02-06',
         summary: 'Bobminton 2027 · doubles hommes et dames',
-        location: 'Rots',
+        location: GYM_ROTS,
         description: 'Doubles hommes et dames, à partir de 8 h. NC à R4. Badnet : https://badnet.fr/tournoi/public?eventid=51493',
       },
       {
         uid: 'bobminton-2027-mixtes',
         start: '2027-02-07',
         summary: 'Bobminton 2027 · doubles mixtes',
-        location: 'Rots',
+        location: GYM_ROTS,
         description: 'Doubles mixtes, à partir de 8 h. NC à R4. Badnet : https://badnet.fr/tournoi/public?eventid=51493',
       },
     ],
