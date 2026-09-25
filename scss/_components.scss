@@ -137,6 +137,37 @@
   &--amber { background: var(--tblr-primary); color: var(--tblr-primary-fg); }
 }
 
+// ---- Tournois du club (accueil) ----
+.event-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  @include surface;
+  color: inherit;
+  text-decoration: none;
+  &:hover { box-shadow: var(--glpi-shadow-md); text-decoration: none; color: inherit; }
+
+  &__date {
+    flex: none;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--tblr-border-radius);
+    background: $navy;
+    color: $light;
+    line-height: 1.05;
+  }
+  &__day   { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-lg); font-weight: 600; color: $amber; }
+  &__month { font-size: var(--glpi-fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+  &__body  { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  &__title { font-weight: 800; letter-spacing: -.01em; }
+  &__meta  { font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); text-wrap: pretty; }
+}
+
 // ---- Bloc réseaux (accueil) ----
 .social-hero {
   display: flex;
@@ -389,6 +420,9 @@
   &__sub { display: block; width: 100%; margin-top: 3px; font-size: var(--glpi-fs-sm); font-weight: 400; color: var(--tblr-secondary); }
   &__teams { margin: 14px 0 0; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
   .arrow-link { margin-top: 16px; }
+  // Rangée de boutons en pied de carte (tournois)
+  &__actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  &__actions + .arrow-link { margin-top: 14px; }
   // Bouton « Ajouter au calendrier » en pied de carte
   &__cal { display: flex; width: fit-content; margin-top: 14px; }
   &__todo {
@@ -404,6 +438,17 @@
     color: var(--tblr-secondary);
     .ic { flex: none; color: $amber; }
   }
+}
+
+// Fiche d'infos clé / valeur (tournois)
+.facts {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 8px 14px;
+  margin: 16px 0 0;
+  font-size: var(--glpi-fs-sm);
+  dt { font-weight: 700; color: var(--tblr-secondary); }
+  dd { margin: 0; text-wrap: pretty; }
 }
 
 // Intertitre de groupe (ex. Régional / Départemental)

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//BOB Badminton//bob14.fr//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:BOB · Simplement BOB 4
+X-WR-TIMEZONE:Europe/Paris
+BEGIN:VEVENT
+UID:simplement-bob-4-2026@bob14.fr
+DTSTAMP:20260925T000000Z
+DTSTART:20261205T070000Z
+DTEND:20261205T220000Z
+SUMMARY:Simplement BOB 4 · tournoi de simples
+LOCATION:Rots
+DESCRIPTION:Tournoi de simples (SH\, SD)\, NC à R4. Inscription sur Badnet
+  jusqu’au 25 novembre : https://badnet.fr/tournoi/public?eventid=51641
+URL:https://www.bob14.fr/tournois.html
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

@@ -10,8 +10,10 @@ const STAMP = '20260925T000000Z';
 
 const ADULTES = `${SITE}/competitions-adultes.html`;
 const JEUNES = `${SITE}/competitions-jeunes.html`;
+const TOURNOIS = `${SITE}/tournois.html`;
 
 // Événements « journée entière » : start = 'AAAA-MM-JJ', end (inclus, facultatif) pour plusieurs jours.
+// Événements avec horaires : at = [début, fin] en heure locale avec décalage, ex. '2026-10-23T19:30+02:00'.
 // Interclubs : un fichier PAR ÉQUIPE (ex. bob-ic-mixte-2 pour l'équipe 14-BOB-2), jamais tout l'interclub.
 const calendars = {
   // Équipe 14-BOB-1
@@ -96,6 +98,60 @@ const calendars = {
       },
     ],
   },
+  // ---- Tournois organisés par le club (sources : Badnet + règlements particuliers Poona) ----
+  'bob-tournoi-interne-2026': {
+    name: 'BOB · Tournoi interne d’intégration',
+    url: TOURNOIS,
+    events: [{
+      uid: 'tournoi-interne-2026',
+      start: '2026-10-06',
+      summary: 'BOB · Tournoi interne d’intégration (doubles)',
+      location: 'Saint-Manvieu-Norrey',
+      description: 'Tournoi de doubles réservé aux adhérents du BOB. Inscription sur Badnet jusqu’au 5 octobre 20 h : https://badnet.fr/tournoi/public?eventid=51743',
+    }],
+  },
+  'bob-tournoi-after-bob-2': {
+    name: 'BOB · After BOB #2',
+    url: TOURNOIS,
+    events: [{
+      uid: 'after-bob-2-2026',
+      at: ['2026-10-23T19:30+02:00', '2026-10-24T02:00+02:00'],
+      summary: 'After BOB #2 · tournoi nocturne de double mixte',
+      location: 'Gymnase de Rots, rue Haute Bonny, 14980 Rots',
+      description: 'Tournoi nocturne de double mixte, NC à R4. 7 poules de 6 paires : 5 matchs assurés. Badnet : https://badnet.fr/tournoi/public?eventid=51327',
+    }],
+  },
+  'bob-tournoi-simplement-bob-4': {
+    name: 'BOB · Simplement BOB 4',
+    url: TOURNOIS,
+    events: [{
+      uid: 'simplement-bob-4-2026',
+      at: ['2026-12-05T08:00+01:00', '2026-12-05T23:00+01:00'],
+      summary: 'Simplement BOB 4 · tournoi de simples',
+      location: 'Rots',
+      description: 'Tournoi de simples (SH, SD), NC à R4. Inscription sur Badnet jusqu’au 25 novembre : https://badnet.fr/tournoi/public?eventid=51641',
+    }],
+  },
+  'bob-tournoi-bobminton-2027': {
+    name: 'BOB · Bobminton 2027',
+    url: TOURNOIS,
+    events: [
+      {
+        uid: 'bobminton-2027-doubles',
+        start: '2027-02-06',
+        summary: 'Bobminton 2027 · doubles hommes et dames',
+        location: 'Rots',
+        description: 'Doubles hommes et dames, à partir de 8 h. NC à R4. Badnet : https://badnet.fr/tournoi/public?eventid=51493',
+      },
+      {
+        uid: 'bobminton-2027-mixtes',
+        start: '2027-02-07',
+        summary: 'Bobminton 2027 · doubles mixtes',
+        location: 'Rots',
+        description: 'Doubles mixtes, à partir de 8 h. NC à R4. Badnet : https://badnet.fr/tournoi/public?eventid=51493',
+      },
+    ],
+  },
 };
 
 const ymd = (d) => d.replaceAll('-', '');
@@ -104,6 +160,7 @@ const nextDay = (d) => {
   t.setUTCDate(t.getUTCDate() + 1);
   return t.toISOString().slice(0, 10);
 };
+const utc = (d) => new Date(d).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
 const esc = (s) => s.replace(/[\\;,]/g, (c) => `\\${c}`).replace(/\n/g, '\\n');
 
 // Repli des lignes à 75 octets (RFC 5545), sans couper un caractère UTF-8
@@ -140,8 +197,9 @@ function ics({ name, url, events }) {
       'BEGIN:VEVENT',
       `UID:${e.uid}@bob14.fr`,
       `DTSTAMP:${STAMP}`,
-      `DTSTART;VALUE=DATE:${ymd(e.start)}`,
-      `DTEND;VALUE=DATE:${ymd(nextDay(e.end ?? e.start))}`,
+      ...(e.at
+        ? [`DTSTART:${utc(e.at[0])}`, `DTEND:${utc(e.at[1])}`]
+        : [`DTSTART;VALUE=DATE:${ymd(e.start)}`, `DTEND;VALUE=DATE:${ymd(nextDay(e.end ?? e.start))}`]),
       `SUMMARY:${esc(e.summary)}`,
       ...(e.location ? [`LOCATION:${esc(e.location)}`] : []),
       `DESCRIPTION:${esc(e.description)}`,

@@ -1,0 +1,32 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//BOB Badminton//bob14.fr//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:BOB · Bobminton 2027
+X-WR-TIMEZONE:Europe/Paris
+BEGIN:VEVENT
+UID:bobminton-2027-doubles@bob14.fr
+DTSTAMP:20260925T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:Bobminton 2027 · doubles hommes et dames
+LOCATION:Rots
+DESCRIPTION:Doubles hommes et dames\, à partir de 8 h. NC à R4. Badnet : 
+ https://badnet.fr/tournoi/public?eventid=51493
+URL:https://www.bob14.fr/tournois.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bobminton-2027-mixtes@bob14.fr
+DTSTAMP:20260925T000000Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:Bobminton 2027 · doubles mixtes
+LOCATION:Rots
+DESCRIPTION:Doubles mixtes\, à partir de 8 h. NC à R4. Badnet : https://b
+ adnet.fr/tournoi/public?eventid=51493
+URL:https://www.bob14.fr/tournois.html
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

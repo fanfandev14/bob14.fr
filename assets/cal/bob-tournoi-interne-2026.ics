@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//BOB Badminton//bob14.fr//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:BOB · Tournoi interne d’intégration
+X-WR-TIMEZONE:Europe/Paris
+BEGIN:VEVENT
+UID:tournoi-interne-2026@bob14.fr
+DTSTAMP:20260925T000000Z
+DTSTART;VALUE=DATE:20261006
+DTEND;VALUE=DATE:20261007
+SUMMARY:BOB · Tournoi interne d’intégration (doubles)
+LOCATION:Saint-Manvieu-Norrey
+DESCRIPTION:Tournoi de doubles réservé aux adhérents du BOB. Inscription
+  sur Badnet jusqu’au 5 octobre 20 h : https://badnet.fr/tournoi/public?e
+ ventid=51743
+URL:https://www.bob14.fr/tournois.html
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
