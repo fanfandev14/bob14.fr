@@ -81,10 +81,13 @@
 // ---- Cartes QR ----
 .qr-card {
   display: flex;
+  flex-wrap: wrap; // texte sous le QR code quand la carte est trop étroite (≈ 320 px)
   gap: 20px;
   align-items: center;
   padding: 22px;
   @include surface;
+
+  > div { flex: 1 1 160px; min-width: 0; overflow-wrap: anywhere; }
 
   &__img {
     width: 124px; height: 124px; flex: none;
@@ -386,6 +389,8 @@
   &__sub { display: block; width: 100%; margin-top: 3px; font-size: var(--glpi-fs-sm); font-weight: 400; color: var(--tblr-secondary); }
   &__teams { margin: 14px 0 0; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
   .arrow-link { margin-top: 16px; }
+  // Bouton « Ajouter au calendrier » en pied de carte
+  &__cal { display: flex; width: fit-content; margin-top: 14px; }
   &__todo {
     display: flex;
     align-items: center;
@@ -480,6 +485,37 @@
     border-radius: var(--tblr-border-radius-pill);
     background: var(--glpi-badge-bg);
     color: var(--glpi-badge-fg);
+  }
+}
+
+// ---- Abonnement agenda (.ics / webcal) ----
+.cal-sub {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 18px;
+  padding: 20px;
+  @include surface;
+  border-left: 3px solid $amber;
+
+  &__icon {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--tblr-border-radius);
+    background: $navy;
+    color: $amber;
+    .ic { width: 24px; height: 24px; }
+  }
+  &__text  { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  &__title { font-weight: 800; }
+  &__meta  { font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); text-wrap: pretty; }
+  &__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  @include respond(sm) {
+    &__actions { width: 100%; .btn { flex: 1 1 100%; justify-content: center; } }
   }
 }
 

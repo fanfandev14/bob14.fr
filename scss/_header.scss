@@ -160,6 +160,10 @@
   }
 }
 
+// Seuil du menu burger : logo + menu complet demandent ≈ 905 px (+ barre de défilement),
+// marge incluse pour les écarts de rendu des polices. Distinct de $bp-sm (reste du site).
+$bp-nav: 940px;
+
 // Bascule mobile CSS-only (case à cocher masquée)
 .nav-toggle { display: none; }
 
@@ -179,7 +183,7 @@
   &:hover { background: rgba($light, .08); }
 }
 
-@include respond(sm) {
+@media (max-width: $bp-nav) {
   .nav-burger { display: inline-flex; }
 
   .nav {

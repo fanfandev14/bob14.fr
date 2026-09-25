@@ -1,0 +1,58 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//BOB Badminton//bob14.fr//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:BOB · Circuit Départemental Féminin
+X-WR-TIMEZONE:Europe/Paris
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:cdf1-2026@bob14.fr
+DTSTAMP:20260925T000000Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261107
+SUMMARY:CDF1 · semaine (un soir\, 19 h – 23 h 30)
+DESCRIPTION:Circuit Départemental Féminin (R4 max)\, un soir dans la sema
+ ine. Le soir exact est précisé à l’ouverture des inscriptions sur Bad
+ net.
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cdf2-2026@bob14.fr
+DTSTAMP:20260925T000000Z
+DTSTART;VALUE=DATE:20270118
+DTEND;VALUE=DATE:20270123
+SUMMARY:CDF2 · semaine (un soir\, 19 h – 23 h 30)
+DESCRIPTION:Circuit Départemental Féminin (R4 max)\, un soir dans la sema
+ ine. Le soir exact est précisé à l’ouverture des inscriptions sur Bad
+ net.
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cdf3-2026@bob14.fr
+DTSTAMP:20260925T000000Z
+DTSTART;VALUE=DATE:20270322
+DTEND;VALUE=DATE:20270327
+SUMMARY:CDF3 · semaine (un soir\, 19 h – 23 h 30)
+DESCRIPTION:Circuit Départemental Féminin (R4 max)\, un soir dans la sema
+ ine. Le soir exact est précisé à l’ouverture des inscriptions sur Bad
+ net.
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cdf4-2026@bob14.fr
+DTSTAMP:20260925T000000Z
+DTSTART;VALUE=DATE:20270510
+DTEND;VALUE=DATE:20270515
+SUMMARY:CDF4 · semaine (un soir\, 19 h – 23 h 30)
+DESCRIPTION:Circuit Départemental Féminin (R4 max)\, un soir dans la sema
+ ine. Le soir exact est précisé à l’ouverture des inscriptions sur Bad
+ net.
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
