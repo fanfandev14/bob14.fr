@@ -1,0 +1,61 @@
+# Met à jour chaque jour les jauges d'inscriptions des tournois (tournois.html, index.html)
+# à partir des compteurs publics de Badnet. Commit uniquement si un chiffre a changé.
+name: Jauges des tournois
+
+on:
+  schedule:
+    - cron: '17 5 * * *' # chaque jour vers 6 h 17 (hiver) / 7 h 17 (été), heure de Paris
+  workflow_dispatch:
+
+permissions:
+  contents: write # pousser la mise à jour des jauges
+  pages: write    # redemander une publication GitHub Pages
+
+concurrency:
+  group: jauges
+  cancel-in-progress: false
+
+jobs:
+  jauges:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Chrome est préinstallé sur les runners ubuntu-latest
+      - name: Relever les inscriptions sur Badnet
+        id: releve
+        # En cas d'échec partiel, on publie quand même les autres jauges, puis on signale l'échec.
+        run: node scripts/update-jauges.mjs || echo "echec=true" >> "$GITHUB_OUTPUT"
+
+      - name: Committer si les chiffres ont changé
+        id: commit
+        run: |
+          if git diff --quiet; then
+            echo "Aucun changement."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/jauges.json tournois.html index.html
+          git commit -m "chore: jauges d'inscription des tournois"
+          git push
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      # Un push fait avec GITHUB_TOKEN ne relance pas toujours la publication : on la demande.
+      - name: Publier le site
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "::warning::Publication Pages non relancée (elle se fera au prochain push)."
+
+      - name: Signaler un relevé en échec
+        if: steps.releve.outputs.echec == 'true'
+        run: |
+          echo "::error::Au moins un compteur Badnet n'a pas pu être lu (voir l'étape « Relever »). Badnet a peut-être changé sa page."
+          exit 1

@@ -163,9 +163,43 @@
   }
   &__day   { font-family: var(--glpi-font-mono); font-size: var(--glpi-fs-lg); font-weight: 600; color: $amber; }
   &__month { font-size: var(--glpi-fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
-  &__body  { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  &__body  { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
   &__title { font-weight: 800; letter-spacing: -.01em; }
   &__meta  { font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); text-wrap: pretty; }
+}
+
+// ---- Jauge d'inscriptions (mise à jour par scripts/update-jauges.mjs) ----
+.comp__jauge:not(:empty) { margin-top: 14px; }
+.jauge {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: var(--glpi-fs-sm);
+
+  &__bar {
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 8px;
+    border: 0;
+    border-radius: var(--tblr-border-radius-pill);
+    background: var(--glpi-badge-bg);
+    overflow: hidden;
+    color: $navy; // Firefox (barre remplie)
+    &::-webkit-progress-bar   { background: var(--glpi-badge-bg); border-radius: var(--tblr-border-radius-pill); }
+    &::-webkit-progress-value { background: $navy; border-radius: var(--tblr-border-radius-pill); }
+    &::-moz-progress-bar      { background: $navy; border-radius: var(--tblr-border-radius-pill); }
+  }
+  &__text { color: var(--tblr-body-color); strong { font-weight: 800; } }
+  &__date { font-size: var(--glpi-fs-xs); color: var(--tblr-secondary); }
+
+  &--full .jauge__bar {
+    color: $amber;
+    &::-webkit-progress-value { background: $amber; }
+    &::-moz-progress-bar      { background: $amber; }
+  }
+  &--compact { margin-top: 6px; gap: 4px; font-size: var(--glpi-fs-xs); .jauge__bar { height: 6px; } }
 }
 
 // ---- Bloc réseaux (accueil) ----

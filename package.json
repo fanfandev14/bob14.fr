@@ -8,7 +8,8 @@
     "bundle:css": "cat assets/css/fonts.css assets/css/tokens.css assets/css/site.css > assets/css/bob.css",
     "watch:css": "sass --watch scss/main.scss:assets/css/site.css --no-source-map",
     "build:flyers": "bash flyers/build.sh",
-    "build:ics": "node scripts/build-ics.mjs"
+    "build:ics": "node scripts/build-ics.mjs",
+    "update:jauges": "node scripts/update-jauges.mjs"
   },
   "devDependencies": {
     "sass": "^1.102.0"

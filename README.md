@@ -41,6 +41,22 @@ Après régénération, reporter les tailles de fichier dans les cartes `dl-card
 
 `BOB-Competitions-Jeunes-2026-2027.pdf` fait exception : il vient de Canva, pas de `flyers/`.
 
+## Jauges d'inscriptions des tournois
+
+Les jauges de `tournois.html` et de l'encart de `index.html` sont mises à jour **chaque jour** par
+le workflow GitHub Actions `.github/workflows/jauges.yml` (lancement manuel possible depuis l'onglet
+Actions, « Jauges des tournois » → *Run workflow*).
+
+```bash
+npm run update:jauges   # relevé Badnet (Chrome headless) → scripts/jauges.json + HTML entre <!-- jauge:slug -->
+```
+
+- Seul le nombre d'inscrits est relevé, jamais les noms. Commit uniquement si un chiffre change.
+- La liste des tournois suivis (eventid Badnet, clôture, dernier jour) est en tête de
+  `scripts/update-jauges.mjs` : à mettre à jour chaque saison, avec les marqueurs dans les pages.
+- Si Badnet change sa page, le relevé échoue : les jauges gardent leur dernière valeur et
+  GitHub envoie un e-mail d'échec du workflow.
+
 ## Icônes
 
 Pas de webfont : les icônes sont un **sprite SVG inline** injecté en début de `<body>` de chaque

@@ -1,0 +1,22 @@
+{
+  "interne": {
+    "count": 9,
+    "max": null,
+    "changed": "2026-09-25"
+  },
+  "after-bob": {
+    "count": 90,
+    "max": 84,
+    "changed": "2026-09-25"
+  },
+  "simplement-bob": {
+    "count": 21,
+    "max": 110,
+    "changed": "2026-09-25"
+  },
+  "bobminton": {
+    "count": 6,
+    "max": null,
+    "changed": "2026-09-25"
+  }
+}
