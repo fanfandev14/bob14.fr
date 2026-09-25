@@ -27,6 +27,7 @@ render "Calendrier 2026-2027"        "Calendrier-Creneaux"
 render "Flyer Jeunes 2026-2027"      "Jeunes"
 render "Flyer Adultes 2026-2027"     "Adultes"
 render "Flyer Tout le monde 2026-2027" "All"
+render "Flyer Tournois 2026-2027"     "Tournois"
 
 cat <<'EOF'
 

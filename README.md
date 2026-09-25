@@ -35,7 +35,9 @@ npm run build:flyers   # flyers/*.dc.html → assets/docs/BOB-*.pdf (impression 
 Le rendu a besoin du réseau : polices depuis `fonts.googleapis.com`, générateur de QR codes
 depuis `cdn.jsdelivr.net`. Hors ligne, les PDF sortent en police de repli et sans QR code.
 Après régénération, reporter les tailles de fichier dans les cartes `dl-card__meta` de
-`jeunes.html`, `adultes.html` et `infos-pratiques.html` (le script les affiche).
+`jeunes.html`, `adultes.html`, `infos-pratiques.html` et `tournois.html` (le script les affiche).
+
+`BOB-Tournois-2026-2027.pdf` reprend les dates des tournois de `tournois.html` : les modifier aux deux endroits.
 
 `BOB-Competitions-Jeunes-2026-2027.pdf` fait exception : il vient de Canva, pas de `flyers/`.
 
