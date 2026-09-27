@@ -10,13 +10,13 @@
     "changed": "2026-09-25"
   },
   "simplement-bob": {
-    "count": 24,
+    "count": 32,
     "max": 110,
-    "changed": "2026-09-26"
+    "changed": "2026-09-27"
   },
   "bobminton": {
-    "count": 8,
+    "count": 9,
     "max": null,
-    "changed": "2026-09-26"
+    "changed": "2026-09-27"
   }
 }
