@@ -37,6 +37,34 @@ const calendars = {
       description: 'Régionale 2, poule A (équipe 14-BOB-1). Horaires et composition sur icbad : https://icbad.ffbad.org/competition/2601038',
     })),
   },
+  // Interclub mixte D1 (Comité 14) : une journée = un plateau, de 1 à 2 rencontres
+  ...Object.fromEntries([
+    ['bob2', '2', '78019', 'C1', [
+      ['J1', '2026-11-08', '09:00', '12:00', 'Complexe Benoît Costil, Rots (domicile)', 'BOB 3 (9h), CBCC 8 (10h30)'],
+      ['J2', '2026-11-29', '09:30', '11:30', 'Gymnase de Noyers-Bocage', 'ASLNM 2 (9h30)'],
+      ['J3', '2026-12-20', '09:00', '12:00', 'Gymnase Gustave Frion, Bavent', 'SLSNBC 1 (9h), LVB 2 (10h30)'],
+    ]],
+    ['bob3', '3', '78020', 'C1', [
+      ['J1', '2026-11-08', '09:00', '12:00', 'Complexe Benoît Costil, Rots (domicile)', 'BOB 2 (9h), ASLNM 2 (10h30)'],
+      ['J2', '2026-11-29', '09:00', '12:00', 'Gymnase Charles Tellier, Condé-sur-Noireau', 'SLSNBC 1 (9h), LVB 2 (10h30)'],
+      ['J3', '2026-12-20', '09:30', '11:30', 'Complexe Benoît Costil, Rots (domicile)', 'CBCC 8 (9h30)'],
+    ]],
+    ['bob4', '4', '78036', 'F1', [
+      ['J1', '2026-11-08', '09:30', '11:30', 'Gymnase Pierre Cousin, Giberville', 'ASGIBAD 1 (9h30)'],
+      ['J2', '2026-11-29', '09:00', '12:00', 'Complexe Benoît Costil, Rots (domicile)', 'PAB 6 (9h), BED 1 (10h30)'],
+      ['J3', '2026-12-20', '09:00', '12:00', 'Espace Coisel, Saint-André-sur-Orne', 'CBCC 10 (9h), USSA 3 (10h30)'],
+    ]],
+  ].map(([slug, n, equipe, poule, days]) => [`bob-ic-d1-${slug}`, {
+    name: `BOB ${n} · Interclub D1`,
+    url: ADULTES,
+    events: days.map(([j, d, from, to, lieu, adv]) => ({
+      uid: `ic-d1-${slug}-${j.toLowerCase()}-2026`,
+      at: [`${d}T${from}+01:00`, `${d}T${to}+01:00`],
+      summary: `Interclub D1 · ${j} · BOB ${n} contre ${adv}`,
+      location: lieu,
+      description: `Interclub mixte D1, poule ${poule} (équipe 14-BOB-${n}). Horaires indicatifs, icbad fait foi. Composition et résultats sur icbad : https://icbad.ffbad.org/equipe/${equipe}`,
+    })),
+  }])),
   'bob-cda': {
     name: 'BOB · Circuit Départemental Adultes',
     url: ADULTES,

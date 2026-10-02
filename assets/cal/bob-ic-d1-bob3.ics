@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//BOB Badminton//bob14.fr//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:BOB 3 · Interclub D1
+X-WR-TIMEZONE:Europe/Paris
+BEGIN:VEVENT
+UID:ic-d1-bob3-j1-2026@bob14.fr
+DTSTAMP:20260925T000000Z
+DTSTART:20261108T080000Z
+DTEND:20261108T110000Z
+SUMMARY:Interclub D1 · J1 · BOB 3 contre BOB 2 (9h)\, ASLNM 2 (10h30)
+LOCATION:Complexe Benoît Costil\, Rots (domicile)
+DESCRIPTION:Interclub mixte D1\, poule C1 (équipe 14-BOB-3). Horaires indi
+ catifs\, icbad fait foi. Composition et résultats sur icbad : https://icb
+ ad.ffbad.org/equipe/78020
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ic-d1-bob3-j2-2026@bob14.fr
+DTSTAMP:20260925T000000Z
+DTSTART:20261129T080000Z
+DTEND:20261129T110000Z
+SUMMARY:Interclub D1 · J2 · BOB 3 contre SLSNBC 1 (9h)\, LVB 2 (10h30)
+LOCATION:Gymnase Charles Tellier\, Condé-sur-Noireau
+DESCRIPTION:Interclub mixte D1\, poule C1 (équipe 14-BOB-3). Horaires indi
+ catifs\, icbad fait foi. Composition et résultats sur icbad : https://icb
+ ad.ffbad.org/equipe/78020
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ic-d1-bob3-j3-2026@bob14.fr
+DTSTAMP:20260925T000000Z
+DTSTART:20261220T083000Z
+DTEND:20261220T103000Z
+SUMMARY:Interclub D1 · J3 · BOB 3 contre CBCC 8 (9h30)
+LOCATION:Complexe Benoît Costil\, Rots (domicile)
+DESCRIPTION:Interclub mixte D1\, poule C1 (équipe 14-BOB-3). Horaires indi
+ catifs\, icbad fait foi. Composition et résultats sur icbad : https://icb
+ ad.ffbad.org/equipe/78020
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

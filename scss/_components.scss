@@ -556,6 +556,9 @@
     &:first-child { border-top: 0; }
   }
   .date  { font-family: var(--glpi-font-mono); font-weight: 600; }
+  // Interclubs départementaux : rencontres de la journée sous la date
+  &--matches li { flex-wrap: wrap; row-gap: 2px; }
+  &__detail { flex-basis: 100%; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
   .date-extra {
     margin-left: auto;
     font-size: var(--glpi-fs-xs);
