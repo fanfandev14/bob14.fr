@@ -7,85 +7,92 @@ X-WR-CALNAME:BOB 1 · Interclubs R2
 X-WR-TIMEZONE:Europe/Paris
 BEGIN:VEVENT
 UID:r2-j1-2026@bob14.fr
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261004
-DTEND;VALUE=DATE:20261005
-SUMMARY:Interclubs R2 · J1 · Bricquebec
-LOCATION:Bricquebec
-DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires et composit
- ion sur icbad : https://icbad.ffbad.org/competition/2601038
+DTSTAMP:20261002T000000Z
+DTSTART:20261004T081500Z
+DTEND:20261004T123000Z
+SUMMARY:Interclubs R2 · J1 · BOB 1 contre CBCA 1 (10h15)\, IFS 4 (13h)
+LOCATION:Salle omnisports\, Bricquebec
+DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires indicatifs\
+ , icbad fait foi. Composition et résultats sur icbad : https://icbad.ffba
+ d.org/equipe/75541
 URL:https://www.bob14.fr/competitions-adultes.html
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:r2-j2-2026@bob14.fr
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261108
-DTEND;VALUE=DATE:20261109
-SUMMARY:Interclubs R2 · J2 · Ifs
-LOCATION:Ifs
-DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires et composit
- ion sur icbad : https://icbad.ffbad.org/competition/2601038
+DTSTAMP:20261002T000000Z
+DTSTART:20261108T091500Z
+DTEND:20261108T133000Z
+SUMMARY:Interclubs R2 · J2 · BOB 1 contre SABA 1 (10h15)\, UBCB 1 (13h)
+LOCATION:Gymnase Alice Milliat\, Ifs
+DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires indicatifs\
+ , icbad fait foi. Composition et résultats sur icbad : https://icbad.ffba
+ d.org/equipe/75541
 URL:https://www.bob14.fr/competitions-adultes.html
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:r2-j3-2026@bob14.fr
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261129
-DTEND;VALUE=DATE:20261130
-SUMMARY:Interclubs R2 · J3 · Condé-sur-Sarthe
-LOCATION:Condé-sur-Sarthe
-DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires et composit
- ion sur icbad : https://icbad.ffbad.org/competition/2601038
+DTSTAMP:20261002T000000Z
+DTSTART:20261129T091500Z
+DTEND:20261129T133000Z
+SUMMARY:Interclubs R2 · J3 · BOB 1 contre ASL 1 (10h15)\, CBCC 5 (13h)
+LOCATION:Gymnase Alice Milliat\, Ifs
+DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires indicatifs\
+ , icbad fait foi. Composition et résultats sur icbad : https://icbad.ffba
+ d.org/equipe/75541
 URL:https://www.bob14.fr/competitions-adultes.html
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:r2-j4-2026@bob14.fr
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20261220
-DTEND;VALUE=DATE:20261221
-SUMMARY:Interclubs R2 · J4 · Rots (domicile)
-LOCATION:Rots (domicile)
-DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires et composit
- ion sur icbad : https://icbad.ffbad.org/competition/2601038
+DTSTAMP:20261002T000000Z
+DTSTART:20261220T091500Z
+DTEND:20261220T133000Z
+SUMMARY:Interclubs R2 · J4 · BOB 1 contre UCBB 1 (10h15)\, CBCA 1 (13h)
+LOCATION:Complexe Benoît Costil\, Rots (domicile)
+DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires indicatifs\
+ , icbad fait foi. Composition et résultats sur icbad : https://icbad.ffba
+ d.org/equipe/75541
 URL:https://www.bob14.fr/competitions-adultes.html
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:r2-j5-2026@bob14.fr
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20270117
-DTEND;VALUE=DATE:20270118
-SUMMARY:Interclubs R2 · J5 · Bricquebec
-LOCATION:Bricquebec
-DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires et composit
- ion sur icbad : https://icbad.ffbad.org/competition/2601038
+DTSTAMP:20261002T000000Z
+DTSTART:20270117T091500Z
+DTEND:20270117T133000Z
+SUMMARY:Interclubs R2 · J5 · BOB 1 contre UBCB 1 (10h15)\, SABA 1 (13h)
+LOCATION:Gymnase Alice Milliat\, Ifs
+DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires indicatifs\
+ , icbad fait foi. Composition et résultats sur icbad : https://icbad.ffba
+ d.org/equipe/75541
 URL:https://www.bob14.fr/competitions-adultes.html
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:r2-j6-2026@bob14.fr
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20270131
-DTEND;VALUE=DATE:20270201
-SUMMARY:Interclubs R2 · J6 · Rots (domicile)
-LOCATION:Rots (domicile)
-DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires et composit
- ion sur icbad : https://icbad.ffbad.org/competition/2601038
+DTSTAMP:20261002T000000Z
+DTSTART:20270131T091500Z
+DTEND:20270131T133000Z
+SUMMARY:Interclubs R2 · J6 · BOB 1 contre IFS 4 (10h15)\, UCBB 1 (13h)
+LOCATION:Complexe Benoît Costil\, Rots (domicile)
+DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires indicatifs\
+ , icbad fait foi. Composition et résultats sur icbad : https://icbad.ffba
+ d.org/equipe/75541
 URL:https://www.bob14.fr/competitions-adultes.html
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:r2-j7-2026@bob14.fr
-DTSTAMP:20260925T000000Z
-DTSTART;VALUE=DATE:20270321
-DTEND;VALUE=DATE:20270322
-SUMMARY:Interclubs R2 · J7 · Condé-sur-Sarthe
-LOCATION:Condé-sur-Sarthe
-DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires et composit
- ion sur icbad : https://icbad.ffbad.org/competition/2601038
+DTSTAMP:20261002T000000Z
+DTSTART:20270321T091500Z
+DTEND:20270321T133000Z
+SUMMARY:Interclubs R2 · J7 · BOB 1 contre CBCC 5 (10h15)\, ASL 1 (13h)
+LOCATION:Gymnase ASL\, Condé-sur-Sarthe
+DESCRIPTION:Régionale 2\, poule A (équipe 14-BOB-1). Horaires indicatifs\
+ , icbad fait foi. Composition et résultats sur icbad : https://icbad.ffba
+ d.org/equipe/75541
 URL:https://www.bob14.fr/competitions-adultes.html
 TRANSP:TRANSPARENT
 END:VEVENT

@@ -644,6 +644,8 @@
   }
   &__chev { color: var(--tblr-secondary); transition: transform .2s; }
   &[open] .essai__chev { transform: rotate(180deg); }
+  // Variante règlement (interclubs) : liste au lieu du QR code
+  &__rules { padding: 4px 18px 18px; .rule-list { margin-bottom: 14px; } }
 
   &__body {
     display: flex;

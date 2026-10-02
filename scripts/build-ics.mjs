@@ -6,7 +6,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 const OUT = new URL('../assets/cal/', import.meta.url);
 const SITE = 'https://www.bob14.fr';
 // Date de dernière modification des données (à changer à chaque mise à jour des dates)
-const STAMP = '20260925T000000Z';
+const STAMP = '20261002T000000Z';
 
 const ADULTES = `${SITE}/competitions-adultes.html`;
 const JEUNES = `${SITE}/competitions-jeunes.html`;
@@ -22,19 +22,19 @@ const calendars = {
     name: 'BOB 1 · Interclubs R2',
     url: ADULTES,
     events: [
-      ['J1', '2026-10-04', 'Bricquebec'],
-      ['J2', '2026-11-08', 'Ifs'],
-      ['J3', '2026-11-29', 'Condé-sur-Sarthe'],
-      ['J4', '2026-12-20', 'Rots (domicile)'],
-      ['J5', '2027-01-17', 'Bricquebec'],
-      ['J6', '2027-01-31', 'Rots (domicile)'],
-      ['J7', '2027-03-21', 'Condé-sur-Sarthe'],
-    ].map(([j, start, lieu]) => ({
+      ['J1', '2026-10-04', '+02:00', 'Salle omnisports, Bricquebec', 'CBCA 1 (10h15), IFS 4 (13h)'],
+      ['J2', '2026-11-08', '+01:00', 'Gymnase Alice Milliat, Ifs', 'SABA 1 (10h15), UBCB 1 (13h)'],
+      ['J3', '2026-11-29', '+01:00', 'Gymnase Alice Milliat, Ifs', 'ASL 1 (10h15), CBCC 5 (13h)'],
+      ['J4', '2026-12-20', '+01:00', 'Complexe Benoît Costil, Rots (domicile)', 'UCBB 1 (10h15), CBCA 1 (13h)'],
+      ['J5', '2027-01-17', '+01:00', 'Gymnase Alice Milliat, Ifs', 'UBCB 1 (10h15), SABA 1 (13h)'],
+      ['J6', '2027-01-31', '+01:00', 'Complexe Benoît Costil, Rots (domicile)', 'IFS 4 (10h15), UCBB 1 (13h)'],
+      ['J7', '2027-03-21', '+01:00', 'Gymnase ASL, Condé-sur-Sarthe', 'CBCC 5 (10h15), ASL 1 (13h)'],
+    ].map(([j, d, tz, lieu, adv]) => ({
       uid: `r2-${j.toLowerCase()}-2026`,
-      start,
-      summary: `Interclubs R2 · ${j} · ${lieu}`,
+      at: [`${d}T10:15${tz}`, `${d}T14:30${tz}`],
+      summary: `Interclubs R2 · ${j} · BOB 1 contre ${adv}`,
       location: lieu,
-      description: 'Régionale 2, poule A (équipe 14-BOB-1). Horaires et composition sur icbad : https://icbad.ffbad.org/competition/2601038',
+      description: 'Régionale 2, poule A (équipe 14-BOB-1). Horaires indicatifs, icbad fait foi. Composition et résultats sur icbad : https://icbad.ffbad.org/equipe/75541',
     })),
   },
   // Interclub mixte D1 (Comité 14) : une journée = un plateau, de 1 à 2 rencontres

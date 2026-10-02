@@ -16,7 +16,7 @@
   margin-inline: auto;
   padding: 56px $gutter 28px;
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  grid-template-columns: 1.3fr 1fr 1fr;
   gap: 40px;
 
   @include respond(md) { grid-template-columns: 1fr 1fr; gap: 28px; padding-inline: 24px; }
