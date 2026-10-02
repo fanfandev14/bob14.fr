@@ -83,10 +83,16 @@
 
   // Groupe avec sous-menu déroulant
   &__group { position: relative; display: flex; align-items: center; }
+  // Intitulé de groupe : bouton qui ouvre le sous-menu, sans page propre
   &__parent {
     display: inline-flex;
     align-items: center;
     gap: 5px;
+    background: none;
+    border: 0;
+    font-family: inherit;
+    line-height: inherit;
+    cursor: pointer;
     i { font-size: 15px; }
   }
   &__submenu {
@@ -207,6 +213,8 @@ $bp-nav: 940px;
     // Sous-menus : toujours dépliés, en retrait
     &__group { flex-direction: column; align-items: stretch; }
     &__parent i { display: none; }
+    // Sous-menus toujours dépliés : l'intitulé n'est qu'un titre de groupe
+    &__parent { cursor: default; pointer-events: none; .ic { display: none; } }
     &__submenu {
       display: block;
       position: static;
