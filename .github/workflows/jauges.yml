@@ -1,5 +1,6 @@
 # Mise à jour quotidienne du site :
 # - retire les dates passées des blocs « Prochaines dates » (pages compétitions adultes et jeunes) ;
+# - met à jour les classements et résultats des interclubs (competitions-adultes.html) depuis icbad ;
 # - met à jour les jauges d'inscriptions des tournois (tournois.html, index.html) depuis Badnet.
 # Commit uniquement si quelque chose a changé.
 name: Mise à jour quotidienne du site
@@ -41,6 +42,16 @@ jobs:
             git commit -m "chore: retrait des dates passées"
           fi
 
+      - name: Relever les classements sur icbad
+        id: icbad
+        # En cas d'échec, les blocs concernés gardent leur dernière valeur ; l'échec est signalé à la fin.
+        run: |
+          node scripts/update-icbad.mjs || echo "echec=true" >> "$GITHUB_OUTPUT"
+          if ! git diff --quiet -- competitions-adultes.html; then
+            git add competitions-adultes.html
+            git commit -m "chore: classements des interclubs"
+          fi
+
       # Chrome est préinstallé sur les runners ubuntu-latest
       - name: Relever les inscriptions sur Badnet
         id: releve
@@ -70,7 +81,12 @@ jobs:
         run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "::warning::Publication Pages non relancée (elle se fera au prochain push)."
 
       - name: Signaler un relevé en échec
-        if: steps.releve.outputs.echec == 'true'
+        if: steps.releve.outputs.echec == 'true' || steps.icbad.outputs.echec == 'true'
         run: |
-          echo "::error::Au moins un compteur Badnet n'a pas pu être lu (voir l'étape « Relever »). Badnet a peut-être changé sa page."
+          if [ "${{ steps.icbad.outputs.echec }}" = "true" ]; then
+            echo "::error::Au moins une poule icbad n'a pas pu être lue (voir l'étape « Relever les classements »). icbad a peut-être changé sa page, ou une poule a été recréée."
+          fi
+          if [ "${{ steps.releve.outputs.echec }}" = "true" ]; then
+            echo "::error::Au moins un compteur Badnet n'a pas pu être lu (voir l'étape « Relever les inscriptions »). Badnet a peut-être changé sa page."
+          fi
           exit 1

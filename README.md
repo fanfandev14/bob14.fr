@@ -72,6 +72,25 @@ TODAY=2027-01-01 npm run prune:dates   # simule le ménage à une autre date
 Les dates restent aussi dans les cartes détaillées et dans `scripts/build-ics.mjs` : en ajouter
 une = la mettre aux trois endroits.
 
+## Classements des interclubs (icbad)
+
+Le même workflow quotidien relève sur icbad le classement de chaque poule et les résultats de nos
+équipes, et les écrit dans `competitions-adultes.html` entre des marqueurs `<!-- icbad:… -->` :
+
+- `icbad:poule-<slug>` : classement de la poule (dépliant « Poules et classements ») ;
+- `icbad:equipe-<slug>` : rang, points, bilan et dernière journée dans la carte de l'équipe (vide tant
+  qu'aucune rencontre n'est jouée).
+
+```bash
+npm run update:icbad   # relevé icbad (simple requête HTTP, pas de Chrome) → HTML entre les marqueurs
+```
+
+- Les poules et équipes suivies sont en tête de `scripts/update-icbad.mjs` (adresses des poules sur
+  `icbad.ffbad.org/instance/BOB14`) : **à mettre à jour à chaque phase**, avec les marqueurs de la page.
+  Le tableau `CLUBS` donne les noms courts des adversaires.
+- Si une poule est recréée sur icbad ou si icbad change sa page, le relevé échoue : les blocs gardent
+  leur dernière valeur et GitHub envoie un e-mail d'échec du workflow.
+
 ## Icônes
 
 Pas de webfont : les icônes sont un **sprite SVG inline** injecté en début de `<body>` de chaque

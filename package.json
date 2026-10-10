@@ -10,7 +10,8 @@
     "build:flyers": "bash flyers/build.sh",
     "build:ics": "node scripts/build-ics.mjs",
     "update:jauges": "node scripts/update-jauges.mjs",
-    "prune:dates": "node scripts/prune-dates.mjs"
+    "prune:dates": "node scripts/prune-dates.mjs",
+    "update:icbad": "node scripts/update-icbad.mjs"
   },
   "devDependencies": {
     "sass": "^1.102.0"
