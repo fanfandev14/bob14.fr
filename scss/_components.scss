@@ -570,6 +570,106 @@
   }
 }
 
+// ---- Prochaines dates d'interclubs : tuiles calendrier ----
+.panel__lead { margin: -8px 0 0; color: var(--tblr-secondary); font-size: var(--glpi-fs-sm); }
+.ic-days {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ic-day {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--tblr-border-color);
+  border-radius: var(--tblr-border-radius-lg);
+
+  &__cal {
+    flex: none;
+    width: 62px;
+    padding: 6px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--tblr-border-radius);
+    background: var(--glpi-badge-bg);
+    color: var(--glpi-badge-fg);
+    line-height: 1.1;
+  }
+  &__dow, &__month {
+    font-family: var(--glpi-font-mono);
+    font-size: var(--glpi-fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  &__num { font-size: 1.6rem; font-weight: 800; }
+
+  &__body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  &__home { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  &__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 800;
+    margin-right: 2px;
+    .ic { width: 18px; height: 18px; color: $navy; }
+  }
+  &__team {
+    font-size: var(--glpi-fs-sm);
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: var(--tblr-border-radius-pill);
+    background: var(--tblr-primary);
+    color: var(--tblr-primary-fg);
+  }
+  &__away { margin: 0; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); text-wrap: pretty; }
+
+  &--home {
+    border-color: $amber;
+    background: color-mix(in srgb, #{$amber}, var(--tblr-bg-surface) 88%);
+    .ic-day__cal { background: var(--tblr-primary); color: var(--tblr-primary-fg); }
+  }
+
+  @include respond(sm) {
+    align-items: flex-start;
+    gap: 12px;
+    &__cal { width: 54px; }
+    &__num { font-size: 1.35rem; }
+  }
+}
+
+// ---- Composition des poules d'interclubs (dépliant) ----
+.poules {
+  padding: 4px 18px 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+}
+.poule {
+  padding: 12px 14px;
+  border: 1px solid var(--tblr-border-color);
+  border-radius: var(--tblr-border-radius);
+  &__title { margin: 0 0 8px; font-size: var(--glpi-fs-md); font-weight: 800; }
+  &__sub { display: block; font-size: var(--glpi-fs-xs); font-weight: 400; color: var(--tblr-secondary); }
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--glpi-fs-sm);
+    li { padding: 3px 0; color: var(--tblr-secondary); }
+    li.poule__bob {
+      font-weight: 800;
+      color: var(--tblr-body-color);
+      &::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; background: $amber; }
+    }
+  }
+}
+
 // ---- Carte de téléchargement PDF ----
 .dl-card {
   display: flex;
