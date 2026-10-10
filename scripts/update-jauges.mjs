@@ -18,7 +18,6 @@ const PAGES = ['tournois.html', 'index.html'];
 // Tournois suivis : eventid Badnet, clôture des inscriptions et dernier jour (AAAA-MM-JJ).
 // À mettre à jour chaque saison, avec les marqueurs correspondants dans les pages.
 const TOURNOIS = [
-  { slug: 'interne', eventid: 51743, cloture: '2026-10-05', fin: '2026-10-06' },
   { slug: 'after-bob', eventid: 51327, cloture: '2026-10-14', fin: '2026-10-24' },
   { slug: 'simplement-bob', eventid: 51641, cloture: '2026-11-25', fin: '2026-12-05' },
   { slug: 'bobminton', eventid: 51493, cloture: '2027-01-27', fin: '2027-02-07' },

@@ -152,17 +152,6 @@ const calendars = {
     ],
   },
   // ---- Tournois organisés par le club (sources : Badnet + règlements particuliers Poona) ----
-  'bob-tournoi-interne-2026': {
-    name: 'BOB · Tournoi interne d’intégration',
-    url: TOURNOIS,
-    events: [{
-      uid: 'tournoi-interne-2026',
-      start: '2026-10-06',
-      summary: 'BOB · Tournoi interne d’intégration (doubles)',
-      location: 'Saint-Manvieu-Norrey',
-      description: 'Tournoi de doubles réservé aux adhérents du BOB. Inscription sur Badnet jusqu’au 5 octobre 20 h : https://badnet.fr/tournoi/public?eventid=51743',
-    }],
-  },
   'bob-tournoi-after-bob-2': {
     name: 'BOB · After BOB #2',
     url: TOURNOIS,

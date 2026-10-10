@@ -1,9 +1,4 @@
 {
-  "interne": {
-    "count": 25,
-    "max": null,
-    "changed": "2026-10-05"
-  },
   "after-bob": {
     "count": 90,
     "max": 84,
