@@ -6,7 +6,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 const OUT = new URL('../assets/cal/', import.meta.url);
 const SITE = 'https://www.bob14.fr';
 // Date de dernière modification des données (à changer à chaque mise à jour des dates)
-const STAMP = '20261002T000000Z';
+const STAMP = '20261011T000000Z';
 
 const ADULTES = `${SITE}/competitions-adultes.html`;
 const JEUNES = `${SITE}/competitions-jeunes.html`;
@@ -39,15 +39,15 @@ const calendars = {
   },
   // Interclub mixte D1 (Comité 14) : une journée = un plateau, de 1 à 2 rencontres
   ...Object.fromEntries([
-    ['bob2', '2', '78019', 'C1', [
-      ['J1', '2026-11-08', '09:00', '12:00', 'Complexe Benoît Costil, Rots (domicile)', 'BOB 3 (9h), CBCC 8 (10h30)'],
+    ['bob2', '2', '79049', 'C1', [
+      ['J1', '2026-11-08', '09:00', '12:00', 'Complexe Benoît Costil, Rots (domicile)', 'BOB 3 (9h), LVB 2 (10h30)'],
       ['J2', '2026-11-29', '09:30', '11:30', 'Gymnase de Noyers-Bocage', 'ASLNM 2 (9h30)'],
-      ['J3', '2026-12-20', '09:00', '12:00', 'Gymnase Gustave Frion, Bavent', 'SLSNBC 1 (9h), LVB 2 (10h30)'],
+      ['J3', '2026-12-20', '09:00', '12:00', 'La Halle des sports, Cormelles-le-Royal', 'SLSNBC 1 (9h), CBC 1 (10h30)'],
     ]],
-    ['bob3', '3', '78020', 'C1', [
+    ['bob3', '3', '79050', 'C1', [
       ['J1', '2026-11-08', '09:00', '12:00', 'Complexe Benoît Costil, Rots (domicile)', 'BOB 2 (9h), ASLNM 2 (10h30)'],
-      ['J2', '2026-11-29', '09:00', '12:00', 'Gymnase Charles Tellier, Condé-sur-Noireau', 'SLSNBC 1 (9h), LVB 2 (10h30)'],
-      ['J3', '2026-12-20', '09:30', '11:30', 'Complexe Benoît Costil, Rots (domicile)', 'CBCC 8 (9h30)'],
+      ['J2', '2026-11-29', '09:00', '12:00', 'Gymnase Charles Tellier, Condé-sur-Noireau', 'SLSNBC 1 (9h), CBC 1 (10h30)'],
+      ['J3', '2026-12-20', '09:30', '11:30', 'Gymnase Gustave Frion, Bavent', 'LVB 2 (9h30)'],
     ]],
     ['bob4', '4', '78036', 'F1', [
       ['J1', '2026-11-08', '09:30', '11:30', 'Gymnase Pierre Cousin, Giberville', 'ASGIBAD 1 (9h30)'],
@@ -63,6 +63,30 @@ const calendars = {
       summary: `Interclub D1 · ${j} · BOB ${n} contre ${adv}`,
       location: lieu,
       description: `Interclub mixte D1, poule ${poule} (équipe 14-BOB-${n}). Horaires indicatifs, icbad fait foi. Composition et résultats sur icbad : https://icbad.ffbad.org/equipe/${equipe}`,
+    })),
+  }])),
+  // Challenge hommes (Interclub D2 masculin, Comité 14) : une journée = un plateau, de 1 à 2 rencontres
+  ...Object.fromEntries([
+    ['bob5', '5', '79410', 'CH_A1', [
+      ['J1', '2026-11-08', '09:00', '12:00', 'Salle Rufa, Caen', 'CBBE 4 (9h), CBCC 15 (10h30)'],
+      ['J2', '2026-11-29', '08:30', '13:00', 'Complexe Benoît Costil, Rots (domicile)', 'BCMF 2 (8h30), CBCC 14 (11h30)'],
+      ['J3', '2026-12-20', '09:00', '12:00', 'Salle Rufa, Caen', 'IFS 9 (9h), USP 4 (10h30)'],
+    ]],
+    ['bob6', '6', '79419', 'CH_B1', [
+      ['J1', '2026-11-08', '09:00', '12:00', 'Complexe Benoît Costil, Rots (domicile)', 'IFS 10 (9h), ASLNM 3 (10h30)'],
+      ['J2', '2026-11-29', '09:00', '12:00', 'Gymnase Alice Milliat, Ifs', 'BED 3 (9h), LVB 3 (10h30)'],
+      ['J3', '2026-12-20', '09:00', '12:00', 'Gymnase de Livarot', 'BADCO 2 (9h), PAB 9 (10h30)'],
+      ['J4', '2026-12-27', '09:00', '11:00', 'Gymnase Guillaume le Conquérant, Falaise', 'ESF 6 (9h)'],
+    ]],
+  ].map(([slug, n, equipe, poule, days]) => [`bob-ic-challenge-${slug}`, {
+    name: `BOB ${n} · Challenge hommes`,
+    url: ADULTES,
+    events: days.map(([j, d, from, to, lieu, adv]) => ({
+      uid: `ic-challenge-${slug}-${j.toLowerCase()}-2026`,
+      at: [`${d}T${from}+01:00`, `${d}T${to}+01:00`],
+      summary: `Challenge hommes · ${j} · BOB ${n} contre ${adv}`,
+      location: lieu,
+      description: `Challenge hommes (interclub D2 masculin), poule ${poule} (équipe 14-BOB-${n}). Horaires indicatifs, icbad fait foi. Composition et résultats sur icbad : https://icbad.ffbad.org/equipe/${equipe}`,
     })),
   }])),
   'bob-cda': {

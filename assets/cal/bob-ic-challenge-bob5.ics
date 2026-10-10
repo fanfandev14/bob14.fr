@@ -1,0 +1,49 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//BOB Badminton//bob14.fr//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:BOB 5 · Challenge hommes
+X-WR-TIMEZONE:Europe/Paris
+BEGIN:VEVENT
+UID:ic-challenge-bob5-j1-2026@bob14.fr
+DTSTAMP:20261011T000000Z
+DTSTART:20261108T080000Z
+DTEND:20261108T110000Z
+SUMMARY:Challenge hommes · J1 · BOB 5 contre CBBE 4 (9h)\, CBCC 15 (10h30
+ )
+LOCATION:Salle Rufa\, Caen
+DESCRIPTION:Challenge hommes (interclub D2 masculin)\, poule CH_A1 (équipe
+  14-BOB-5). Horaires indicatifs\, icbad fait foi. Composition et résultat
+ s sur icbad : https://icbad.ffbad.org/equipe/79410
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ic-challenge-bob5-j2-2026@bob14.fr
+DTSTAMP:20261011T000000Z
+DTSTART:20261129T073000Z
+DTEND:20261129T120000Z
+SUMMARY:Challenge hommes · J2 · BOB 5 contre BCMF 2 (8h30)\, CBCC 14 (11h
+ 30)
+LOCATION:Complexe Benoît Costil\, Rots (domicile)
+DESCRIPTION:Challenge hommes (interclub D2 masculin)\, poule CH_A1 (équipe
+  14-BOB-5). Horaires indicatifs\, icbad fait foi. Composition et résultat
+ s sur icbad : https://icbad.ffbad.org/equipe/79410
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ic-challenge-bob5-j3-2026@bob14.fr
+DTSTAMP:20261011T000000Z
+DTSTART:20261220T080000Z
+DTEND:20261220T110000Z
+SUMMARY:Challenge hommes · J3 · BOB 5 contre IFS 9 (9h)\, USP 4 (10h30)
+LOCATION:Salle Rufa\, Caen
+DESCRIPTION:Challenge hommes (interclub D2 masculin)\, poule CH_A1 (équipe
+  14-BOB-5). Horaires indicatifs\, icbad fait foi. Composition et résultat
+ s sur icbad : https://icbad.ffbad.org/equipe/79410
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

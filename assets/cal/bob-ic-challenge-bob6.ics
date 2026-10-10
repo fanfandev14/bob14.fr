@@ -1,0 +1,61 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//BOB Badminton//bob14.fr//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:BOB 6 · Challenge hommes
+X-WR-TIMEZONE:Europe/Paris
+BEGIN:VEVENT
+UID:ic-challenge-bob6-j1-2026@bob14.fr
+DTSTAMP:20261011T000000Z
+DTSTART:20261108T080000Z
+DTEND:20261108T110000Z
+SUMMARY:Challenge hommes · J1 · BOB 6 contre IFS 10 (9h)\, ASLNM 3 (10h30
+ )
+LOCATION:Complexe Benoît Costil\, Rots (domicile)
+DESCRIPTION:Challenge hommes (interclub D2 masculin)\, poule CH_B1 (équipe
+  14-BOB-6). Horaires indicatifs\, icbad fait foi. Composition et résultat
+ s sur icbad : https://icbad.ffbad.org/equipe/79419
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ic-challenge-bob6-j2-2026@bob14.fr
+DTSTAMP:20261011T000000Z
+DTSTART:20261129T080000Z
+DTEND:20261129T110000Z
+SUMMARY:Challenge hommes · J2 · BOB 6 contre BED 3 (9h)\, LVB 3 (10h30)
+LOCATION:Gymnase Alice Milliat\, Ifs
+DESCRIPTION:Challenge hommes (interclub D2 masculin)\, poule CH_B1 (équipe
+  14-BOB-6). Horaires indicatifs\, icbad fait foi. Composition et résultat
+ s sur icbad : https://icbad.ffbad.org/equipe/79419
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ic-challenge-bob6-j3-2026@bob14.fr
+DTSTAMP:20261011T000000Z
+DTSTART:20261220T080000Z
+DTEND:20261220T110000Z
+SUMMARY:Challenge hommes · J3 · BOB 6 contre BADCO 2 (9h)\, PAB 9 (10h30)
+LOCATION:Gymnase de Livarot
+DESCRIPTION:Challenge hommes (interclub D2 masculin)\, poule CH_B1 (équipe
+  14-BOB-6). Horaires indicatifs\, icbad fait foi. Composition et résultat
+ s sur icbad : https://icbad.ffbad.org/equipe/79419
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ic-challenge-bob6-j4-2026@bob14.fr
+DTSTAMP:20261011T000000Z
+DTSTART:20261227T080000Z
+DTEND:20261227T100000Z
+SUMMARY:Challenge hommes · J4 · BOB 6 contre ESF 6 (9h)
+LOCATION:Gymnase Guillaume le Conquérant\, Falaise
+DESCRIPTION:Challenge hommes (interclub D2 masculin)\, poule CH_B1 (équipe
+  14-BOB-6). Horaires indicatifs\, icbad fait foi. Composition et résultat
+ s sur icbad : https://icbad.ffbad.org/equipe/79419
+URL:https://www.bob14.fr/competitions-adultes.html
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
