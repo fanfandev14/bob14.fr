@@ -45,7 +45,7 @@ Après régénération, reporter les tailles de fichier dans les cartes `dl-card
 
 Les jauges de `tournois.html` et de l'encart de `index.html` sont mises à jour **chaque jour** par
 le workflow GitHub Actions `.github/workflows/jauges.yml` (lancement manuel possible depuis l'onglet
-Actions, « Jauges des tournois » → *Run workflow*).
+Actions, « Mise à jour quotidienne du site » → *Run workflow*).
 
 ```bash
 npm run update:jauges   # relevé Badnet (Chrome headless) → scripts/jauges.json + HTML entre <!-- jauge:slug -->
@@ -56,6 +56,21 @@ npm run update:jauges   # relevé Badnet (Chrome headless) → scripts/jauges.js
   `scripts/update-jauges.mjs` : à mettre à jour chaque saison, avec les marqueurs dans les pages.
 - Si Badnet change sa page, le relevé échoue : les jauges gardent leur dernière valeur et
   GitHub envoie un e-mail d'échec du workflow.
+
+## Prochaines dates (compétitions adultes et jeunes)
+
+Les blocs « Prochaines dates » sont des tuiles `<li class="ic-day">` portant leur date dans
+`<time datetime="AAAA-MM-JJ">` (ou `data-fin="AAAA-MM-JJ"` sur le `<li>` pour un événement sur
+plusieurs jours). Le même workflow quotidien retire les dates passées ; une liste vide affiche un
+message de fin de saison.
+
+```bash
+npm run prune:dates              # retire les dates passées
+TODAY=2027-01-01 npm run prune:dates   # simule le ménage à une autre date
+```
+
+Les dates restent aussi dans les cartes détaillées et dans `scripts/build-ics.mjs` : en ajouter
+une = la mettre aux trois endroits.
 
 ## Icônes
 

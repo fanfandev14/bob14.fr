@@ -1,6 +1,8 @@
-# Met à jour chaque jour les jauges d'inscriptions des tournois (tournois.html, index.html)
-# à partir des compteurs publics de Badnet. Commit uniquement si un chiffre a changé.
-name: Jauges des tournois
+# Mise à jour quotidienne du site :
+# - retire les dates passées des blocs « Prochaines dates » (pages compétitions adultes et jeunes) ;
+# - met à jour les jauges d'inscriptions des tournois (tournois.html, index.html) depuis Badnet.
+# Commit uniquement si quelque chose a changé.
+name: Mise à jour quotidienne du site
 
 on:
   schedule:
@@ -26,24 +28,37 @@ jobs:
         with:
           node-version: 22
 
+      - name: Préparer git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Retirer les dates passées
+        run: |
+          node scripts/prune-dates.mjs
+          if ! git diff --quiet -- competitions-adultes.html competitions-jeunes.html; then
+            git add competitions-adultes.html competitions-jeunes.html
+            git commit -m "chore: retrait des dates passées"
+          fi
+
       # Chrome est préinstallé sur les runners ubuntu-latest
       - name: Relever les inscriptions sur Badnet
         id: releve
         # En cas d'échec partiel, on publie quand même les autres jauges, puis on signale l'échec.
         run: node scripts/update-jauges.mjs || echo "echec=true" >> "$GITHUB_OUTPUT"
 
-      - name: Committer si les chiffres ont changé
+      - name: Committer et pousser s'il y a du changement
         id: commit
         run: |
-          if git diff --quiet; then
+          if ! git diff --quiet; then
+            git add scripts/jauges.json tournois.html index.html
+            git commit -m "chore: jauges d'inscription des tournois"
+          fi
+          if [ -z "$(git log --oneline origin/main..HEAD)" ]; then
             echo "Aucun changement."
             echo "pushed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/jauges.json tournois.html index.html
-          git commit -m "chore: jauges d'inscription des tournois"
           git push
           echo "pushed=true" >> "$GITHUB_OUTPUT"
 

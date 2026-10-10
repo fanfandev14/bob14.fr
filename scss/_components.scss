@@ -580,6 +580,7 @@
   flex-direction: column;
   gap: 10px;
 }
+.ic-days__empty { padding: 14px; text-align: center; color: var(--tblr-secondary); font-size: var(--glpi-fs-sm); }
 .ic-day {
   display: flex;
   align-items: center;
