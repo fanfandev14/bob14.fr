@@ -1,8 +1,8 @@
 {
   "after-bob": {
-    "count": 89,
+    "count": 87,
     "max": 84,
-    "changed": "2026-10-11"
+    "changed": "2026-10-12"
   },
   "simplement-bob": {
     "count": 114,
@@ -10,8 +10,8 @@
     "changed": "2026-10-11"
   },
   "bobminton": {
-    "count": 43,
+    "count": 44,
     "max": null,
-    "changed": "2026-10-11"
+    "changed": "2026-10-12"
   }
 }
