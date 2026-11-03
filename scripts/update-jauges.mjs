@@ -58,6 +58,11 @@ function texte(t, s, compact) {
 }
 
 function jauge(t, s, compact) {
+  // Tournoi passé : plus de jauge, seulement « Terminé ».
+  if (today > t.fin) {
+    const merci = compact ? '' : ', merci à tous les participants !';
+    return `<span class="jauge${compact ? ' jauge--compact' : ''}"><span class="jauge__text"><strong>Terminé</strong>${merci}</span></span>`;
+  }
   const full = s.max && s.count >= s.max;
   const cls = `jauge${compact ? ' jauge--compact' : ''}${full ? ' jauge--full' : ''}`;
   const bar = s.max

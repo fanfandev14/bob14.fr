@@ -5,6 +5,7 @@
 // Le résultat est du HTML statique entre deux marqueurs :
 //   <!-- icbad:poule-slug --> … <!-- /icbad:poule-slug -->  classement de la poule (dépliant des poules)
 //   <!-- icbad:equipe-slug --> … <!-- /icbad:equipe-slug -->  rang et résultats dans la carte de l'équipe
+//   <!-- icbad:dates-slug --> … <!-- /icbad:dates-slug -->  rencontres de l'équipe (vétérans : dates fixées en cours de saison)
 // Si une poule ne peut pas être lue, ses blocs gardent leur dernière valeur et le script sort en erreur.
 import { readFileSync, writeFileSync } from 'node:fs';
 
@@ -19,6 +20,9 @@ const POULES = [
   { slug: 'd1-f1', tableau: '2603001/tableau/19383' },
   { slug: 'ch-a1', tableau: '2603588/tableau/19869' },
   { slug: 'ch-b1', tableau: '2603588/tableau/19870' },
+  { slug: 'vet-a', tableau: '2604042/tableau/20440' },
+  { slug: 'vet-b', tableau: '2604042/tableau/20444' },
+  { slug: 'vet-c', tableau: '2604042/tableau/20445' },
 ];
 const EQUIPES = [
   { slug: 'bob1', code: 'BOB-1', poule: 'r2-a' },
@@ -27,14 +31,26 @@ const EQUIPES = [
   { slug: 'bob4', code: 'BOB-4', poule: 'd1-f1' },
   { slug: 'bob5', code: 'BOB-5', poule: 'ch-a1' },
   { slug: 'bob6', code: 'BOB-6', poule: 'ch-b1' },
+  // dates : liste des rencontres écrite depuis icbad (les vétérans fixent leurs dates en cours de saison)
+  { slug: 'v1', code: 'BOB-V1', poule: 'vet-a', dates: true },
+  { slug: 'v2', code: 'BOB-V2', poule: 'vet-b', dates: true },
+  { slug: 'v3', code: 'BOB-V3', poule: 'vet-c', dates: true },
 ];
+// Année du début de saison : les dates icbad sont en JJ/MM (septembre à décembre = cette année).
+const SAISON = 2026;
 // Noms courts des clubs (sigle icbad → nom affiché). Sigle inconnu : nom complet icbad.
 const CLUBS = {
   ASGIBAD: 'Giberville', ASL: 'Condé-sur-Sarthe', ASLNM: 'Noyers-Missy', BADCO: 'Ouistreham',
-  BCMF: 'Merville-Franceville', BED: 'Bad Ès Dunes', CBBE: 'Bretteville-Épron', CBC: 'Cormelles',
-  CBCA: 'Carentan', CBCC: 'Conquérant Caen', ESF: 'Falaise', IFS: "Badmint'ifs", LVB: 'Volants Baventais',
+  BCD: 'Dives-sur-Mer', BCMF: 'Merville-Franceville', BED: 'Bad Ès Dunes', CBBE: 'Bretteville-Épron',
+  CBC: 'Cormelles', CBCA: 'Carentan', CBCC: 'Conquérant Caen', ESF: 'Falaise', FVB: 'Bayeux',
+  IFS: "Badmint'ifs", LVB: 'Volants Baventais',
   PAB: "Pays d'Auge", SABA: 'Section Agnelaise', SLSNBC: 'SLSN Condé', UBCB: 'Union Bad. de la Baie',
   UCBB: 'Bricquebec', USP: 'St-Pierre-en-Auge', USSA: 'St-André',
+};
+// Lieux icbad sans « salle - ville » (sinon la ville est ce qui suit le tiret).
+const VILLES = {
+  'Gymnase de Bellengreville': 'Bellengreville', "Gymnase d'Épron": 'Épron',
+  'Gymnase de Noyers-Bocage Route de Bretagne': 'Noyers-Bocage',
 };
 
 const text = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&#0?39;|&apos;/g, "'").replace(/&amp;/g, '&')
@@ -43,8 +59,9 @@ const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, 
 const cells = (tr) => [...tr.matchAll(/<td([^>]*)>([\s\S]*?)<\/td>/g)].map(([, attrs, html]) => ({ attrs, html }));
 
 // « Club de Badminton de Carentan (50-CBCA-1) » → { code: 'CBCA-1', nom: 'Carentan (CBCA 1)' }
+// Équipes vétérans : « (BOB-V1) » → { code: 'BOB-V1', nom: 'BOB V1' }
 function equipe(libelle) {
-  const m = /^(.*)\((?:\d+-)?([A-Z0-9]+)-(\d+)\)$/.exec(libelle);
+  const m = /^(.*)\((?:\d+-)?([A-Z0-9]+)-(V?\d+)\)$/.exec(libelle);
   if (!m) return { code: libelle, nom: libelle };
   const [, club, sigle, n] = m;
   if (sigle === 'BOB') return { code: `BOB-${n}`, nom: `BOB ${n}` };
@@ -69,13 +86,16 @@ function lirePoule(html) {
     const journee = text(bloc.slice(0, bloc.indexOf('</th>')));
     for (const [, tr] of bloc.matchAll(/<tr class="uk-visible@m clickable-row">([\s\S]*?)<\/tr>/g)) {
       const td = cells(tr);
-      const date = /Le (\d\d)\/(\d\d)/.exec(text(td[0].html));
+      const date = /Le (\d\d)\/(\d\d)(?: à (\d\d):(\d\d))?/.exec(text(td[0].html));
       const score = /(\d+) - (\d+)/.exec(text(td[3].html));
       const issue = (attrs) => (/ic-win/.test(attrs) ? 'win' : /ic-loose/.test(attrs) ? 'loss' : null);
       if (!date || !score) continue;
       rencontres.push({
         journee,
         date: `${date[1]}/${date[2]}`,
+        heure: date[3] ? `${Number(date[3])}h${date[4] === '00' ? '' : date[4]}` : null,
+        jour: new Date(Date.UTC(SAISON + (Number(date[2]) < 8 ? 1 : 0), Number(date[2]) - 1, Number(date[1]))).getUTCDay(),
+        lieu: text(td[1].html),
         a: { ...equipe(text(td[2].html)), score: Number(score[1]), issue: issue(td[2].attrs) },
         b: { ...equipe(text(td[4].html)), score: Number(score[2]), issue: issue(td[4].attrs) },
       });
@@ -121,6 +141,30 @@ function blocEquipe(t, p) {
     + `<ul class="ic-res__list">${res.join('')}</ul></div>`;
 }
 
+const JOURS = ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'];
+function ville(lieu) {
+  if (!lieu || lieu === '#N/D') return 'Lieu à confirmer';
+  if (/Costil/i.test(lieu)) return 'Rots · domicile';
+  const [salle, v] = lieu.split(/\s+-\s*/);
+  return v || VILLES[salle] || salle;
+}
+
+// Toutes les rencontres de l'équipe. En vétérans, icbad affiche le dimanche de la date butoir tant que
+// les clubs n'ont pas fixé leur soir de semaine (règlement départemental, art. 10.2) : date « à fixer ».
+function blocDates(t, p) {
+  const li = p.rencontres
+    .filter((r) => r.a.code === t.code || r.b.code === t.code)
+    .map((r) => {
+      const eux = r.a.code === t.code ? r.b : r.a;
+      const butoir = r.jour === 0;
+      const date = butoir ? `${r.journee} · d'ici le ${r.date}` : `${r.journee} · ${JOURS[r.jour]} ${r.date}`;
+      const detail = `${butoir ? 'Date à fixer' : r.heure ?? 'Horaire à fixer'} · contre ${esc(eux.nom)}`;
+      return `<li><span class="date">${date}</span><span class="date-extra">${esc(ville(r.lieu))}</span>`
+        + `<span class="datelist__detail">${detail}</span></li>`;
+    });
+  return `<ul class="datelist datelist--matches">${li.join('')}</ul>`;
+}
+
 // ---- Relevé ----
 const poules = {};
 let echecs = 0;
@@ -145,7 +189,11 @@ const remplace = (html, slug, contenu) => {
 };
 let html = readFileSync(PAGE, 'utf8');
 for (const p of POULES) if (poules[p.slug]) html = remplace(html, `poule-${p.slug}`, blocPoule(poules[p.slug]));
-for (const t of EQUIPES) if (poules[t.poule]) html = remplace(html, `equipe-${t.slug}`, blocEquipe(t, poules[t.poule]));
+for (const t of EQUIPES) {
+  if (!poules[t.poule]) continue;
+  html = remplace(html, `equipe-${t.slug}`, blocEquipe(t, poules[t.poule]));
+  if (t.dates) html = remplace(html, `dates-${t.slug}`, blocDates(t, poules[t.poule]));
+}
 writeFileSync(PAGE, html);
 
 if (echecs) {

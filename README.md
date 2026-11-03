@@ -52,6 +52,8 @@ npm run update:jauges   # relevé Badnet (Chrome headless) → scripts/jauges.js
 ```
 
 - Seul le nombre d'inscrits est relevé, jamais les noms. Commit uniquement si un chiffre change.
+- Le lendemain du dernier jour d'un tournoi, sa jauge devient « Terminé » (penser à remplacer
+  « S'inscrire » par « Résultats sur Badnet » dans `tournois.html`).
 - La liste des tournois suivis (eventid Badnet, clôture, dernier jour) est en tête de
   `scripts/update-jauges.mjs` : à mettre à jour chaque saison, avec les marqueurs dans les pages.
 - Si Badnet change sa page, le relevé échoue : les jauges gardent leur dernière valeur et
@@ -79,7 +81,9 @@ Le même workflow quotidien relève sur icbad le classement de chaque poule et l
 
 - `icbad:poule-<slug>` : classement de la poule (dépliant « Poules et classements ») ;
 - `icbad:equipe-<slug>` : rang, points, bilan et dernière journée dans la carte de l'équipe (vide tant
-  qu'aucune rencontre n'est jouée).
+  qu'aucune rencontre n'est jouée) ;
+- `icbad:dates-<slug>` (équipes vétérans) : liste des rencontres. Les vétérans fixent leur soir de
+  semaine en cours de saison ; tant qu'icbad affiche le dimanche (date butoir), la date est « à fixer ».
 
 ```bash
 npm run update:icbad   # relevé icbad (simple requête HTTP, pas de Chrome) → HTML entre les marqueurs
