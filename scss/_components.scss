@@ -559,6 +559,22 @@
   // Interclubs départementaux : rencontres de la journée sous la date
   &--matches li { flex-wrap: wrap; row-gap: 2px; }
   &__detail { flex-basis: 100%; font-size: var(--glpi-fs-sm); color: var(--tblr-secondary); }
+  // Date passée (scripts/prune-dates.mjs) : grisée et cochée
+  li.datelist__done {
+    .date { color: var(--tblr-secondary); }
+    .date::before {
+      content: "";
+      content: "" / "Terminé : ";
+      display: inline-block;
+      width: 1.05em;
+      height: 1.05em;
+      margin-right: 6px;
+      vertical-align: -.17em;
+      background: var(--tblr-success);
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5l10 -10'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+    .date-extra { opacity: .6; }
+  }
   .date-extra {
     margin-left: auto;
     font-size: var(--glpi-fs-xs);

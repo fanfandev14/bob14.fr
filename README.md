@@ -66,8 +66,12 @@ Les blocs « Prochaines dates » sont des tuiles `<li class="ic-day">` portant l
 plusieurs jours). Le même workflow quotidien retire les dates passées ; une liste vide affiche un
 message de fin de saison.
 
+Dans les cartes (compétitions et `tournois.html`), chaque date d'une liste `.datelist` porte
+`data-date="AAAA-MM-JJ"` (et `data-fin` si besoin) sur son `<li>` : le lendemain, elle reçoit la
+classe `datelist__done` (grisée, cochée) et reste affichée. Une date sans `data-date` n'est jamais cochée.
+
 ```bash
-npm run prune:dates              # retire les dates passées
+npm run prune:dates              # retire les dates passées, coche celles des cartes
 TODAY=2027-01-01 npm run prune:dates   # simule le ménage à une autre date
 ```
 

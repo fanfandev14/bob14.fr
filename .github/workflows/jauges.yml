@@ -1,5 +1,5 @@
 # Mise à jour quotidienne du site :
-# - retire les dates passées des blocs « Prochaines dates » (pages compétitions adultes et jeunes) ;
+# - retire les dates passées des blocs « Prochaines dates » et coche celles des cartes (compétitions, tournois) ;
 # - met à jour les classements et résultats des interclubs (competitions-adultes.html) depuis icbad ;
 # - met à jour les jauges d'inscriptions des tournois (tournois.html, index.html) depuis Badnet.
 # Commit uniquement si quelque chose a changé.
@@ -37,8 +37,8 @@ jobs:
       - name: Retirer les dates passées
         run: |
           node scripts/prune-dates.mjs
-          if ! git diff --quiet -- competitions-adultes.html competitions-jeunes.html; then
-            git add competitions-adultes.html competitions-jeunes.html
+          if ! git diff --quiet -- competitions-adultes.html competitions-jeunes.html tournois.html; then
+            git add competitions-adultes.html competitions-jeunes.html tournois.html
             git commit -m "chore: retrait des dates passées"
           fi
 

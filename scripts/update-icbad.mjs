@@ -38,6 +38,7 @@ const EQUIPES = [
 ];
 // Année du début de saison : les dates icbad sont en JJ/MM (septembre à décembre = cette année).
 const SAISON = 2026;
+const TODAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date());
 // Noms courts des clubs (sigle icbad → nom affiché). Sigle inconnu : nom complet icbad.
 const CLUBS = {
   ASGIBAD: 'Giberville', ASL: 'Condé-sur-Sarthe', ASLNM: 'Noyers-Missy', BADCO: 'Ouistreham',
@@ -94,7 +95,7 @@ function lirePoule(html) {
         journee,
         date: `${date[1]}/${date[2]}`,
         heure: date[3] ? `${Number(date[3])}h${date[4] === '00' ? '' : date[4]}` : null,
-        jour: new Date(Date.UTC(SAISON + (Number(date[2]) < 8 ? 1 : 0), Number(date[2]) - 1, Number(date[1]))).getUTCDay(),
+        iso: `${SAISON + (Number(date[2]) < 8 ? 1 : 0)}-${date[2]}-${date[1]}`,
         lieu: text(td[1].html),
         a: { ...equipe(text(td[2].html)), score: Number(score[1]), issue: issue(td[2].attrs) },
         b: { ...equipe(text(td[4].html)), score: Number(score[2]), issue: issue(td[4].attrs) },
@@ -151,15 +152,18 @@ function ville(lieu) {
 
 // Toutes les rencontres de l'équipe. En vétérans, icbad affiche le dimanche de la date butoir tant que
 // les clubs n'ont pas fixé leur soir de semaine (règlement départemental, art. 10.2) : date « à fixer ».
+// Rencontre jouée ou date passée : cochée, comme les listes écrites à la main (scripts/prune-dates.mjs).
 function blocDates(t, p) {
   const li = p.rencontres
     .filter((r) => r.a.code === t.code || r.b.code === t.code)
     .map((r) => {
       const eux = r.a.code === t.code ? r.b : r.a;
-      const butoir = r.jour === 0;
-      const date = butoir ? `${r.journee} · d'ici le ${r.date}` : `${r.journee} · ${JOURS[r.jour]} ${r.date}`;
+      const jour = new Date(`${r.iso}T12:00:00Z`).getUTCDay();
+      const butoir = jour === 0;
+      const done = joue(r) || r.iso < TODAY ? ' class="datelist__done"' : '';
+      const date = butoir ? `${r.journee} · d'ici le ${r.date}` : `${r.journee} · ${JOURS[jour]} ${r.date}`;
       const detail = `${butoir ? 'Date à fixer' : r.heure ?? 'Horaire à fixer'} · contre ${esc(eux.nom)}`;
-      return `<li><span class="date">${date}</span><span class="date-extra">${esc(ville(r.lieu))}</span>`
+      return `<li${done} data-date="${r.iso}"><span class="date">${date}</span><span class="date-extra">${esc(ville(r.lieu))}</span>`
         + `<span class="datelist__detail">${detail}</span></li>`;
     });
   return `<ul class="datelist datelist--matches">${li.join('')}</ul>`;
