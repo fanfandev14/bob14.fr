@@ -6,7 +6,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 const OUT = new URL('../assets/cal/', import.meta.url);
 const SITE = 'https://www.bob14.fr';
 // Date de dernière modification des données (à changer à chaque mise à jour des dates)
-const STAMP = '20261011T000000Z';
+const STAMP = '20261114T000000Z';
 
 const ADULTES = `${SITE}/competitions-adultes.html`;
 const JEUNES = `${SITE}/competitions-jeunes.html`;
@@ -136,11 +136,20 @@ const calendars = {
     name: 'BOB · Trophée Calvados Jeunes',
     url: JEUNES,
     events: [
-      ...['2026-10-11', '2026-11-15', '2026-11-29', '2027-01-24', '2027-02-14'].map((start, i) => ({
+      // Lieux : fiches Badnet du Comité 14 (null tant qu'ils ne sont pas publiés)
+      ...[
+        ['2026-10-11', null, null],
+        ['2026-11-15', 'Gymnase d’Épron et gymnase Victor Lépine (Caen)', 51946],
+        ['2026-12-06', 'Gymnase David Douillet (Dozulé) et Dives-sur-Mer', 52966],
+        ['2027-01-24', 'Bretteville-sur-Odon et Vire', 52967],
+        ['2027-02-14', null, null],
+      ].map(([start, lieu, badnet], i) => ({
         uid: `tcj${i + 1}-2026`,
         start,
         summary: `TCJ ${i + 1} · Trophée Calvados Jeunes`,
-        description: 'Le dimanche, simple ou double. Encadrement par l’entraîneur du club.',
+        ...(lieu && { location: lieu }),
+        description: 'Le dimanche, simple ou double. Encadrement par l’entraîneur du club. '
+          + (badnet ? `Lieu et convocations sur Badnet : https://badnet.fr/tournoi/public?eventid=${badnet}` : 'Lieu et convocations sur Badnet.'),
       })),
       {
         uid: 'tcj-finale-2027',
