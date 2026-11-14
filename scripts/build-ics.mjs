@@ -139,9 +139,9 @@ const calendars = {
       // Lieux : fiches Badnet du Comité 14 (null tant qu'ils ne sont pas publiés)
       ...[
         ['2026-10-11', null, null],
-        ['2026-11-15', 'Gymnase d’Épron et gymnase Victor Lépine (Caen)', 51946],
-        ['2026-12-06', 'Gymnase David Douillet (Dozulé) et Dives-sur-Mer', 52966],
-        ['2027-01-24', 'Bretteville-sur-Odon et Vire', 52967],
+        ['2026-11-15', 'Épron ou Caen (gymnase Victor Lépine), salle selon la convocation', 51946],
+        ['2026-12-06', 'Bayeux, Dives-sur-Mer ou Dozulé, salle selon la convocation', 52966],
+        ['2027-01-24', 'Bretteville-sur-Odon ou Vire, salle selon la convocation', 52967],
         ['2027-02-14', null, null],
       ].map(([start, lieu, badnet], i) => ({
         uid: `tcj${i + 1}-2026`,
@@ -149,7 +149,7 @@ const calendars = {
         summary: `TCJ ${i + 1} · Trophée Calvados Jeunes`,
         ...(lieu && { location: lieu }),
         description: 'Le dimanche, simple ou double. Encadrement par l’entraîneur du club. '
-          + (badnet ? `Lieu et convocations sur Badnet : https://badnet.fr/tournoi/public?eventid=${badnet}` : 'Lieu et convocations sur Badnet.'),
+          + (badnet ? `Plusieurs salles : vérifier la sienne sur la convocation Badnet : https://badnet.fr/tournoi/public?eventid=${badnet}` : 'Lieu et convocations sur Badnet.'),
       })),
       {
         uid: 'tcj-finale-2027',

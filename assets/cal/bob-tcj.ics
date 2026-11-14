@@ -22,10 +22,11 @@ DTSTAMP:20261114T000000Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:TCJ 2 · Trophée Calvados Jeunes
-LOCATION:Gymnase d’Épron et gymnase Victor Lépine (Caen)
+LOCATION:Épron ou Caen (gymnase Victor Lépine)\, salle selon la convocati
+ on
 DESCRIPTION:Le dimanche\, simple ou double. Encadrement par l’entraîneur
-  du club. Lieu et convocations sur Badnet : https://badnet.fr/tournoi/publ
- ic?eventid=51946
+  du club. Plusieurs salles : vérifier la sienne sur la convocation Badnet
+  : https://badnet.fr/tournoi/public?eventid=51946
 URL:https://www.bob14.fr/competitions-jeunes.html
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -35,10 +36,10 @@ DTSTAMP:20261114T000000Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:TCJ 3 · Trophée Calvados Jeunes
-LOCATION:Gymnase David Douillet (Dozulé) et Dives-sur-Mer
+LOCATION:Bayeux\, Dives-sur-Mer ou Dozulé\, salle selon la convocation
 DESCRIPTION:Le dimanche\, simple ou double. Encadrement par l’entraîneur
-  du club. Lieu et convocations sur Badnet : https://badnet.fr/tournoi/publ
- ic?eventid=52966
+  du club. Plusieurs salles : vérifier la sienne sur la convocation Badnet
+  : https://badnet.fr/tournoi/public?eventid=52966
 URL:https://www.bob14.fr/competitions-jeunes.html
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -48,10 +49,10 @@ DTSTAMP:20261114T000000Z
 DTSTART;VALUE=DATE:20270124
 DTEND;VALUE=DATE:20270125
 SUMMARY:TCJ 4 · Trophée Calvados Jeunes
-LOCATION:Bretteville-sur-Odon et Vire
+LOCATION:Bretteville-sur-Odon ou Vire\, salle selon la convocation
 DESCRIPTION:Le dimanche\, simple ou double. Encadrement par l’entraîneur
-  du club. Lieu et convocations sur Badnet : https://badnet.fr/tournoi/publ
- ic?eventid=52967
+  du club. Plusieurs salles : vérifier la sienne sur la convocation Badnet
+  : https://badnet.fr/tournoi/public?eventid=52967
 URL:https://www.bob14.fr/competitions-jeunes.html
 TRANSP:TRANSPARENT
 END:VEVENT
