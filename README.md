@@ -40,6 +40,8 @@ Après régénération, reporter les tailles de fichier dans les cartes `dl-card
 `BOB-Tournois-2026-2027.pdf` reprend les dates des tournois de `tournois.html` : les modifier aux deux endroits.
 
 `BOB-Competitions-Jeunes-2026-2027.pdf` fait exception : il vient de Canva, pas de `flyers/`.
+Le 14/11/2026, la date du TCJ 3 y a été corrigée directement dans le PDF (29 nov. → 6 déc.) : le
+modèle Canva porte encore l'ancienne date, à corriger avant un nouvel export.
 
 ## Jauges d'inscriptions des tournois
 
